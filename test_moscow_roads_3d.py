@@ -122,6 +122,7 @@ class MoscowRoads3DTests(unittest.TestCase):
         self.assertIn("minorRoadRadiusM = 1000", rendered)
         self.assertIn("buildingRadiusM = 300", rendered)
         self.assertIn("majorRoadClasses", rendered)
+        self.assertIn("function buildRoadLegend()", rendered)
         self.assertIn("function renderX(x)", rendered)
         self.assertIn("return -x", rendered)
         self.assertIn("function gpsErrorMessage(error)", rendered)

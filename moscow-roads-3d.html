@@ -488,6 +488,30 @@ renderer.domElement.addEventListener("pointermove", event => {
   tooltip.style.display = "block";
 });
 
+function buildRoadLegend() {
+  const legend = document.querySelector("#roadLegend");
+  legend.innerHTML = "";
+  for (const [kind, color] of Object.entries(roadColors)) {
+    const label = document.createElement("label");
+    const input = document.createElement("input");
+    const swatch = document.createElement("span");
+    const text = document.createElement("span");
+    input.type = "checkbox";
+    input.checked = visibleRoadClasses.has(kind);
+    input.addEventListener("change", () => {
+      if (input.checked) visibleRoadClasses.add(kind);
+      else visibleRoadClasses.delete(kind);
+      localStorage.setItem("visibleRoadClasses", JSON.stringify([...visibleRoadClasses]));
+      refreshLod(true);
+    });
+    swatch.className = "swatch";
+    swatch.style.backgroundColor = `#${color.toString(16).padStart(6, "0")}`;
+    text.textContent = roadLabels[kind] || kind;
+    label.append(input, swatch, text);
+    legend.append(label);
+  }
+}
+
 window.addEventListener("resize", () => {
   camera.aspect = window.innerWidth / window.innerHeight;
   camera.updateProjectionMatrix();
