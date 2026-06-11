@@ -75,6 +75,8 @@
       <button id="toggleBase" aria-pressed="true">Основание</button>
       <button id="gpsButton" class="primary">GPS</button>
     </div>
+    <div class="row"><label for="roadLodRadius">Мелкие улицы <span id="roadLodValue">1000 м</span></label><input id="roadLodRadius" type="range" min="250" max="3000" step="50" value="1000"></div>
+    <div class="row"><label for="buildingLodRadius">Здания <span id="buildingLodValue">500 м</span></label><input id="buildingLodRadius" type="range" min="100" max="2000" step="50" value="500"></div>
     <div class="legend" id="roadLegend"></div>
     <div class="readout" id="readout">Загрузка индекса тайлов...</div>
   </aside>
@@ -107,17 +109,20 @@ const northNeedle = document.querySelector("#northNeedle");
 const roadColors = { motorway: 0xffcc33, trunk: 0xff5a3c, primary: 0x38bdf8, secondary: 0xb5f36d, tertiary: 0xd8b4fe, residential: 0x94a3b8, unclassified: 0xcbd5e1, living_street: 0xa7f3d0, service: 0x64748b, road: 0xd1d5db };
 const roadLabels = { motorway: "Motorway", trunk: "Trunk", primary: "Primary", secondary: "Secondary", tertiary: "Tertiary", residential: "Residential", unclassified: "Unclassified", living_street: "Living", service: "Service", road: "Other" };
 const majorRoadClasses = new Set(["motorway", "trunk", "primary", "secondary"]);
-const minorRoadRadiusM = 1000;
-const buildingRadiusM = 300;
+let minorRoadRadiusM = Number(document.querySelector("#roadLodRadius").value);
+let buildingRadiusM = Number(document.querySelector("#buildingLodRadius").value);
 const visibleRoadClasses = new Set(JSON.parse(localStorage.getItem("visibleRoadClasses") || "null") || Object.keys(roadColors));
 let heightScale = Number(document.querySelector("#heightScale").value);
 let buildingScale = Number(document.querySelector("#buildingScale").value);
 let roadWidth = Number(document.querySelector("#roadWidth").value);
 let maxSpan = 100000;
 let minElevation = 0;
+let minBuildingHeight = 0;
+let maxBuildingHeight = 1;
 let lastGps = null;
 let gpsWatchId = null;
 let loadRadiusTiles = Number(document.querySelector("#tileRadius").value);
+const buildingMaterials = new Map();
 
 const scene = new THREE.Scene();
 scene.background = new THREE.Color(0x081016);
@@ -173,8 +178,8 @@ function localFromLatLon(lat, lon) {
 function disposeObject(object) {
   object.traverse(child => {
     child.geometry?.dispose?.();
-    if (Array.isArray(child.material)) child.material.forEach(material => material.dispose?.());
-    else child.material?.dispose?.();
+    if (Array.isArray(child.material)) child.material.forEach(material => { if (!material.userData?.shared) material.dispose?.(); });
+    else if (!child.material?.userData?.shared) child.material?.dispose?.();
   });
 }
 
@@ -230,6 +235,36 @@ function buildingIsVisibleByLod(building, focus) {
   return buildingDistanceSq(building, focus) <= buildingRadiusM * buildingRadiusM;
 }
 
+function buildingHeightRatio(height) {
+  const span = Math.max(1, maxBuildingHeight - minBuildingHeight);
+  return Math.max(0, Math.min(1, (height - minBuildingHeight) / span));
+}
+
+function buildingColorForHeight(height) {
+  const t = buildingHeightRatio(height);
+  const cold = new THREE.Color(0x38bdf8);
+  const mid = new THREE.Color(0xfacc15);
+  const hot = new THREE.Color(0xf97316);
+  return t < 0.5
+    ? cold.lerp(mid, t * 2)
+    : mid.lerp(hot, (t - 0.5) * 2);
+}
+
+function buildingMaterialsForHeight(height) {
+  const bucket = Math.round(buildingHeightRatio(height) * 15);
+  if (!buildingMaterials.has(bucket)) {
+    const wallColor = buildingColorForHeight(height);
+    const roofColor = wallColor.clone().lerp(new THREE.Color(0xffffff), 0.22);
+    const materials = [
+      new THREE.MeshStandardMaterial({ color: wallColor, roughness: 0.76, metalness: 0.02, transparent: true, opacity: 0.9 }),
+      new THREE.MeshStandardMaterial({ color: roofColor, roughness: 0.7 }),
+    ];
+    materials.forEach(material => { material.userData.shared = true; });
+    buildingMaterials.set(bucket, materials);
+  }
+  return buildingMaterials.get(bucket);
+}
+
 function addRoads(group, roads, focus) {
   for (const road of roads) {
     if (!roadIsVisibleByLod(road, focus)) continue;
@@ -241,8 +276,6 @@ function addRoads(group, roads, focus) {
 }
 
 function addBuildings(group, buildings, focus) {
-  const wall = new THREE.MeshStandardMaterial({ color: 0xb8c7c9, roughness: 0.76, metalness: 0.02, transparent: true, opacity: 0.88 });
-  const roof = new THREE.MeshStandardMaterial({ color: 0xe8f0ef, roughness: 0.7 });
   for (const building of buildings) {
     if (!buildingIsVisibleByLod(building, focus)) continue;
     const shape = new THREE.Shape();
@@ -255,7 +288,7 @@ function addBuildings(group, buildings, focus) {
     const geometry = new THREE.ExtrudeGeometry(shape, { depth: height, bevelEnabled: false });
     geometry.rotateX(-Math.PI / 2);
     geometry.translate(0, yFor(building.baseElevation), 0);
-    const mesh = new THREE.Mesh(geometry, [wall, roof]);
+    const mesh = new THREE.Mesh(geometry, buildingMaterialsForHeight(building.height));
     mesh.userData = { type: "building", name: building.name, height: building.height, source: building.heightSource };
     group.add(mesh);
   }
@@ -408,12 +441,19 @@ function setMenuOpen(isOpen) {
   document.querySelector("#menuToggle").setAttribute("aria-expanded", String(isOpen));
 }
 
+function updateLodLabels() {
+  document.querySelector("#roadLodValue").textContent = `${minorRoadRadiusM} м`;
+  document.querySelector("#buildingLodValue").textContent = `${buildingRadiusM} м`;
+}
+
 document.querySelector("#menuToggle").addEventListener("click", () => setMenuOpen(!document.body.classList.contains("menu-open")));
 document.querySelector("#menuScrim").addEventListener("click", () => setMenuOpen(false));
 document.querySelector("#heightScale").addEventListener("input", event => { heightScale = Number(event.target.value); rebuildLoadedTiles(); });
 document.querySelector("#buildingScale").addEventListener("input", event => { buildingScale = Number(event.target.value); rebuildLoadedTiles(); });
 document.querySelector("#roadWidth").addEventListener("input", event => { roadWidth = Number(event.target.value); rebuildLoadedTiles(); });
 document.querySelector("#tileRadius").addEventListener("input", event => { loadRadiusTiles = Number(event.target.value); refreshTiles(true); });
+document.querySelector("#roadLodRadius").addEventListener("input", event => { minorRoadRadiusM = Number(event.target.value); updateLodLabels(); refreshLod(true); });
+document.querySelector("#buildingLodRadius").addEventListener("input", event => { buildingRadiusM = Number(event.target.value); updateLodLabels(); refreshLod(true); });
 document.querySelector("#toggleRoads").addEventListener("click", event => { const visible = event.currentTarget.getAttribute("aria-pressed") !== "true"; event.currentTarget.setAttribute("aria-pressed", visible); setLayerVisible("roads", visible); });
 document.querySelector("#toggleBuildings").addEventListener("click", event => { const visible = event.currentTarget.getAttribute("aria-pressed") !== "true"; event.currentTarget.setAttribute("aria-pressed", visible); setLayerVisible("buildings", visible); });
 document.querySelector("#toggleBase").addEventListener("click", event => { baseGroup.visible = !baseGroup.visible; event.currentTarget.setAttribute("aria-pressed", baseGroup.visible); });
@@ -545,12 +585,15 @@ async function init() {
   data.tileMap = new Map(data.tiles.map(tile => [tile.id, tile]));
   maxSpan = Math.max(data.bounds.widthM, data.bounds.depthM);
   minElevation = data.meta.minElevation;
+  minBuildingHeight = data.meta.minBuildingHeight ?? 0;
+  maxBuildingHeight = Math.max(minBuildingHeight + 1, data.meta.maxBuildingHeight ?? 1);
   camera.position.set(maxSpan * 0.24, Math.max(1800, maxSpan * 0.42), maxSpan * 0.58);
   controls.maxDistance = maxSpan * 2.2;
   controls.target.set(0, 0, 0);
   document.querySelector("#roadCount").textContent = data.meta.roadCount.toLocaleString("ru-RU");
   document.querySelector("#buildingCount").textContent = data.meta.buildingCount.toLocaleString("ru-RU");
   document.querySelector("#tileCount").textContent = data.meta.tileCount.toLocaleString("ru-RU");
+  updateLodLabels();
   buildRoadLegend();
   buildBase();
   await refreshTiles(true);

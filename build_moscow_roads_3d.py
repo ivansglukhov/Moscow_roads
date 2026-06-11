@@ -284,7 +284,7 @@ def build_tile_package(payload, tile_dir=TILE_DIR, tile_size_m=2500):
         tile_json = json.dumps(tile, ensure_ascii=False, separators=(",", ":"))
         tile_path.write_text(tile_json, encoding="utf-8")
         gzip_path = tile_dir / f"tile-{key}.json.gz"
-        gzip_path.write_bytes(gzip.compress(tile_json.encode("utf-8"), compresslevel=9))
+        gzip_path.write_bytes(gzip.compress(tile_json.encode("utf-8"), compresslevel=9, mtime=0))
         tile_summaries.append(
             {
                 "id": key,
@@ -306,6 +306,8 @@ def build_tile_package(payload, tile_dir=TILE_DIR, tile_size_m=2500):
             "tileSizeM": tile_size_m,
             "tileCount": len(tile_summaries),
             "minElevation": round(min(elevations), 2) if elevations else 0,
+            "minBuildingHeight": round(min((building["height"] for building in payload["buildings"]), default=0), 2),
+            "maxBuildingHeight": round(max((building["height"] for building in payload["buildings"]), default=0), 2),
         },
         "tiles": tile_summaries,
     }
@@ -313,15 +315,78 @@ def build_tile_package(payload, tile_dir=TILE_DIR, tile_size_m=2500):
     return index
 
 
+def fetch_buildings_in_chunks(ox, gpd, road_buffer_3857, max_buildings=25000, cell_size_m=16000):
+    import pandas as pd
+    from shapely.geometry import box
+
+    min_x, min_y, max_x, max_y = road_buffer_3857.bounds
+    chunks = []
+    y = min_y
+    while y < max_y:
+        x = min_x
+        while x < max_x:
+            cell = box(x, y, min(x + cell_size_m, max_x), min(y + cell_size_m, max_y))
+            chunk = road_buffer_3857.intersection(cell)
+            if not chunk.is_empty:
+                chunks.append((cell, chunk))
+            x += cell_size_m
+        y += cell_size_m
+
+    tags = {"building": True}
+    frames = []
+    seen = set()
+    for index, (query_cell, filter_chunk) in enumerate(chunks, start=1):
+        chunk_4326 = gpd.GeoSeries([query_cell], crs=3857).to_crs(4326).iloc[0]
+        try:
+            buildings = ox.features_from_polygon(chunk_4326, tags)
+        except Exception as error:
+            print(f"building chunk {index}/{len(chunks)} skipped: {error}")
+            continue
+        if buildings.empty:
+            continue
+        buildings = buildings[buildings.geometry.notna()].copy()
+        buildings = buildings[buildings.geometry.geom_type.isin(["Polygon", "MultiPolygon"])].copy()
+        if buildings.empty:
+            continue
+        buildings_3857 = buildings.to_crs(3857)
+        buildings_3857 = buildings_3857[buildings_3857.intersects(filter_chunk)].copy()
+        if buildings_3857.empty:
+            continue
+        keep = []
+        for osm_index in buildings_3857.index:
+            key = tuple(str(part) for part in (osm_index if isinstance(osm_index, tuple) else (osm_index,)))
+            keep.append(key not in seen)
+            seen.add(key)
+        buildings_3857 = buildings_3857[keep].copy()
+        if not buildings_3857.empty:
+            frames.append(buildings_3857)
+            print(f"building chunk {index}/{len(chunks)}: +{len(buildings_3857)} unique")
+            if max_buildings and len(seen) >= max_buildings:
+                print(f"building limit reached: {len(seen)} unique, stopping chunk download")
+                break
+
+    if not frames:
+        return gpd.GeoDataFrame(geometry=[], crs=3857)
+
+    buildings_3857 = gpd.GeoDataFrame(pd.concat(frames), crs=3857)
+    buildings_3857 = buildings_3857[buildings_3857.intersects(road_buffer_3857)].copy()
+    buildings_3857["area_m2"] = buildings_3857.geometry.area
+    buildings_3857 = buildings_3857.sort_values("area_m2", ascending=False)
+    if max_buildings and len(buildings_3857) > max_buildings:
+        buildings_3857 = buildings_3857.head(max_buildings).copy()
+    return buildings_3857
+
+
 def build_payload(
     place=PLACE_NAME,
     buffer_m=120,
     simplify_m=18,
-    max_buildings=12000,
+    max_buildings=25000,
     road_spacing_m=140,
     elevation_batch_size=250,
     all_drive_roads=False,
     reuse_existing_buildings=False,
+    building_query_cell_m=16000,
 ):
     import geopandas as gpd
     import osmnx as ox
@@ -345,18 +410,13 @@ def build_payload(
     if reused_payload:
         buildings_3857 = None
     else:
-        road_buffer_4326 = gpd.GeoSeries([road_buffer_3857], crs=3857).to_crs(4326).iloc[0]
-
-        tags = {"building": True}
-        buildings = ox.features_from_polygon(road_buffer_4326, tags)
-        buildings = buildings[buildings.geometry.notna()].copy()
-        buildings = buildings[buildings.geometry.geom_type.isin(["Polygon", "MultiPolygon"])].copy()
-        buildings_3857 = buildings.to_crs(3857)
-        buildings_3857 = buildings_3857[buildings_3857.intersects(road_buffer_3857)].copy()
-        buildings_3857["area_m2"] = buildings_3857.geometry.area
-        buildings_3857 = buildings_3857.sort_values("area_m2", ascending=False)
-        if max_buildings and len(buildings_3857) > max_buildings:
-            buildings_3857 = buildings_3857.head(max_buildings).copy()
+        buildings_3857 = fetch_buildings_in_chunks(
+            ox,
+            gpd,
+            road_buffer_3857,
+            max_buildings=max_buildings,
+            cell_size_m=building_query_cell_m,
+        )
 
     all_bounds = list(edges_3857.total_bounds)
     if reused_payload:
@@ -488,6 +548,7 @@ def build_payload(
             "roadCount": len(roads),
             "buildingCount": len(buildings_payload),
             "maxBuildings": max_buildings,
+            "buildingQueryCellM": building_query_cell_m,
             "elevationSource": "https://elevation.nakarte.me/",
             "generatedAt": time.strftime("%Y-%m-%dT%H:%M:%SZ", time.gmtime()),
         },
@@ -576,6 +637,8 @@ def build_html(payload=None):
     <div class="row"><label for="buildingScale">Здания</label><input id="buildingScale" type="range" min="0.5" max="3" step="0.1" value="1"></div>
     <div class="row"><label for="roadWidth">Ширина дорог</label><input id="roadWidth" type="range" min="2" max="18" step="1" value="7"></div>
     <div class="row"><label for="tileRadius">Радиус тайлов</label><input id="tileRadius" type="range" min="1" max="5" step="1" value="3"></div>
+    <div class="row"><label for="roadLodRadius">Мелкие улицы <span id="roadLodValue">1000 м</span></label><input id="roadLodRadius" type="range" min="250" max="3000" step="50" value="1000"></div>
+    <div class="row"><label for="buildingLodRadius">Здания <span id="buildingLodValue">500 м</span></label><input id="buildingLodRadius" type="range" min="100" max="2000" step="50" value="500"></div>
     <div class="actions">
       <button id="toggleRoads" aria-pressed="true">Дороги</button>
       <button id="toggleBuildings" aria-pressed="true">Здания</button>
@@ -614,8 +677,8 @@ const northNeedle = document.querySelector("#northNeedle");
 const roadColors = {{ motorway: 0xffcc33, trunk: 0xff5a3c, primary: 0x38bdf8, secondary: 0xb5f36d, tertiary: 0xd8b4fe, residential: 0x94a3b8, unclassified: 0xcbd5e1, living_street: 0xa7f3d0, service: 0x64748b, road: 0xd1d5db }};
 const roadLabels = {{ motorway: "Motorway", trunk: "Trunk", primary: "Primary", secondary: "Secondary", tertiary: "Tertiary", residential: "Residential", unclassified: "Unclassified", living_street: "Living", service: "Service", road: "Other" }};
 const majorRoadClasses = new Set(["motorway", "trunk", "primary", "secondary"]);
-const minorRoadRadiusM = 1000;
-const buildingRadiusM = 300;
+let minorRoadRadiusM = Number(document.querySelector("#roadLodRadius").value);
+let buildingRadiusM = Number(document.querySelector("#buildingLodRadius").value);
 const visibleRoadClasses = new Set(JSON.parse(localStorage.getItem("visibleRoadClasses") || "null") || Object.keys(roadColors));
 let heightScale = Number(document.querySelector("#heightScale").value);
 let buildingScale = Number(document.querySelector("#buildingScale").value);
@@ -971,6 +1034,8 @@ def build_html(payload=None):
       <button id="toggleBase" aria-pressed="true">Основание</button>
       <button id="gpsButton" class="primary">GPS</button>
     </div>
+    <div class="row"><label for="roadLodRadius">Мелкие улицы <span id="roadLodValue">1000 м</span></label><input id="roadLodRadius" type="range" min="250" max="3000" step="50" value="1000"></div>
+    <div class="row"><label for="buildingLodRadius">Здания <span id="buildingLodValue">500 м</span></label><input id="buildingLodRadius" type="range" min="100" max="2000" step="50" value="500"></div>
     <div class="legend" id="roadLegend"></div>
     <div class="readout" id="readout">Загрузка индекса тайлов...</div>
   </aside>
@@ -1003,17 +1068,20 @@ const northNeedle = document.querySelector("#northNeedle");
 const roadColors = {{ motorway: 0xffcc33, trunk: 0xff5a3c, primary: 0x38bdf8, secondary: 0xb5f36d, tertiary: 0xd8b4fe, residential: 0x94a3b8, unclassified: 0xcbd5e1, living_street: 0xa7f3d0, service: 0x64748b, road: 0xd1d5db }};
 const roadLabels = {{ motorway: "Motorway", trunk: "Trunk", primary: "Primary", secondary: "Secondary", tertiary: "Tertiary", residential: "Residential", unclassified: "Unclassified", living_street: "Living", service: "Service", road: "Other" }};
 const majorRoadClasses = new Set(["motorway", "trunk", "primary", "secondary"]);
-const minorRoadRadiusM = 1000;
-const buildingRadiusM = 300;
+let minorRoadRadiusM = Number(document.querySelector("#roadLodRadius").value);
+let buildingRadiusM = Number(document.querySelector("#buildingLodRadius").value);
 const visibleRoadClasses = new Set(JSON.parse(localStorage.getItem("visibleRoadClasses") || "null") || Object.keys(roadColors));
 let heightScale = Number(document.querySelector("#heightScale").value);
 let buildingScale = Number(document.querySelector("#buildingScale").value);
 let roadWidth = Number(document.querySelector("#roadWidth").value);
 let maxSpan = 100000;
 let minElevation = 0;
+let minBuildingHeight = 0;
+let maxBuildingHeight = 1;
 let lastGps = null;
 let gpsWatchId = null;
 let loadRadiusTiles = Number(document.querySelector("#tileRadius").value);
+const buildingMaterials = new Map();
 
 const scene = new THREE.Scene();
 scene.background = new THREE.Color(0x081016);
@@ -1069,8 +1137,8 @@ function localFromLatLon(lat, lon) {{
 function disposeObject(object) {{
   object.traverse(child => {{
     child.geometry?.dispose?.();
-    if (Array.isArray(child.material)) child.material.forEach(material => material.dispose?.());
-    else child.material?.dispose?.();
+    if (Array.isArray(child.material)) child.material.forEach(material => {{ if (!material.userData?.shared) material.dispose?.(); }});
+    else if (!child.material?.userData?.shared) child.material?.dispose?.();
   }});
 }}
 
@@ -1126,6 +1194,36 @@ function buildingIsVisibleByLod(building, focus) {{
   return buildingDistanceSq(building, focus) <= buildingRadiusM * buildingRadiusM;
 }}
 
+function buildingHeightRatio(height) {{
+  const span = Math.max(1, maxBuildingHeight - minBuildingHeight);
+  return Math.max(0, Math.min(1, (height - minBuildingHeight) / span));
+}}
+
+function buildingColorForHeight(height) {{
+  const t = buildingHeightRatio(height);
+  const cold = new THREE.Color(0x38bdf8);
+  const mid = new THREE.Color(0xfacc15);
+  const hot = new THREE.Color(0xf97316);
+  return t < 0.5
+    ? cold.lerp(mid, t * 2)
+    : mid.lerp(hot, (t - 0.5) * 2);
+}}
+
+function buildingMaterialsForHeight(height) {{
+  const bucket = Math.round(buildingHeightRatio(height) * 15);
+  if (!buildingMaterials.has(bucket)) {{
+    const wallColor = buildingColorForHeight(height);
+    const roofColor = wallColor.clone().lerp(new THREE.Color(0xffffff), 0.22);
+    const materials = [
+      new THREE.MeshStandardMaterial({{ color: wallColor, roughness: 0.76, metalness: 0.02, transparent: true, opacity: 0.9 }}),
+      new THREE.MeshStandardMaterial({{ color: roofColor, roughness: 0.7 }}),
+    ];
+    materials.forEach(material => {{ material.userData.shared = true; }});
+    buildingMaterials.set(bucket, materials);
+  }}
+  return buildingMaterials.get(bucket);
+}}
+
 function addRoads(group, roads, focus) {{
   for (const road of roads) {{
     if (!roadIsVisibleByLod(road, focus)) continue;
@@ -1137,8 +1235,6 @@ function addRoads(group, roads, focus) {{
 }}
 
 function addBuildings(group, buildings, focus) {{
-  const wall = new THREE.MeshStandardMaterial({{ color: 0xb8c7c9, roughness: 0.76, metalness: 0.02, transparent: true, opacity: 0.88 }});
-  const roof = new THREE.MeshStandardMaterial({{ color: 0xe8f0ef, roughness: 0.7 }});
   for (const building of buildings) {{
     if (!buildingIsVisibleByLod(building, focus)) continue;
     const shape = new THREE.Shape();
@@ -1151,7 +1247,7 @@ function addBuildings(group, buildings, focus) {{
     const geometry = new THREE.ExtrudeGeometry(shape, {{ depth: height, bevelEnabled: false }});
     geometry.rotateX(-Math.PI / 2);
     geometry.translate(0, yFor(building.baseElevation), 0);
-    const mesh = new THREE.Mesh(geometry, [wall, roof]);
+    const mesh = new THREE.Mesh(geometry, buildingMaterialsForHeight(building.height));
     mesh.userData = {{ type: "building", name: building.name, height: building.height, source: building.heightSource }};
     group.add(mesh);
   }}
@@ -1304,12 +1400,19 @@ function setMenuOpen(isOpen) {{
   document.querySelector("#menuToggle").setAttribute("aria-expanded", String(isOpen));
 }}
 
+function updateLodLabels() {{
+  document.querySelector("#roadLodValue").textContent = `${{minorRoadRadiusM}} м`;
+  document.querySelector("#buildingLodValue").textContent = `${{buildingRadiusM}} м`;
+}}
+
 document.querySelector("#menuToggle").addEventListener("click", () => setMenuOpen(!document.body.classList.contains("menu-open")));
 document.querySelector("#menuScrim").addEventListener("click", () => setMenuOpen(false));
 document.querySelector("#heightScale").addEventListener("input", event => {{ heightScale = Number(event.target.value); rebuildLoadedTiles(); }});
 document.querySelector("#buildingScale").addEventListener("input", event => {{ buildingScale = Number(event.target.value); rebuildLoadedTiles(); }});
 document.querySelector("#roadWidth").addEventListener("input", event => {{ roadWidth = Number(event.target.value); rebuildLoadedTiles(); }});
 document.querySelector("#tileRadius").addEventListener("input", event => {{ loadRadiusTiles = Number(event.target.value); refreshTiles(true); }});
+document.querySelector("#roadLodRadius").addEventListener("input", event => {{ minorRoadRadiusM = Number(event.target.value); updateLodLabels(); refreshLod(true); }});
+document.querySelector("#buildingLodRadius").addEventListener("input", event => {{ buildingRadiusM = Number(event.target.value); updateLodLabels(); refreshLod(true); }});
 document.querySelector("#toggleRoads").addEventListener("click", event => {{ const visible = event.currentTarget.getAttribute("aria-pressed") !== "true"; event.currentTarget.setAttribute("aria-pressed", visible); setLayerVisible("roads", visible); }});
 document.querySelector("#toggleBuildings").addEventListener("click", event => {{ const visible = event.currentTarget.getAttribute("aria-pressed") !== "true"; event.currentTarget.setAttribute("aria-pressed", visible); setLayerVisible("buildings", visible); }});
 document.querySelector("#toggleBase").addEventListener("click", event => {{ baseGroup.visible = !baseGroup.visible; event.currentTarget.setAttribute("aria-pressed", baseGroup.visible); }});
@@ -1441,12 +1544,15 @@ async function init() {{
   data.tileMap = new Map(data.tiles.map(tile => [tile.id, tile]));
   maxSpan = Math.max(data.bounds.widthM, data.bounds.depthM);
   minElevation = data.meta.minElevation;
+  minBuildingHeight = data.meta.minBuildingHeight ?? 0;
+  maxBuildingHeight = Math.max(minBuildingHeight + 1, data.meta.maxBuildingHeight ?? 1);
   camera.position.set(maxSpan * 0.24, Math.max(1800, maxSpan * 0.42), maxSpan * 0.58);
   controls.maxDistance = maxSpan * 2.2;
   controls.target.set(0, 0, 0);
   document.querySelector("#roadCount").textContent = data.meta.roadCount.toLocaleString("ru-RU");
   document.querySelector("#buildingCount").textContent = data.meta.buildingCount.toLocaleString("ru-RU");
   document.querySelector("#tileCount").textContent = data.meta.tileCount.toLocaleString("ru-RU");
+  updateLodLabels();
   buildRoadLegend();
   buildBase();
   await refreshTiles(true);
@@ -1476,7 +1582,8 @@ def main():
     parser.add_argument("--buffer-m", type=float, default=120)
     parser.add_argument("--simplify-m", type=float, default=18)
     parser.add_argument("--road-spacing-m", type=float, default=140)
-    parser.add_argument("--max-buildings", type=int, default=12000)
+    parser.add_argument("--max-buildings", type=int, default=25000)
+    parser.add_argument("--building-query-cell-m", type=float, default=16000)
     parser.add_argument("--elevation-batch-size", type=int, default=250)
     parser.add_argument("--tile-size-m", type=float, default=2500)
     parser.add_argument("--all-drive-roads", action="store_true")
@@ -1496,6 +1603,7 @@ def main():
             elevation_batch_size=args.elevation_batch_size,
             all_drive_roads=args.all_drive_roads,
             reuse_existing_buildings=args.reuse_existing_buildings,
+            building_query_cell_m=args.building_query_cell_m,
         )
         DATA_JSON.write_text(json.dumps(payload, ensure_ascii=False, indent=2), encoding="utf-8")
     tile_index = build_tile_package(payload, tile_size_m=args.tile_size_m)
