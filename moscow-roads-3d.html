@@ -93,6 +93,7 @@ let roadWidth = Number(document.querySelector("#roadWidth").value);
 let maxSpan = 100000;
 let minElevation = 0;
 let lastGps = null;
+let gpsWatchId = null;
 let loadRadiusTiles = Number(document.querySelector("#tileRadius").value);
 
 const scene = new THREE.Scene();
@@ -339,7 +340,35 @@ function gpsErrorMessage(error) {
   return error.message || "GPS не сработал";
 }
 
+async function handleGpsPosition(position) {
+  const wasEmpty = !lastGps;
+  lastGps = { lat: position.coords.latitude, lon: position.coords.longitude, elevation: minElevation };
+  const local = localFromLatLon(lastGps.lat, lastGps.lon);
+  const x = renderX(local.x);
+  const dx = x - controls.target.x;
+  const dz = local.z - controls.target.z;
+  controls.target.set(x, 0, local.z);
+  if (wasEmpty) {
+    camera.position.set(x - maxSpan * 0.08, Math.max(1200, maxSpan * 0.14), local.z + maxSpan * 0.12);
+  } else {
+    camera.position.x += dx;
+    camera.position.z += dz;
+  }
+  buildGpsMarker();
+  await refreshTiles(true);
+  gpsStatus.textContent = `GPS: ${lastGps.lat.toFixed(5)}, ${lastGps.lon.toFixed(5)}`;
+  setMenuOpen(false);
+}
+
 document.querySelector("#gpsButton").addEventListener("click", () => {
+  const gpsButton = document.querySelector("#gpsButton");
+  if (gpsWatchId !== null) {
+    navigator.geolocation.clearWatch(gpsWatchId);
+    gpsWatchId = null;
+    gpsButton.setAttribute("aria-pressed", "false");
+    gpsStatus.textContent = "GPS выключен";
+    return;
+  }
   if (!navigator.geolocation) {
     gpsStatus.textContent = "GPS недоступен";
     return;
@@ -349,17 +378,13 @@ document.querySelector("#gpsButton").addEventListener("click", () => {
     return;
   }
   gpsStatus.textContent = "Ищу позицию...";
-  navigator.geolocation.getCurrentPosition(async position => {
-    lastGps = { lat: position.coords.latitude, lon: position.coords.longitude, elevation: minElevation };
-    const local = localFromLatLon(lastGps.lat, lastGps.lon);
-    const x = renderX(local.x);
-    controls.target.set(x, 0, local.z);
-    camera.position.set(x - maxSpan * 0.08, Math.max(1200, maxSpan * 0.14), local.z + maxSpan * 0.12);
-    buildGpsMarker();
-    await refreshTiles(true);
-    gpsStatus.textContent = `GPS: ${lastGps.lat.toFixed(5)}, ${lastGps.lon.toFixed(5)}`;
-    setMenuOpen(false);
-  }, error => {
+  gpsButton.setAttribute("aria-pressed", "true");
+  gpsWatchId = navigator.geolocation.watchPosition(handleGpsPosition, error => {
+    gpsButton.setAttribute("aria-pressed", "false");
+    if (gpsWatchId !== null) {
+      navigator.geolocation.clearWatch(gpsWatchId);
+      gpsWatchId = null;
+    }
     gpsStatus.textContent = `GPS: ${gpsErrorMessage(error)}`;
   }, { enableHighAccuracy: true, timeout: 10000, maximumAge: 20000 });
 });
