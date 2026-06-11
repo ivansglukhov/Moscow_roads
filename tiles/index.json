@@ -24,12 +24,12 @@
     "maxBuildings": 25000,
     "buildingQueryCellM": 16000.0,
     "elevationSource": "https://elevation.nakarte.me/",
-    "generatedAt": "2026-06-11T19:57:22Z",
+    "generatedAt": "2026-06-11T22:46:21Z",
     "tileSizeM": 2500.0,
-    "tileCount": 1158,
+    "tileCount": 1157,
     "minElevation": 109.0,
-    "minBuildingHeight": 1.0,
-    "maxBuildingHeight": 54.0
+    "minBuildingHeight": 1.5,
+    "maxBuildingHeight": 354.0
   },
   "tiles": [
     {
@@ -60,7 +60,7 @@
         "maxZ": -45610.682
       },
       "roadCount": 2,
-      "buildingCount": 1
+      "buildingCount": 0
     },
     {
       "id": "0_13",
@@ -75,7 +75,7 @@
         "maxZ": -43110.682
       },
       "roadCount": 58,
-      "buildingCount": 14
+      "buildingCount": 0
     },
     {
       "id": "0_14",
@@ -90,7 +90,7 @@
         "maxZ": -40610.682
       },
       "roadCount": 84,
-      "buildingCount": 29
+      "buildingCount": 0
     },
     {
       "id": "0_5",
@@ -105,7 +105,7 @@
         "maxZ": -63110.682
       },
       "roadCount": 52,
-      "buildingCount": 54
+      "buildingCount": 0
     },
     {
       "id": "0_6",
@@ -120,7 +120,7 @@
         "maxZ": -60610.682
       },
       "roadCount": 28,
-      "buildingCount": 25
+      "buildingCount": 0
     },
     {
       "id": "0_7",
@@ -135,7 +135,7 @@
         "maxZ": -58110.682
       },
       "roadCount": 10,
-      "buildingCount": 6
+      "buildingCount": 0
     },
     {
       "id": "10_10",
@@ -150,7 +150,7 @@
         "maxZ": -50610.682
       },
       "roadCount": 20,
-      "buildingCount": 77
+      "buildingCount": 0
     },
     {
       "id": "10_11",
@@ -165,7 +165,7 @@
         "maxZ": -48110.682
       },
       "roadCount": 155,
-      "buildingCount": 231
+      "buildingCount": 0
     },
     {
       "id": "10_12",
@@ -180,7 +180,7 @@
         "maxZ": -45610.682
       },
       "roadCount": 90,
-      "buildingCount": 193
+      "buildingCount": 0
     },
     {
       "id": "10_13",
@@ -195,7 +195,7 @@
         "maxZ": -43110.682
       },
       "roadCount": 46,
-      "buildingCount": 68
+      "buildingCount": 0
     },
     {
       "id": "10_14",
@@ -210,7 +210,7 @@
         "maxZ": -40610.682
       },
       "roadCount": 20,
-      "buildingCount": 20
+      "buildingCount": 0
     },
     {
       "id": "10_15",
@@ -225,7 +225,7 @@
         "maxZ": -38110.682
       },
       "roadCount": 70,
-      "buildingCount": 77
+      "buildingCount": 0
     },
     {
       "id": "10_16",
@@ -240,7 +240,7 @@
         "maxZ": -35610.682
       },
       "roadCount": 20,
-      "buildingCount": 37
+      "buildingCount": 0
     },
     {
       "id": "10_17",
@@ -255,7 +255,7 @@
         "maxZ": -33110.682
       },
       "roadCount": 14,
-      "buildingCount": 5
+      "buildingCount": 0
     },
     {
       "id": "10_18",
@@ -270,7 +270,7 @@
         "maxZ": -30610.682
       },
       "roadCount": 34,
-      "buildingCount": 19
+      "buildingCount": 0
     },
     {
       "id": "10_19",
@@ -285,7 +285,7 @@
         "maxZ": -28110.682
       },
       "roadCount": 62,
-      "buildingCount": 79
+      "buildingCount": 0
     },
     {
       "id": "10_20",
@@ -300,7 +300,7 @@
         "maxZ": -25610.682
       },
       "roadCount": 20,
-      "buildingCount": 43
+      "buildingCount": 0
     },
     {
       "id": "10_21",
@@ -315,7 +315,7 @@
         "maxZ": -23110.682
       },
       "roadCount": 100,
-      "buildingCount": 452
+      "buildingCount": 0
     },
     {
       "id": "10_22",
@@ -330,7 +330,7 @@
         "maxZ": -20610.682
       },
       "roadCount": 22,
-      "buildingCount": 53
+      "buildingCount": 0
     },
     {
       "id": "10_23",
@@ -345,7 +345,7 @@
         "maxZ": -18110.682
       },
       "roadCount": 18,
-      "buildingCount": 38
+      "buildingCount": 0
     },
     {
       "id": "10_24",
@@ -360,7 +360,7 @@
         "maxZ": -15610.682
       },
       "roadCount": 12,
-      "buildingCount": 25
+      "buildingCount": 0
     },
     {
       "id": "10_25",
@@ -375,7 +375,7 @@
         "maxZ": -13110.682
       },
       "roadCount": 4,
-      "buildingCount": 1
+      "buildingCount": 0
     },
     {
       "id": "10_26",
@@ -390,7 +390,7 @@
         "maxZ": -10610.682
       },
       "roadCount": 4,
-      "buildingCount": 15
+      "buildingCount": 0
     },
     {
       "id": "10_27",
@@ -405,7 +405,7 @@
         "maxZ": -8110.682
       },
       "roadCount": 44,
-      "buildingCount": 60
+      "buildingCount": 0
     },
     {
       "id": "10_28",
@@ -420,7 +420,7 @@
         "maxZ": -5610.682
       },
       "roadCount": 56,
-      "buildingCount": 239
+      "buildingCount": 0
     },
     {
       "id": "10_29",
@@ -435,7 +435,7 @@
         "maxZ": -3110.682
       },
       "roadCount": 40,
-      "buildingCount": 168
+      "buildingCount": 0
     },
     {
       "id": "10_30",
@@ -450,7 +450,7 @@
         "maxZ": -610.682
       },
       "roadCount": 7,
-      "buildingCount": 67
+      "buildingCount": 0
     },
     {
       "id": "10_31",
@@ -465,7 +465,7 @@
         "maxZ": 1889.318
       },
       "roadCount": 14,
-      "buildingCount": 29
+      "buildingCount": 0
     },
     {
       "id": "10_32",
@@ -555,7 +555,7 @@
         "maxZ": -60610.682
       },
       "roadCount": 12,
-      "buildingCount": 5
+      "buildingCount": 0
     },
     {
       "id": "10_7",
@@ -570,7 +570,7 @@
         "maxZ": -58110.682
       },
       "roadCount": 6,
-      "buildingCount": 30
+      "buildingCount": 0
     },
     {
       "id": "11_10",
@@ -585,7 +585,7 @@
         "maxZ": -50610.682
       },
       "roadCount": 2,
-      "buildingCount": 2
+      "buildingCount": 0
     },
     {
       "id": "11_11",
@@ -600,7 +600,7 @@
         "maxZ": -48110.682
       },
       "roadCount": 50,
-      "buildingCount": 118
+      "buildingCount": 0
     },
     {
       "id": "11_12",
@@ -615,7 +615,7 @@
         "maxZ": -45610.682
       },
       "roadCount": 88,
-      "buildingCount": 216
+      "buildingCount": 0
     },
     {
       "id": "11_13",
@@ -630,7 +630,7 @@
         "maxZ": -43110.682
       },
       "roadCount": 28,
-      "buildingCount": 17
+      "buildingCount": 0
     },
     {
       "id": "11_14",
@@ -645,7 +645,7 @@
         "maxZ": -40610.682
       },
       "roadCount": 64,
-      "buildingCount": 64
+      "buildingCount": 0
     },
     {
       "id": "11_15",
@@ -660,7 +660,7 @@
         "maxZ": -38110.682
       },
       "roadCount": 12,
-      "buildingCount": 1
+      "buildingCount": 0
     },
     {
       "id": "11_16",
@@ -675,7 +675,7 @@
         "maxZ": -35610.682
       },
       "roadCount": 40,
-      "buildingCount": 92
+      "buildingCount": 0
     },
     {
       "id": "11_17",
@@ -690,7 +690,7 @@
         "maxZ": -33110.682
       },
       "roadCount": 78,
-      "buildingCount": 86
+      "buildingCount": 0
     },
     {
       "id": "11_18",
@@ -705,7 +705,7 @@
         "maxZ": -30610.682
       },
       "roadCount": 11,
-      "buildingCount": 9
+      "buildingCount": 0
     },
     {
       "id": "11_19",
@@ -720,7 +720,7 @@
         "maxZ": -28110.682
       },
       "roadCount": 28,
-      "buildingCount": 67
+      "buildingCount": 0
     },
     {
       "id": "11_20",
@@ -735,7 +735,7 @@
         "maxZ": -25610.682
       },
       "roadCount": 14,
-      "buildingCount": 48
+      "buildingCount": 0
     },
     {
       "id": "11_21",
@@ -750,7 +750,7 @@
         "maxZ": -23110.682
       },
       "roadCount": 14,
-      "buildingCount": 73
+      "buildingCount": 0
     },
     {
       "id": "11_22",
@@ -765,7 +765,7 @@
         "maxZ": -20610.682
       },
       "roadCount": 46,
-      "buildingCount": 124
+      "buildingCount": 0
     },
     {
       "id": "11_23",
@@ -780,7 +780,7 @@
         "maxZ": -18110.682
       },
       "roadCount": 136,
-      "buildingCount": 292
+      "buildingCount": 0
     },
     {
       "id": "11_24",
@@ -795,7 +795,7 @@
         "maxZ": -15610.682
       },
       "roadCount": 44,
-      "buildingCount": 48
+      "buildingCount": 0
     },
     {
       "id": "11_25",
@@ -810,7 +810,7 @@
         "maxZ": -13110.682
       },
       "roadCount": 2,
-      "buildingCount": 26
+      "buildingCount": 0
     },
     {
       "id": "11_26",
@@ -825,7 +825,7 @@
         "maxZ": -10610.682
       },
       "roadCount": 18,
-      "buildingCount": 116
+      "buildingCount": 0
     },
     {
       "id": "11_27",
@@ -840,7 +840,7 @@
         "maxZ": -8110.682
       },
       "roadCount": 62,
-      "buildingCount": 320
+      "buildingCount": 0
     },
     {
       "id": "11_28",
@@ -855,7 +855,7 @@
         "maxZ": -5610.682
       },
       "roadCount": 92,
-      "buildingCount": 326
+      "buildingCount": 0
     },
     {
       "id": "11_29",
@@ -870,7 +870,7 @@
         "maxZ": -3110.682
       },
       "roadCount": 80,
-      "buildingCount": 269
+      "buildingCount": 0
     },
     {
       "id": "11_30",
@@ -885,7 +885,7 @@
         "maxZ": -610.682
       },
       "roadCount": 20,
-      "buildingCount": 218
+      "buildingCount": 0
     },
     {
       "id": "11_31",
@@ -900,7 +900,7 @@
         "maxZ": 1889.318
       },
       "roadCount": 14,
-      "buildingCount": 31
+      "buildingCount": 0
     },
     {
       "id": "11_32",
@@ -990,7 +990,7 @@
         "maxZ": -55610.682
       },
       "roadCount": 2,
-      "buildingCount": 10
+      "buildingCount": 0
     },
     {
       "id": "11_9",
@@ -1005,7 +1005,7 @@
         "maxZ": -53110.682
       },
       "roadCount": 4,
-      "buildingCount": 14
+      "buildingCount": 0
     },
     {
       "id": "12_10",
@@ -1020,7 +1020,7 @@
         "maxZ": -50610.682
       },
       "roadCount": 92,
-      "buildingCount": 136
+      "buildingCount": 0
     },
     {
       "id": "12_11",
@@ -1035,7 +1035,7 @@
         "maxZ": -48110.682
       },
       "roadCount": 91,
-      "buildingCount": 38
+      "buildingCount": 0
     },
     {
       "id": "12_12",
@@ -1050,7 +1050,7 @@
         "maxZ": -45610.682
       },
       "roadCount": 10,
-      "buildingCount": 3
+      "buildingCount": 0
     },
     {
       "id": "12_13",
@@ -1065,7 +1065,7 @@
         "maxZ": -43110.682
       },
       "roadCount": 4,
-      "buildingCount": 5
+      "buildingCount": 0
     },
     {
       "id": "12_14",
@@ -1080,7 +1080,7 @@
         "maxZ": -40610.682
       },
       "roadCount": 36,
-      "buildingCount": 105
+      "buildingCount": 0
     },
     {
       "id": "12_15",
@@ -1095,7 +1095,7 @@
         "maxZ": -38110.682
       },
       "roadCount": 101,
-      "buildingCount": 188
+      "buildingCount": 0
     },
     {
       "id": "12_16",
@@ -1110,7 +1110,7 @@
         "maxZ": -35610.682
       },
       "roadCount": 2,
-      "buildingCount": 12
+      "buildingCount": 0
     },
     {
       "id": "12_17",
@@ -1125,7 +1125,7 @@
         "maxZ": -33110.682
       },
       "roadCount": 34,
-      "buildingCount": 33
+      "buildingCount": 0
     },
     {
       "id": "12_18",
@@ -1140,7 +1140,7 @@
         "maxZ": -30610.682
       },
       "roadCount": 59,
-      "buildingCount": 65
+      "buildingCount": 0
     },
     {
       "id": "12_19",
@@ -1155,7 +1155,7 @@
         "maxZ": -28110.682
       },
       "roadCount": 43,
-      "buildingCount": 1
+      "buildingCount": 0
     },
     {
       "id": "12_20",
@@ -1170,7 +1170,7 @@
         "maxZ": -25610.682
       },
       "roadCount": 53,
-      "buildingCount": 72
+      "buildingCount": 0
     },
     {
       "id": "12_21",
@@ -1185,7 +1185,7 @@
         "maxZ": -23110.682
       },
       "roadCount": 88,
-      "buildingCount": 117
+      "buildingCount": 0
     },
     {
       "id": "12_22",
@@ -1200,7 +1200,7 @@
         "maxZ": -20610.682
       },
       "roadCount": 120,
-      "buildingCount": 361
+      "buildingCount": 0
     },
     {
       "id": "12_23",
@@ -1215,7 +1215,7 @@
         "maxZ": -18110.682
       },
       "roadCount": 14,
-      "buildingCount": 44
+      "buildingCount": 0
     },
     {
       "id": "12_25",
@@ -1230,7 +1230,7 @@
         "maxZ": -13110.682
       },
       "roadCount": 4,
-      "buildingCount": 0
+      "buildingCount": 1
     },
     {
       "id": "12_26",
@@ -1245,7 +1245,7 @@
         "maxZ": -10610.682
       },
       "roadCount": 8,
-      "buildingCount": 45
+      "buildingCount": 0
     },
     {
       "id": "12_27",
@@ -1260,7 +1260,7 @@
         "maxZ": -8110.682
       },
       "roadCount": 58,
-      "buildingCount": 222
+      "buildingCount": 11
     },
     {
       "id": "12_28",
@@ -1275,7 +1275,7 @@
         "maxZ": -5610.682
       },
       "roadCount": 33,
-      "buildingCount": 62
+      "buildingCount": 35
     },
     {
       "id": "12_29",
@@ -1290,7 +1290,7 @@
         "maxZ": -3110.682
       },
       "roadCount": 5,
-      "buildingCount": 19
+      "buildingCount": 0
     },
     {
       "id": "12_30",
@@ -1305,7 +1305,7 @@
         "maxZ": -610.682
       },
       "roadCount": 16,
-      "buildingCount": 47
+      "buildingCount": 0
     },
     {
       "id": "12_31",
@@ -1320,7 +1320,7 @@
         "maxZ": 1889.318
       },
       "roadCount": 40,
-      "buildingCount": 135
+      "buildingCount": 0
     },
     {
       "id": "12_32",
@@ -1335,7 +1335,7 @@
         "maxZ": 4389.318
       },
       "roadCount": 18,
-      "buildingCount": 0
+      "buildingCount": 6
     },
     {
       "id": "12_33",
@@ -1365,7 +1365,7 @@
         "maxZ": 9389.318
       },
       "roadCount": 49,
-      "buildingCount": 0
+      "buildingCount": 1
     },
     {
       "id": "12_35",
@@ -1380,7 +1380,7 @@
         "maxZ": 11889.318
       },
       "roadCount": 30,
-      "buildingCount": 0
+      "buildingCount": 13
     },
     {
       "id": "12_36",
@@ -1395,7 +1395,7 @@
         "maxZ": 14389.318
       },
       "roadCount": 2,
-      "buildingCount": 0
+      "buildingCount": 5
     },
     {
       "id": "12_7",
@@ -1425,7 +1425,7 @@
         "maxZ": -55610.682
       },
       "roadCount": 24,
-      "buildingCount": 89
+      "buildingCount": 0
     },
     {
       "id": "12_9",
@@ -1440,7 +1440,7 @@
         "maxZ": -53110.682
       },
       "roadCount": 34,
-      "buildingCount": 96
+      "buildingCount": 0
     },
     {
       "id": "13_10",
@@ -1455,7 +1455,7 @@
         "maxZ": -50610.682
       },
       "roadCount": 34,
-      "buildingCount": 129
+      "buildingCount": 0
     },
     {
       "id": "13_11",
@@ -1470,7 +1470,7 @@
         "maxZ": -48110.682
       },
       "roadCount": 4,
-      "buildingCount": 5
+      "buildingCount": 0
     },
     {
       "id": "13_12",
@@ -1485,7 +1485,7 @@
         "maxZ": -45610.682
       },
       "roadCount": 63,
-      "buildingCount": 156
+      "buildingCount": 0
     },
     {
       "id": "13_13",
@@ -1500,7 +1500,7 @@
         "maxZ": -43110.682
       },
       "roadCount": 57,
-      "buildingCount": 121
+      "buildingCount": 0
     },
     {
       "id": "13_14",
@@ -1515,7 +1515,7 @@
         "maxZ": -40610.682
       },
       "roadCount": 8,
-      "buildingCount": 11
+      "buildingCount": 0
     },
     {
       "id": "13_15",
@@ -1530,7 +1530,7 @@
         "maxZ": -38110.682
       },
       "roadCount": 6,
-      "buildingCount": 6
+      "buildingCount": 0
     },
     {
       "id": "13_18",
@@ -1560,7 +1560,7 @@
         "maxZ": -28110.682
       },
       "roadCount": 50,
-      "buildingCount": 93
+      "buildingCount": 0
     },
     {
       "id": "13_20",
@@ -1575,7 +1575,7 @@
         "maxZ": -25610.682
       },
       "roadCount": 14,
-      "buildingCount": 14
+      "buildingCount": 0
     },
     {
       "id": "13_21",
@@ -1590,7 +1590,7 @@
         "maxZ": -23110.682
       },
       "roadCount": 196,
-      "buildingCount": 211
+      "buildingCount": 0
     },
     {
       "id": "13_22",
@@ -1605,7 +1605,7 @@
         "maxZ": -20610.682
       },
       "roadCount": 65,
-      "buildingCount": 69
+      "buildingCount": 0
     },
     {
       "id": "13_23",
@@ -1620,7 +1620,7 @@
         "maxZ": -18110.682
       },
       "roadCount": 6,
-      "buildingCount": 27
+      "buildingCount": 0
     },
     {
       "id": "13_25",
@@ -1635,7 +1635,7 @@
         "maxZ": -13110.682
       },
       "roadCount": 68,
-      "buildingCount": 118
+      "buildingCount": 109
     },
     {
       "id": "13_26",
@@ -1650,7 +1650,7 @@
         "maxZ": -10610.682
       },
       "roadCount": 62,
-      "buildingCount": 0
+      "buildingCount": 85
     },
     {
       "id": "13_27",
@@ -1665,7 +1665,7 @@
         "maxZ": -8110.682
       },
       "roadCount": 24,
-      "buildingCount": 0
+      "buildingCount": 46
     },
     {
       "id": "13_28",
@@ -1680,7 +1680,7 @@
         "maxZ": -5610.682
       },
       "roadCount": 38,
-      "buildingCount": 0
+      "buildingCount": 92
     },
     {
       "id": "13_29",
@@ -1695,7 +1695,7 @@
         "maxZ": -3110.682
       },
       "roadCount": 70,
-      "buildingCount": 0
+      "buildingCount": 78
     },
     {
       "id": "13_31",
@@ -1710,7 +1710,7 @@
         "maxZ": 1889.318
       },
       "roadCount": 4,
-      "buildingCount": 0
+      "buildingCount": 10
     },
     {
       "id": "13_32",
@@ -1725,7 +1725,7 @@
         "maxZ": 4389.318
       },
       "roadCount": 172,
-      "buildingCount": 0
+      "buildingCount": 126
     },
     {
       "id": "13_33",
@@ -1740,7 +1740,7 @@
         "maxZ": 6889.318
       },
       "roadCount": 45,
-      "buildingCount": 0
+      "buildingCount": 62
     },
     {
       "id": "13_34",
@@ -1770,7 +1770,7 @@
         "maxZ": 11889.318
       },
       "roadCount": 131,
-      "buildingCount": 0
+      "buildingCount": 90
     },
     {
       "id": "13_36",
@@ -1785,7 +1785,7 @@
         "maxZ": 14389.318
       },
       "roadCount": 126,
-      "buildingCount": 0
+      "buildingCount": 95
     },
     {
       "id": "13_37",
@@ -1800,7 +1800,7 @@
         "maxZ": 16889.318
       },
       "roadCount": 42,
-      "buildingCount": 0
+      "buildingCount": 103
     },
     {
       "id": "13_38",
@@ -1815,7 +1815,7 @@
         "maxZ": 19389.318
       },
       "roadCount": 91,
-      "buildingCount": 0
+      "buildingCount": 84
     },
     {
       "id": "13_8",
@@ -1845,7 +1845,7 @@
         "maxZ": -53110.682
       },
       "roadCount": 26,
-      "buildingCount": 12
+      "buildingCount": 0
     },
     {
       "id": "14_10",
@@ -1860,7 +1860,7 @@
         "maxZ": -50610.682
       },
       "roadCount": 8,
-      "buildingCount": 25
+      "buildingCount": 0
     },
     {
       "id": "14_12",
@@ -1875,7 +1875,7 @@
         "maxZ": -45610.682
       },
       "roadCount": 18,
-      "buildingCount": 14
+      "buildingCount": 0
     },
     {
       "id": "14_13",
@@ -1890,7 +1890,7 @@
         "maxZ": -43110.682
       },
       "roadCount": 12,
-      "buildingCount": 8
+      "buildingCount": 0
     },
     {
       "id": "14_14",
@@ -1905,7 +1905,7 @@
         "maxZ": -40610.682
       },
       "roadCount": 36,
-      "buildingCount": 94
+      "buildingCount": 0
     },
     {
       "id": "14_15",
@@ -1920,7 +1920,7 @@
         "maxZ": -38110.682
       },
       "roadCount": 22,
-      "buildingCount": 29
+      "buildingCount": 0
     },
     {
       "id": "14_18",
@@ -1935,7 +1935,7 @@
         "maxZ": -30610.682
       },
       "roadCount": 6,
-      "buildingCount": 3
+      "buildingCount": 0
     },
     {
       "id": "14_19",
@@ -1950,7 +1950,7 @@
         "maxZ": -28110.682
       },
       "roadCount": 116,
-      "buildingCount": 133
+      "buildingCount": 0
     },
     {
       "id": "14_20",
@@ -1965,7 +1965,7 @@
         "maxZ": -25610.682
       },
       "roadCount": 108,
-      "buildingCount": 123
+      "buildingCount": 0
     },
     {
       "id": "14_21",
@@ -1980,7 +1980,7 @@
         "maxZ": -23110.682
       },
       "roadCount": 46,
-      "buildingCount": 67
+      "buildingCount": 0
     },
     {
       "id": "14_22",
@@ -1995,7 +1995,7 @@
         "maxZ": -20610.682
       },
       "roadCount": 33,
-      "buildingCount": 77
+      "buildingCount": 0
     },
     {
       "id": "14_23",
@@ -2010,7 +2010,7 @@
         "maxZ": -18110.682
       },
       "roadCount": 96,
-      "buildingCount": 127
+      "buildingCount": 0
     },
     {
       "id": "14_24",
@@ -2025,7 +2025,7 @@
         "maxZ": -15610.682
       },
       "roadCount": 38,
-      "buildingCount": 52
+      "buildingCount": 0
     },
     {
       "id": "14_25",
@@ -2040,7 +2040,7 @@
         "maxZ": -13110.682
       },
       "roadCount": 14,
-      "buildingCount": 6
+      "buildingCount": 34
     },
     {
       "id": "14_26",
@@ -2055,7 +2055,7 @@
         "maxZ": -10610.682
       },
       "roadCount": 20,
-      "buildingCount": 0
+      "buildingCount": 93
     },
     {
       "id": "14_27",
@@ -2070,7 +2070,7 @@
         "maxZ": -8110.682
       },
       "roadCount": 52,
-      "buildingCount": 0
+      "buildingCount": 96
     },
     {
       "id": "14_28",
@@ -2085,7 +2085,7 @@
         "maxZ": -5610.682
       },
       "roadCount": 28,
-      "buildingCount": 0
+      "buildingCount": 43
     },
     {
       "id": "14_29",
@@ -2100,7 +2100,7 @@
         "maxZ": -3110.682
       },
       "roadCount": 8,
-      "buildingCount": 0
+      "buildingCount": 12
     },
     {
       "id": "14_30",
@@ -2115,7 +2115,7 @@
         "maxZ": -610.682
       },
       "roadCount": 112,
-      "buildingCount": 0
+      "buildingCount": 88
     },
     {
       "id": "14_31",
@@ -2130,7 +2130,7 @@
         "maxZ": 1889.318
       },
       "roadCount": 58,
-      "buildingCount": 0
+      "buildingCount": 90
     },
     {
       "id": "14_32",
@@ -2145,7 +2145,7 @@
         "maxZ": 4389.318
       },
       "roadCount": 64,
-      "buildingCount": 0
+      "buildingCount": 74
     },
     {
       "id": "14_33",
@@ -2160,7 +2160,7 @@
         "maxZ": 6889.318
       },
       "roadCount": 14,
-      "buildingCount": 0
+      "buildingCount": 14
     },
     {
       "id": "14_34",
@@ -2175,7 +2175,7 @@
         "maxZ": 9389.318
       },
       "roadCount": 26,
-      "buildingCount": 0
+      "buildingCount": 10
     },
     {
       "id": "14_35",
@@ -2190,7 +2190,7 @@
         "maxZ": 11889.318
       },
       "roadCount": 76,
-      "buildingCount": 0
+      "buildingCount": 108
     },
     {
       "id": "14_36",
@@ -2205,7 +2205,7 @@
         "maxZ": 14389.318
       },
       "roadCount": 33,
-      "buildingCount": 0
+      "buildingCount": 71
     },
     {
       "id": "14_37",
@@ -2220,7 +2220,7 @@
         "maxZ": 16889.318
       },
       "roadCount": 20,
-      "buildingCount": 0
+      "buildingCount": 76
     },
     {
       "id": "14_38",
@@ -2235,7 +2235,7 @@
         "maxZ": 19389.318
       },
       "roadCount": 2,
-      "buildingCount": 0
+      "buildingCount": 2
     },
     {
       "id": "14_9",
@@ -2265,7 +2265,7 @@
         "maxZ": -50610.682
       },
       "roadCount": 30,
-      "buildingCount": 26
+      "buildingCount": 0
     },
     {
       "id": "15_11",
@@ -2280,7 +2280,7 @@
         "maxZ": -48110.682
       },
       "roadCount": 28,
-      "buildingCount": 18
+      "buildingCount": 0
     },
     {
       "id": "15_12",
@@ -2295,7 +2295,7 @@
         "maxZ": -45610.682
       },
       "roadCount": 14,
-      "buildingCount": 2
+      "buildingCount": 0
     },
     {
       "id": "15_13",
@@ -2310,7 +2310,7 @@
         "maxZ": -43110.682
       },
       "roadCount": 20,
-      "buildingCount": 22
+      "buildingCount": 0
     },
     {
       "id": "15_14",
@@ -2325,7 +2325,7 @@
         "maxZ": -40610.682
       },
       "roadCount": 18,
-      "buildingCount": 49
+      "buildingCount": 0
     },
     {
       "id": "15_15",
@@ -2355,7 +2355,7 @@
         "maxZ": -30610.682
       },
       "roadCount": 16,
-      "buildingCount": 23
+      "buildingCount": 0
     },
     {
       "id": "15_19",
@@ -2370,7 +2370,7 @@
         "maxZ": -28110.682
       },
       "roadCount": 36,
-      "buildingCount": 12
+      "buildingCount": 0
     },
     {
       "id": "15_20",
@@ -2385,7 +2385,7 @@
         "maxZ": -25610.682
       },
       "roadCount": 58,
-      "buildingCount": 86
+      "buildingCount": 0
     },
     {
       "id": "15_21",
@@ -2400,7 +2400,7 @@
         "maxZ": -23110.682
       },
       "roadCount": 66,
-      "buildingCount": 130
+      "buildingCount": 0
     },
     {
       "id": "15_22",
@@ -2415,7 +2415,7 @@
         "maxZ": -20610.682
       },
       "roadCount": 18,
-      "buildingCount": 12
+      "buildingCount": 0
     },
     {
       "id": "15_23",
@@ -2430,7 +2430,7 @@
         "maxZ": -18110.682
       },
       "roadCount": 66,
-      "buildingCount": 94
+      "buildingCount": 0
     },
     {
       "id": "15_24",
@@ -2445,7 +2445,7 @@
         "maxZ": -15610.682
       },
       "roadCount": 66,
-      "buildingCount": 108
+      "buildingCount": 0
     },
     {
       "id": "15_25",
@@ -2460,7 +2460,7 @@
         "maxZ": -13110.682
       },
       "roadCount": 103,
-      "buildingCount": 51
+      "buildingCount": 101
     },
     {
       "id": "15_26",
@@ -2475,7 +2475,7 @@
         "maxZ": -10610.682
       },
       "roadCount": 187,
-      "buildingCount": 0
+      "buildingCount": 94
     },
     {
       "id": "15_27",
@@ -2490,7 +2490,7 @@
         "maxZ": -8110.682
       },
       "roadCount": 116,
-      "buildingCount": 0
+      "buildingCount": 84
     },
     {
       "id": "15_28",
@@ -2505,7 +2505,7 @@
         "maxZ": -5610.682
       },
       "roadCount": 348,
-      "buildingCount": 0
+      "buildingCount": 122
     },
     {
       "id": "15_29",
@@ -2520,7 +2520,7 @@
         "maxZ": -3110.682
       },
       "roadCount": 60,
-      "buildingCount": 0
+      "buildingCount": 68
     },
     {
       "id": "15_30",
@@ -2535,7 +2535,7 @@
         "maxZ": -610.682
       },
       "roadCount": 156,
-      "buildingCount": 0
+      "buildingCount": 99
     },
     {
       "id": "15_31",
@@ -2550,7 +2550,7 @@
         "maxZ": 1889.318
       },
       "roadCount": 42,
-      "buildingCount": 0
+      "buildingCount": 74
     },
     {
       "id": "15_32",
@@ -2580,7 +2580,7 @@
         "maxZ": 6889.318
       },
       "roadCount": 56,
-      "buildingCount": 0
+      "buildingCount": 117
     },
     {
       "id": "15_34",
@@ -2595,7 +2595,7 @@
         "maxZ": 9389.318
       },
       "roadCount": 75,
-      "buildingCount": 0
+      "buildingCount": 69
     },
     {
       "id": "15_35",
@@ -2610,7 +2610,7 @@
         "maxZ": 11889.318
       },
       "roadCount": 119,
-      "buildingCount": 0
+      "buildingCount": 79
     },
     {
       "id": "15_36",
@@ -2625,7 +2625,7 @@
         "maxZ": 14389.318
       },
       "roadCount": 76,
-      "buildingCount": 0
+      "buildingCount": 82
     },
     {
       "id": "15_37",
@@ -2640,7 +2640,7 @@
         "maxZ": 16889.318
       },
       "roadCount": 61,
-      "buildingCount": 0
+      "buildingCount": 88
     },
     {
       "id": "15_38",
@@ -2655,7 +2655,7 @@
         "maxZ": 19389.318
       },
       "roadCount": 48,
-      "buildingCount": 0
+      "buildingCount": 88
     },
     {
       "id": "15_7",
@@ -2670,7 +2670,7 @@
         "maxZ": -58110.682
       },
       "roadCount": 66,
-      "buildingCount": 14
+      "buildingCount": 0
     },
     {
       "id": "15_8",
@@ -2685,7 +2685,7 @@
         "maxZ": -55610.682
       },
       "roadCount": 8,
-      "buildingCount": 1
+      "buildingCount": 0
     },
     {
       "id": "15_9",
@@ -2730,7 +2730,7 @@
         "maxZ": -48110.682
       },
       "roadCount": 8,
-      "buildingCount": 9
+      "buildingCount": 0
     },
     {
       "id": "16_12",
@@ -2745,7 +2745,7 @@
         "maxZ": -45610.682
       },
       "roadCount": 18,
-      "buildingCount": 82
+      "buildingCount": 0
     },
     {
       "id": "16_13",
@@ -2760,7 +2760,7 @@
         "maxZ": -43110.682
       },
       "roadCount": 30,
-      "buildingCount": 59
+      "buildingCount": 0
     },
     {
       "id": "16_14",
@@ -2775,7 +2775,7 @@
         "maxZ": -40610.682
       },
       "roadCount": 28,
-      "buildingCount": 21
+      "buildingCount": 0
     },
     {
       "id": "16_15",
@@ -2790,7 +2790,7 @@
         "maxZ": -38110.682
       },
       "roadCount": 28,
-      "buildingCount": 14
+      "buildingCount": 0
     },
     {
       "id": "16_16",
@@ -2835,7 +2835,7 @@
         "maxZ": -30610.682
       },
       "roadCount": 40,
-      "buildingCount": 11
+      "buildingCount": 0
     },
     {
       "id": "16_19",
@@ -2850,7 +2850,7 @@
         "maxZ": -28110.682
       },
       "roadCount": 50,
-      "buildingCount": 32
+      "buildingCount": 0
     },
     {
       "id": "16_20",
@@ -2880,7 +2880,7 @@
         "maxZ": -23110.682
       },
       "roadCount": 82,
-      "buildingCount": 75
+      "buildingCount": 0
     },
     {
       "id": "16_22",
@@ -2895,7 +2895,7 @@
         "maxZ": -20610.682
       },
       "roadCount": 116,
-      "buildingCount": 324
+      "buildingCount": 0
     },
     {
       "id": "16_23",
@@ -2910,7 +2910,7 @@
         "maxZ": -18110.682
       },
       "roadCount": 26,
-      "buildingCount": 159
+      "buildingCount": 0
     },
     {
       "id": "16_24",
@@ -2925,7 +2925,7 @@
         "maxZ": -15610.682
       },
       "roadCount": 5,
-      "buildingCount": 29
+      "buildingCount": 0
     },
     {
       "id": "16_25",
@@ -2940,7 +2940,7 @@
         "maxZ": -13110.682
       },
       "roadCount": 85,
-      "buildingCount": 0
+      "buildingCount": 77
     },
     {
       "id": "16_26",
@@ -2955,7 +2955,7 @@
         "maxZ": -10610.682
       },
       "roadCount": 128,
-      "buildingCount": 0
+      "buildingCount": 93
     },
     {
       "id": "16_27",
@@ -2970,7 +2970,7 @@
         "maxZ": -8110.682
       },
       "roadCount": 82,
-      "buildingCount": 0
+      "buildingCount": 89
     },
     {
       "id": "16_28",
@@ -2985,7 +2985,7 @@
         "maxZ": -5610.682
       },
       "roadCount": 144,
-      "buildingCount": 0
+      "buildingCount": 79
     },
     {
       "id": "16_29",
@@ -3000,7 +3000,7 @@
         "maxZ": -3110.682
       },
       "roadCount": 8,
-      "buildingCount": 0
+      "buildingCount": 3
     },
     {
       "id": "16_30",
@@ -3015,7 +3015,7 @@
         "maxZ": -610.682
       },
       "roadCount": 196,
-      "buildingCount": 0
+      "buildingCount": 90
     },
     {
       "id": "16_31",
@@ -3030,7 +3030,7 @@
         "maxZ": 1889.318
       },
       "roadCount": 130,
-      "buildingCount": 0
+      "buildingCount": 93
     },
     {
       "id": "16_32",
@@ -3045,7 +3045,7 @@
         "maxZ": 4389.318
       },
       "roadCount": 60,
-      "buildingCount": 0
+      "buildingCount": 87
     },
     {
       "id": "16_33",
@@ -3060,7 +3060,7 @@
         "maxZ": 6889.318
       },
       "roadCount": 70,
-      "buildingCount": 0
+      "buildingCount": 81
     },
     {
       "id": "16_34",
@@ -3075,7 +3075,7 @@
         "maxZ": 9389.318
       },
       "roadCount": 109,
-      "buildingCount": 0
+      "buildingCount": 94
     },
     {
       "id": "16_35",
@@ -3090,7 +3090,7 @@
         "maxZ": 11889.318
       },
       "roadCount": 84,
-      "buildingCount": 0
+      "buildingCount": 90
     },
     {
       "id": "16_36",
@@ -3105,7 +3105,7 @@
         "maxZ": 14389.318
       },
       "roadCount": 86,
-      "buildingCount": 0
+      "buildingCount": 91
     },
     {
       "id": "16_37",
@@ -3120,7 +3120,7 @@
         "maxZ": 16889.318
       },
       "roadCount": 171,
-      "buildingCount": 0
+      "buildingCount": 94
     },
     {
       "id": "16_38",
@@ -3135,7 +3135,7 @@
         "maxZ": 19389.318
       },
       "roadCount": 94,
-      "buildingCount": 0
+      "buildingCount": 95
     },
     {
       "id": "16_39",
@@ -3150,7 +3150,7 @@
         "maxZ": 21889.318
       },
       "roadCount": 36,
-      "buildingCount": 0
+      "buildingCount": 82
     },
     {
       "id": "16_53",
@@ -3210,7 +3210,7 @@
         "maxZ": -60610.682
       },
       "roadCount": 6,
-      "buildingCount": 1
+      "buildingCount": 0
     },
     {
       "id": "16_7",
@@ -3225,7 +3225,7 @@
         "maxZ": -58110.682
       },
       "roadCount": 26,
-      "buildingCount": 16
+      "buildingCount": 0
     },
     {
       "id": "16_8",
@@ -3270,7 +3270,7 @@
         "maxZ": -50610.682
       },
       "roadCount": 12,
-      "buildingCount": 6
+      "buildingCount": 0
     },
     {
       "id": "17_11",
@@ -3285,7 +3285,7 @@
         "maxZ": -48110.682
       },
       "roadCount": 2,
-      "buildingCount": 2
+      "buildingCount": 0
     },
     {
       "id": "17_12",
@@ -3300,7 +3300,7 @@
         "maxZ": -45610.682
       },
       "roadCount": 32,
-      "buildingCount": 67
+      "buildingCount": 0
     },
     {
       "id": "17_13",
@@ -3315,7 +3315,7 @@
         "maxZ": -43110.682
       },
       "roadCount": 34,
-      "buildingCount": 66
+      "buildingCount": 0
     },
     {
       "id": "17_14",
@@ -3345,7 +3345,7 @@
         "maxZ": -38110.682
       },
       "roadCount": 9,
-      "buildingCount": 3
+      "buildingCount": 0
     },
     {
       "id": "17_16",
@@ -3360,7 +3360,7 @@
         "maxZ": -35610.682
       },
       "roadCount": 62,
-      "buildingCount": 39
+      "buildingCount": 0
     },
     {
       "id": "17_17",
@@ -3375,7 +3375,7 @@
         "maxZ": -33110.682
       },
       "roadCount": 158,
-      "buildingCount": 150
+      "buildingCount": 0
     },
     {
       "id": "17_18",
@@ -3390,7 +3390,7 @@
         "maxZ": -30610.682
       },
       "roadCount": 12,
-      "buildingCount": 12
+      "buildingCount": 0
     },
     {
       "id": "17_19",
@@ -3405,7 +3405,7 @@
         "maxZ": -28110.682
       },
       "roadCount": 28,
-      "buildingCount": 11
+      "buildingCount": 0
     },
     {
       "id": "17_20",
@@ -3420,7 +3420,7 @@
         "maxZ": -25610.682
       },
       "roadCount": 4,
-      "buildingCount": 8
+      "buildingCount": 0
     },
     {
       "id": "17_21",
@@ -3435,7 +3435,7 @@
         "maxZ": -23110.682
       },
       "roadCount": 16,
-      "buildingCount": 44
+      "buildingCount": 0
     },
     {
       "id": "17_22",
@@ -3450,7 +3450,7 @@
         "maxZ": -20610.682
       },
       "roadCount": 10,
-      "buildingCount": 2
+      "buildingCount": 0
     },
     {
       "id": "17_23",
@@ -3465,7 +3465,7 @@
         "maxZ": -18110.682
       },
       "roadCount": 66,
-      "buildingCount": 327
+      "buildingCount": 0
     },
     {
       "id": "17_24",
@@ -3480,7 +3480,7 @@
         "maxZ": -15610.682
       },
       "roadCount": 16,
-      "buildingCount": 15
+      "buildingCount": 0
     },
     {
       "id": "17_25",
@@ -3495,7 +3495,7 @@
         "maxZ": -13110.682
       },
       "roadCount": 19,
-      "buildingCount": 11
+      "buildingCount": 0
     },
     {
       "id": "17_26",
@@ -3510,7 +3510,7 @@
         "maxZ": -10610.682
       },
       "roadCount": 12,
-      "buildingCount": 0
+      "buildingCount": 77
     },
     {
       "id": "17_27",
@@ -3525,7 +3525,7 @@
         "maxZ": -8110.682
       },
       "roadCount": 100,
-      "buildingCount": 0
+      "buildingCount": 85
     },
     {
       "id": "17_28",
@@ -3540,7 +3540,7 @@
         "maxZ": -5610.682
       },
       "roadCount": 89,
-      "buildingCount": 0
+      "buildingCount": 85
     },
     {
       "id": "17_29",
@@ -3555,7 +3555,7 @@
         "maxZ": -3110.682
       },
       "roadCount": 26,
-      "buildingCount": 0
+      "buildingCount": 32
     },
     {
       "id": "17_30",
@@ -3570,7 +3570,7 @@
         "maxZ": -610.682
       },
       "roadCount": 143,
-      "buildingCount": 0
+      "buildingCount": 90
     },
     {
       "id": "17_31",
@@ -3585,7 +3585,7 @@
         "maxZ": 1889.318
       },
       "roadCount": 153,
-      "buildingCount": 0
+      "buildingCount": 87
     },
     {
       "id": "17_32",
@@ -3600,7 +3600,7 @@
         "maxZ": 4389.318
       },
       "roadCount": 84,
-      "buildingCount": 0
+      "buildingCount": 90
     },
     {
       "id": "17_33",
@@ -3615,7 +3615,7 @@
         "maxZ": 6889.318
       },
       "roadCount": 35,
-      "buildingCount": 0
+      "buildingCount": 70
     },
     {
       "id": "17_34",
@@ -3630,7 +3630,7 @@
         "maxZ": 9389.318
       },
       "roadCount": 100,
-      "buildingCount": 0
+      "buildingCount": 97
     },
     {
       "id": "17_35",
@@ -3645,7 +3645,7 @@
         "maxZ": 11889.318
       },
       "roadCount": 87,
-      "buildingCount": 0
+      "buildingCount": 38
     },
     {
       "id": "17_36",
@@ -3660,7 +3660,7 @@
         "maxZ": 14389.318
       },
       "roadCount": 9,
-      "buildingCount": 0
+      "buildingCount": 12
     },
     {
       "id": "17_37",
@@ -3675,7 +3675,7 @@
         "maxZ": 16889.318
       },
       "roadCount": 74,
-      "buildingCount": 0
+      "buildingCount": 66
     },
     {
       "id": "17_38",
@@ -3690,7 +3690,7 @@
         "maxZ": 19389.318
       },
       "roadCount": 232,
-      "buildingCount": 0
+      "buildingCount": 91
     },
     {
       "id": "17_39",
@@ -3705,7 +3705,7 @@
         "maxZ": 21889.318
       },
       "roadCount": 67,
-      "buildingCount": 0
+      "buildingCount": 92
     },
     {
       "id": "17_48",
@@ -3795,7 +3795,7 @@
         "maxZ": -60610.682
       },
       "roadCount": 24,
-      "buildingCount": 1
+      "buildingCount": 0
     },
     {
       "id": "17_7",
@@ -3810,7 +3810,7 @@
         "maxZ": -58110.682
       },
       "roadCount": 8,
-      "buildingCount": 1
+      "buildingCount": 0
     },
     {
       "id": "17_8",
@@ -3825,7 +3825,7 @@
         "maxZ": -55610.682
       },
       "roadCount": 16,
-      "buildingCount": 5
+      "buildingCount": 0
     },
     {
       "id": "17_9",
@@ -3840,7 +3840,7 @@
         "maxZ": -53110.682
       },
       "roadCount": 26,
-      "buildingCount": 15
+      "buildingCount": 0
     },
     {
       "id": "18_10",
@@ -3855,7 +3855,7 @@
         "maxZ": -50610.682
       },
       "roadCount": 28,
-      "buildingCount": 21
+      "buildingCount": 0
     },
     {
       "id": "18_11",
@@ -3870,7 +3870,7 @@
         "maxZ": -48110.682
       },
       "roadCount": 6,
-      "buildingCount": 13
+      "buildingCount": 0
     },
     {
       "id": "18_12",
@@ -3885,7 +3885,7 @@
         "maxZ": -45610.682
       },
       "roadCount": 10,
-      "buildingCount": 16
+      "buildingCount": 0
     },
     {
       "id": "18_13",
@@ -3900,7 +3900,7 @@
         "maxZ": -43110.682
       },
       "roadCount": 10,
-      "buildingCount": 11
+      "buildingCount": 0
     },
     {
       "id": "18_14",
@@ -3930,7 +3930,7 @@
         "maxZ": -38110.682
       },
       "roadCount": 50,
-      "buildingCount": 39
+      "buildingCount": 0
     },
     {
       "id": "18_16",
@@ -3945,7 +3945,7 @@
         "maxZ": -35610.682
       },
       "roadCount": 54,
-      "buildingCount": 36
+      "buildingCount": 0
     },
     {
       "id": "18_17",
@@ -3960,7 +3960,7 @@
         "maxZ": -33110.682
       },
       "roadCount": 78,
-      "buildingCount": 101
+      "buildingCount": 0
     },
     {
       "id": "18_18",
@@ -3975,7 +3975,7 @@
         "maxZ": -30610.682
       },
       "roadCount": 8,
-      "buildingCount": 12
+      "buildingCount": 0
     },
     {
       "id": "18_19",
@@ -3990,7 +3990,7 @@
         "maxZ": -28110.682
       },
       "roadCount": 50,
-      "buildingCount": 167
+      "buildingCount": 0
     },
     {
       "id": "18_20",
@@ -4005,7 +4005,7 @@
         "maxZ": -25610.682
       },
       "roadCount": 4,
-      "buildingCount": 4
+      "buildingCount": 0
     },
     {
       "id": "18_21",
@@ -4020,7 +4020,7 @@
         "maxZ": -23110.682
       },
       "roadCount": 44,
-      "buildingCount": 137
+      "buildingCount": 0
     },
     {
       "id": "18_23",
@@ -4035,7 +4035,7 @@
         "maxZ": -18110.682
       },
       "roadCount": 46,
-      "buildingCount": 201
+      "buildingCount": 0
     },
     {
       "id": "18_24",
@@ -4050,7 +4050,7 @@
         "maxZ": -15610.682
       },
       "roadCount": 30,
-      "buildingCount": 110
+      "buildingCount": 0
     },
     {
       "id": "18_25",
@@ -4065,7 +4065,7 @@
         "maxZ": -13110.682
       },
       "roadCount": 121,
-      "buildingCount": 201
+      "buildingCount": 92
     },
     {
       "id": "18_26",
@@ -4080,7 +4080,7 @@
         "maxZ": -10610.682
       },
       "roadCount": 36,
-      "buildingCount": 0
+      "buildingCount": 83
     },
     {
       "id": "18_27",
@@ -4095,7 +4095,7 @@
         "maxZ": -8110.682
       },
       "roadCount": 210,
-      "buildingCount": 0
+      "buildingCount": 98
     },
     {
       "id": "18_28",
@@ -4110,7 +4110,7 @@
         "maxZ": -5610.682
       },
       "roadCount": 92,
-      "buildingCount": 0
+      "buildingCount": 92
     },
     {
       "id": "18_29",
@@ -4125,7 +4125,7 @@
         "maxZ": -3110.682
       },
       "roadCount": 68,
-      "buildingCount": 0
+      "buildingCount": 38
     },
     {
       "id": "18_30",
@@ -4140,7 +4140,7 @@
         "maxZ": -610.682
       },
       "roadCount": 26,
-      "buildingCount": 0
+      "buildingCount": 34
     },
     {
       "id": "18_31",
@@ -4155,7 +4155,7 @@
         "maxZ": 1889.318
       },
       "roadCount": 35,
-      "buildingCount": 0
+      "buildingCount": 97
     },
     {
       "id": "18_32",
@@ -4170,7 +4170,7 @@
         "maxZ": 4389.318
       },
       "roadCount": 45,
-      "buildingCount": 0
+      "buildingCount": 82
     },
     {
       "id": "18_33",
@@ -4185,7 +4185,7 @@
         "maxZ": 6889.318
       },
       "roadCount": 41,
-      "buildingCount": 0
+      "buildingCount": 51
     },
     {
       "id": "18_34",
@@ -4200,7 +4200,7 @@
         "maxZ": 9389.318
       },
       "roadCount": 50,
-      "buildingCount": 0
+      "buildingCount": 40
     },
     {
       "id": "18_35",
@@ -4215,7 +4215,7 @@
         "maxZ": 11889.318
       },
       "roadCount": 44,
-      "buildingCount": 0
+      "buildingCount": 26
     },
     {
       "id": "18_36",
@@ -4230,7 +4230,7 @@
         "maxZ": 14389.318
       },
       "roadCount": 22,
-      "buildingCount": 0
+      "buildingCount": 23
     },
     {
       "id": "18_37",
@@ -4245,7 +4245,7 @@
         "maxZ": 16889.318
       },
       "roadCount": 71,
-      "buildingCount": 0
+      "buildingCount": 86
     },
     {
       "id": "18_38",
@@ -4260,7 +4260,7 @@
         "maxZ": 19389.318
       },
       "roadCount": 70,
-      "buildingCount": 0
+      "buildingCount": 96
     },
     {
       "id": "18_39",
@@ -4275,7 +4275,7 @@
         "maxZ": 21889.318
       },
       "roadCount": 33,
-      "buildingCount": 0
+      "buildingCount": 72
     },
     {
       "id": "18_42",
@@ -4305,7 +4305,7 @@
         "maxZ": 31889.318
       },
       "roadCount": 42,
-      "buildingCount": 0
+      "buildingCount": 21
     },
     {
       "id": "18_44",
@@ -4320,7 +4320,7 @@
         "maxZ": 34389.318
       },
       "roadCount": 52,
-      "buildingCount": 0
+      "buildingCount": 33
     },
     {
       "id": "18_45",
@@ -4575,7 +4575,7 @@
         "maxZ": -55610.682
       },
       "roadCount": 16,
-      "buildingCount": 8
+      "buildingCount": 0
     },
     {
       "id": "18_9",
@@ -4590,7 +4590,7 @@
         "maxZ": -53110.682
       },
       "roadCount": 62,
-      "buildingCount": 13
+      "buildingCount": 0
     },
     {
       "id": "19_10",
@@ -4605,7 +4605,7 @@
         "maxZ": -50610.682
       },
       "roadCount": 4,
-      "buildingCount": 8
+      "buildingCount": 0
     },
     {
       "id": "19_13",
@@ -4620,7 +4620,7 @@
         "maxZ": -43110.682
       },
       "roadCount": 8,
-      "buildingCount": 13
+      "buildingCount": 0
     },
     {
       "id": "19_14",
@@ -4635,7 +4635,7 @@
         "maxZ": -40610.682
       },
       "roadCount": 54,
-      "buildingCount": 42
+      "buildingCount": 0
     },
     {
       "id": "19_15",
@@ -4650,7 +4650,7 @@
         "maxZ": -38110.682
       },
       "roadCount": 24,
-      "buildingCount": 25
+      "buildingCount": 0
     },
     {
       "id": "19_16",
@@ -4665,7 +4665,7 @@
         "maxZ": -35610.682
       },
       "roadCount": 36,
-      "buildingCount": 10
+      "buildingCount": 0
     },
     {
       "id": "19_17",
@@ -4680,7 +4680,7 @@
         "maxZ": -33110.682
       },
       "roadCount": 48,
-      "buildingCount": 20
+      "buildingCount": 0
     },
     {
       "id": "19_18",
@@ -4695,7 +4695,7 @@
         "maxZ": -30610.682
       },
       "roadCount": 4,
-      "buildingCount": 13
+      "buildingCount": 0
     },
     {
       "id": "19_19",
@@ -4710,7 +4710,7 @@
         "maxZ": -28110.682
       },
       "roadCount": 30,
-      "buildingCount": 150
+      "buildingCount": 0
     },
     {
       "id": "19_20",
@@ -4725,7 +4725,7 @@
         "maxZ": -25610.682
       },
       "roadCount": 204,
-      "buildingCount": 469
+      "buildingCount": 0
     },
     {
       "id": "19_21",
@@ -4755,7 +4755,7 @@
         "maxZ": -18110.682
       },
       "roadCount": 22,
-      "buildingCount": 262
+      "buildingCount": 0
     },
     {
       "id": "19_24",
@@ -4770,7 +4770,7 @@
         "maxZ": -15610.682
       },
       "roadCount": 30,
-      "buildingCount": 79
+      "buildingCount": 0
     },
     {
       "id": "19_25",
@@ -4785,7 +4785,7 @@
         "maxZ": -13110.682
       },
       "roadCount": 78,
-      "buildingCount": 168
+      "buildingCount": 39
     },
     {
       "id": "19_26",
@@ -4800,7 +4800,7 @@
         "maxZ": -10610.682
       },
       "roadCount": 14,
-      "buildingCount": 0
+      "buildingCount": 46
     },
     {
       "id": "19_27",
@@ -4815,7 +4815,7 @@
         "maxZ": -8110.682
       },
       "roadCount": 54,
-      "buildingCount": 0
+      "buildingCount": 70
     },
     {
       "id": "19_28",
@@ -4830,7 +4830,7 @@
         "maxZ": -5610.682
       },
       "roadCount": 23,
-      "buildingCount": 0
+      "buildingCount": 5
     },
     {
       "id": "19_29",
@@ -4845,7 +4845,7 @@
         "maxZ": -3110.682
       },
       "roadCount": 33,
-      "buildingCount": 0
+      "buildingCount": 13
     },
     {
       "id": "19_30",
@@ -4860,7 +4860,7 @@
         "maxZ": -610.682
       },
       "roadCount": 10,
-      "buildingCount": 0
+      "buildingCount": 19
     },
     {
       "id": "19_31",
@@ -4875,7 +4875,7 @@
         "maxZ": 1889.318
       },
       "roadCount": 95,
-      "buildingCount": 0
+      "buildingCount": 89
     },
     {
       "id": "19_32",
@@ -4890,7 +4890,7 @@
         "maxZ": 4389.318
       },
       "roadCount": 88,
-      "buildingCount": 0
+      "buildingCount": 80
     },
     {
       "id": "19_33",
@@ -4905,7 +4905,7 @@
         "maxZ": 6889.318
       },
       "roadCount": 26,
-      "buildingCount": 0
+      "buildingCount": 50
     },
     {
       "id": "19_34",
@@ -4920,7 +4920,7 @@
         "maxZ": 9389.318
       },
       "roadCount": 26,
-      "buildingCount": 0
+      "buildingCount": 23
     },
     {
       "id": "19_35",
@@ -4935,7 +4935,7 @@
         "maxZ": 11889.318
       },
       "roadCount": 71,
-      "buildingCount": 0
+      "buildingCount": 114
     },
     {
       "id": "19_36",
@@ -4950,7 +4950,7 @@
         "maxZ": 14389.318
       },
       "roadCount": 50,
-      "buildingCount": 0
+      "buildingCount": 73
     },
     {
       "id": "19_37",
@@ -4965,7 +4965,7 @@
         "maxZ": 16889.318
       },
       "roadCount": 36,
-      "buildingCount": 0
+      "buildingCount": 31
     },
     {
       "id": "19_38",
@@ -4980,7 +4980,7 @@
         "maxZ": 19389.318
       },
       "roadCount": 64,
-      "buildingCount": 0
+      "buildingCount": 100
     },
     {
       "id": "19_39",
@@ -4995,7 +4995,7 @@
         "maxZ": 21889.318
       },
       "roadCount": 53,
-      "buildingCount": 0
+      "buildingCount": 53
     },
     {
       "id": "19_40",
@@ -5010,7 +5010,7 @@
         "maxZ": 24389.318
       },
       "roadCount": 26,
-      "buildingCount": 0
+      "buildingCount": 30
     },
     {
       "id": "19_41",
@@ -5040,7 +5040,7 @@
         "maxZ": 29389.318
       },
       "roadCount": 67,
-      "buildingCount": 0
+      "buildingCount": 60
     },
     {
       "id": "19_43",
@@ -5055,7 +5055,7 @@
         "maxZ": 31889.318
       },
       "roadCount": 100,
-      "buildingCount": 0
+      "buildingCount": 98
     },
     {
       "id": "19_44",
@@ -5070,7 +5070,7 @@
         "maxZ": 34389.318
       },
       "roadCount": 85,
-      "buildingCount": 0
+      "buildingCount": 89
     },
     {
       "id": "19_45",
@@ -5085,7 +5085,7 @@
         "maxZ": 36889.318
       },
       "roadCount": 49,
-      "buildingCount": 0
+      "buildingCount": 100
     },
     {
       "id": "19_46",
@@ -5100,7 +5100,7 @@
         "maxZ": 39389.318
       },
       "roadCount": 49,
-      "buildingCount": 0
+      "buildingCount": 76
     },
     {
       "id": "19_47",
@@ -5115,7 +5115,7 @@
         "maxZ": 41889.318
       },
       "roadCount": 41,
-      "buildingCount": 0
+      "buildingCount": 67
     },
     {
       "id": "19_48",
@@ -5130,7 +5130,7 @@
         "maxZ": 44389.318
       },
       "roadCount": 26,
-      "buildingCount": 0
+      "buildingCount": 75
     },
     {
       "id": "19_49",
@@ -5145,7 +5145,7 @@
         "maxZ": 46889.318
       },
       "roadCount": 107,
-      "buildingCount": 0
+      "buildingCount": 95
     },
     {
       "id": "19_50",
@@ -5160,7 +5160,7 @@
         "maxZ": 49389.318
       },
       "roadCount": 101,
-      "buildingCount": 0
+      "buildingCount": 89
     },
     {
       "id": "19_51",
@@ -5175,7 +5175,7 @@
         "maxZ": 51889.318
       },
       "roadCount": 73,
-      "buildingCount": 0
+      "buildingCount": 21
     },
     {
       "id": "19_52",
@@ -5325,7 +5325,7 @@
         "maxZ": -58110.682
       },
       "roadCount": 4,
-      "buildingCount": 3
+      "buildingCount": 0
     },
     {
       "id": "19_9",
@@ -5355,7 +5355,7 @@
         "maxZ": -73110.682
       },
       "roadCount": 18,
-      "buildingCount": 62
+      "buildingCount": 0
     },
     {
       "id": "1_10",
@@ -5370,7 +5370,7 @@
         "maxZ": -50610.682
       },
       "roadCount": 2,
-      "buildingCount": 1
+      "buildingCount": 0
     },
     {
       "id": "1_11",
@@ -5385,7 +5385,7 @@
         "maxZ": -48110.682
       },
       "roadCount": 8,
-      "buildingCount": 5
+      "buildingCount": 0
     },
     {
       "id": "1_12",
@@ -5400,7 +5400,7 @@
         "maxZ": -45610.682
       },
       "roadCount": 6,
-      "buildingCount": 2
+      "buildingCount": 0
     },
     {
       "id": "1_13",
@@ -5430,7 +5430,7 @@
         "maxZ": -40610.682
       },
       "roadCount": 54,
-      "buildingCount": 14
+      "buildingCount": 0
     },
     {
       "id": "1_2",
@@ -5445,7 +5445,7 @@
         "maxZ": -70610.682
       },
       "roadCount": 22,
-      "buildingCount": 24
+      "buildingCount": 0
     },
     {
       "id": "1_4",
@@ -5460,7 +5460,7 @@
         "maxZ": -65610.682
       },
       "roadCount": 10,
-      "buildingCount": 33
+      "buildingCount": 0
     },
     {
       "id": "1_5",
@@ -5475,7 +5475,7 @@
         "maxZ": -63110.682
       },
       "roadCount": 44,
-      "buildingCount": 72
+      "buildingCount": 0
     },
     {
       "id": "1_6",
@@ -5490,7 +5490,7 @@
         "maxZ": -60610.682
       },
       "roadCount": 26,
-      "buildingCount": 21
+      "buildingCount": 0
     },
     {
       "id": "1_7",
@@ -5505,7 +5505,7 @@
         "maxZ": -58110.682
       },
       "roadCount": 10,
-      "buildingCount": 1
+      "buildingCount": 0
     },
     {
       "id": "20_15",
@@ -5520,7 +5520,7 @@
         "maxZ": -38110.682
       },
       "roadCount": 10,
-      "buildingCount": 2
+      "buildingCount": 0
     },
     {
       "id": "20_16",
@@ -5535,7 +5535,7 @@
         "maxZ": -35610.682
       },
       "roadCount": 14,
-      "buildingCount": 1
+      "buildingCount": 0
     },
     {
       "id": "20_17",
@@ -5550,7 +5550,7 @@
         "maxZ": -33110.682
       },
       "roadCount": 22,
-      "buildingCount": 40
+      "buildingCount": 0
     },
     {
       "id": "20_18",
@@ -5565,7 +5565,7 @@
         "maxZ": -30610.682
       },
       "roadCount": 7,
-      "buildingCount": 9
+      "buildingCount": 0
     },
     {
       "id": "20_19",
@@ -5595,7 +5595,7 @@
         "maxZ": -25610.682
       },
       "roadCount": 32,
-      "buildingCount": 22
+      "buildingCount": 0
     },
     {
       "id": "20_21",
@@ -5625,7 +5625,7 @@
         "maxZ": -15610.682
       },
       "roadCount": 4,
-      "buildingCount": 39
+      "buildingCount": 0
     },
     {
       "id": "20_25",
@@ -5640,7 +5640,7 @@
         "maxZ": -13110.682
       },
       "roadCount": 8,
-      "buildingCount": 2
+      "buildingCount": 11
     },
     {
       "id": "20_26",
@@ -5655,7 +5655,7 @@
         "maxZ": -10610.682
       },
       "roadCount": 32,
-      "buildingCount": 0
+      "buildingCount": 82
     },
     {
       "id": "20_27",
@@ -5670,7 +5670,7 @@
         "maxZ": -8110.682
       },
       "roadCount": 46,
-      "buildingCount": 0
+      "buildingCount": 91
     },
     {
       "id": "20_28",
@@ -5685,7 +5685,7 @@
         "maxZ": -5610.682
       },
       "roadCount": 10,
-      "buildingCount": 0
+      "buildingCount": 12
     },
     {
       "id": "20_29",
@@ -5700,7 +5700,7 @@
         "maxZ": -3110.682
       },
       "roadCount": 92,
-      "buildingCount": 0
+      "buildingCount": 109
     },
     {
       "id": "20_30",
@@ -5715,7 +5715,7 @@
         "maxZ": -610.682
       },
       "roadCount": 32,
-      "buildingCount": 0
+      "buildingCount": 40
     },
     {
       "id": "20_31",
@@ -5730,7 +5730,7 @@
         "maxZ": 1889.318
       },
       "roadCount": 56,
-      "buildingCount": 0
+      "buildingCount": 84
     },
     {
       "id": "20_32",
@@ -5745,7 +5745,7 @@
         "maxZ": 4389.318
       },
       "roadCount": 17,
-      "buildingCount": 0
+      "buildingCount": 60
     },
     {
       "id": "20_33",
@@ -5760,7 +5760,7 @@
         "maxZ": 6889.318
       },
       "roadCount": 27,
-      "buildingCount": 0
+      "buildingCount": 17
     },
     {
       "id": "20_34",
@@ -5775,7 +5775,7 @@
         "maxZ": 9389.318
       },
       "roadCount": 58,
-      "buildingCount": 0
+      "buildingCount": 27
     },
     {
       "id": "20_35",
@@ -5790,7 +5790,7 @@
         "maxZ": 11889.318
       },
       "roadCount": 20,
-      "buildingCount": 0
+      "buildingCount": 31
     },
     {
       "id": "20_36",
@@ -5805,7 +5805,7 @@
         "maxZ": 14389.318
       },
       "roadCount": 94,
-      "buildingCount": 0
+      "buildingCount": 88
     },
     {
       "id": "20_37",
@@ -5820,7 +5820,7 @@
         "maxZ": 16889.318
       },
       "roadCount": 104,
-      "buildingCount": 0
+      "buildingCount": 89
     },
     {
       "id": "20_38",
@@ -5835,7 +5835,7 @@
         "maxZ": 19389.318
       },
       "roadCount": 47,
-      "buildingCount": 0
+      "buildingCount": 90
     },
     {
       "id": "20_39",
@@ -5850,7 +5850,7 @@
         "maxZ": 21889.318
       },
       "roadCount": 106,
-      "buildingCount": 0
+      "buildingCount": 85
     },
     {
       "id": "20_40",
@@ -5865,7 +5865,7 @@
         "maxZ": 24389.318
       },
       "roadCount": 132,
-      "buildingCount": 0
+      "buildingCount": 85
     },
     {
       "id": "20_41",
@@ -5880,7 +5880,7 @@
         "maxZ": 26889.318
       },
       "roadCount": 69,
-      "buildingCount": 0
+      "buildingCount": 64
     },
     {
       "id": "20_42",
@@ -5895,7 +5895,7 @@
         "maxZ": 29389.318
       },
       "roadCount": 49,
-      "buildingCount": 0
+      "buildingCount": 48
     },
     {
       "id": "20_43",
@@ -5910,7 +5910,7 @@
         "maxZ": 31889.318
       },
       "roadCount": 35,
-      "buildingCount": 0
+      "buildingCount": 78
     },
     {
       "id": "20_44",
@@ -5925,7 +5925,7 @@
         "maxZ": 34389.318
       },
       "roadCount": 86,
-      "buildingCount": 0
+      "buildingCount": 91
     },
     {
       "id": "20_45",
@@ -5940,7 +5940,7 @@
         "maxZ": 36889.318
       },
       "roadCount": 97,
-      "buildingCount": 0
+      "buildingCount": 91
     },
     {
       "id": "20_46",
@@ -5955,7 +5955,7 @@
         "maxZ": 39389.318
       },
       "roadCount": 116,
-      "buildingCount": 0
+      "buildingCount": 75
     },
     {
       "id": "20_47",
@@ -5970,7 +5970,7 @@
         "maxZ": 41889.318
       },
       "roadCount": 16,
-      "buildingCount": 0
+      "buildingCount": 59
     },
     {
       "id": "20_48",
@@ -5985,7 +5985,7 @@
         "maxZ": 44389.318
       },
       "roadCount": 49,
-      "buildingCount": 0
+      "buildingCount": 21
     },
     {
       "id": "20_49",
@@ -6000,7 +6000,7 @@
         "maxZ": 46889.318
       },
       "roadCount": 47,
-      "buildingCount": 0
+      "buildingCount": 80
     },
     {
       "id": "20_50",
@@ -6015,7 +6015,7 @@
         "maxZ": 49389.318
       },
       "roadCount": 11,
-      "buildingCount": 0
+      "buildingCount": 25
     },
     {
       "id": "20_51",
@@ -6030,7 +6030,7 @@
         "maxZ": 51889.318
       },
       "roadCount": 48,
-      "buildingCount": 0
+      "buildingCount": 2
     },
     {
       "id": "20_52",
@@ -6120,7 +6120,7 @@
         "maxZ": -33110.682
       },
       "roadCount": 5,
-      "buildingCount": 1
+      "buildingCount": 0
     },
     {
       "id": "21_18",
@@ -6135,7 +6135,7 @@
         "maxZ": -30610.682
       },
       "roadCount": 34,
-      "buildingCount": 76
+      "buildingCount": 0
     },
     {
       "id": "21_19",
@@ -6150,7 +6150,7 @@
         "maxZ": -28110.682
       },
       "roadCount": 23,
-      "buildingCount": 69
+      "buildingCount": 0
     },
     {
       "id": "21_24",
@@ -6180,7 +6180,7 @@
         "maxZ": -13110.682
       },
       "roadCount": 54,
-      "buildingCount": 109
+      "buildingCount": 89
     },
     {
       "id": "21_26",
@@ -6195,7 +6195,7 @@
         "maxZ": -10610.682
       },
       "roadCount": 44,
-      "buildingCount": 0
+      "buildingCount": 89
     },
     {
       "id": "21_27",
@@ -6210,7 +6210,7 @@
         "maxZ": -8110.682
       },
       "roadCount": 128,
-      "buildingCount": 0
+      "buildingCount": 78
     },
     {
       "id": "21_28",
@@ -6225,7 +6225,7 @@
         "maxZ": -5610.682
       },
       "roadCount": 36,
-      "buildingCount": 0
+      "buildingCount": 92
     },
     {
       "id": "21_29",
@@ -6240,7 +6240,7 @@
         "maxZ": -3110.682
       },
       "roadCount": 139,
-      "buildingCount": 0
+      "buildingCount": 81
     },
     {
       "id": "21_30",
@@ -6255,7 +6255,7 @@
         "maxZ": -610.682
       },
       "roadCount": 55,
-      "buildingCount": 0
+      "buildingCount": 85
     },
     {
       "id": "21_31",
@@ -6270,7 +6270,7 @@
         "maxZ": 1889.318
       },
       "roadCount": 65,
-      "buildingCount": 0
+      "buildingCount": 83
     },
     {
       "id": "21_32",
@@ -6285,7 +6285,7 @@
         "maxZ": 4389.318
       },
       "roadCount": 93,
-      "buildingCount": 0
+      "buildingCount": 85
     },
     {
       "id": "21_33",
@@ -6300,7 +6300,7 @@
         "maxZ": 6889.318
       },
       "roadCount": 97,
-      "buildingCount": 0
+      "buildingCount": 88
     },
     {
       "id": "21_34",
@@ -6315,7 +6315,7 @@
         "maxZ": 9389.318
       },
       "roadCount": 62,
-      "buildingCount": 0
+      "buildingCount": 96
     },
     {
       "id": "21_35",
@@ -6330,7 +6330,7 @@
         "maxZ": 11889.318
       },
       "roadCount": 21,
-      "buildingCount": 0
+      "buildingCount": 37
     },
     {
       "id": "21_36",
@@ -6345,7 +6345,7 @@
         "maxZ": 14389.318
       },
       "roadCount": 77,
-      "buildingCount": 0
+      "buildingCount": 93
     },
     {
       "id": "21_37",
@@ -6360,7 +6360,7 @@
         "maxZ": 16889.318
       },
       "roadCount": 42,
-      "buildingCount": 0
+      "buildingCount": 50
     },
     {
       "id": "21_38",
@@ -6375,7 +6375,7 @@
         "maxZ": 19389.318
       },
       "roadCount": 12,
-      "buildingCount": 0
+      "buildingCount": 11
     },
     {
       "id": "21_39",
@@ -6390,7 +6390,7 @@
         "maxZ": 21889.318
       },
       "roadCount": 52,
-      "buildingCount": 0
+      "buildingCount": 38
     },
     {
       "id": "21_40",
@@ -6405,7 +6405,7 @@
         "maxZ": 24389.318
       },
       "roadCount": 83,
-      "buildingCount": 0
+      "buildingCount": 97
     },
     {
       "id": "21_41",
@@ -6420,7 +6420,7 @@
         "maxZ": 26889.318
       },
       "roadCount": 55,
-      "buildingCount": 0
+      "buildingCount": 90
     },
     {
       "id": "21_42",
@@ -6435,7 +6435,7 @@
         "maxZ": 29389.318
       },
       "roadCount": 22,
-      "buildingCount": 0
+      "buildingCount": 40
     },
     {
       "id": "21_43",
@@ -6450,7 +6450,7 @@
         "maxZ": 31889.318
       },
       "roadCount": 85,
-      "buildingCount": 0
+      "buildingCount": 99
     },
     {
       "id": "21_44",
@@ -6465,7 +6465,7 @@
         "maxZ": 34389.318
       },
       "roadCount": 183,
-      "buildingCount": 0
+      "buildingCount": 105
     },
     {
       "id": "21_45",
@@ -6480,7 +6480,7 @@
         "maxZ": 36889.318
       },
       "roadCount": 45,
-      "buildingCount": 0
+      "buildingCount": 68
     },
     {
       "id": "21_46",
@@ -6495,7 +6495,7 @@
         "maxZ": 39389.318
       },
       "roadCount": 59,
-      "buildingCount": 0
+      "buildingCount": 37
     },
     {
       "id": "21_47",
@@ -6510,7 +6510,7 @@
         "maxZ": 41889.318
       },
       "roadCount": 29,
-      "buildingCount": 0
+      "buildingCount": 33
     },
     {
       "id": "21_48",
@@ -6525,7 +6525,7 @@
         "maxZ": 44389.318
       },
       "roadCount": 120,
-      "buildingCount": 0
+      "buildingCount": 92
     },
     {
       "id": "21_49",
@@ -6540,7 +6540,7 @@
         "maxZ": 46889.318
       },
       "roadCount": 44,
-      "buildingCount": 0
+      "buildingCount": 93
     },
     {
       "id": "21_50",
@@ -6555,7 +6555,7 @@
         "maxZ": 49389.318
       },
       "roadCount": 30,
-      "buildingCount": 0
+      "buildingCount": 79
     },
     {
       "id": "21_51",
@@ -6570,7 +6570,7 @@
         "maxZ": 51889.318
       },
       "roadCount": 47,
-      "buildingCount": 0
+      "buildingCount": 1
     },
     {
       "id": "21_52",
@@ -6675,7 +6675,7 @@
         "maxZ": -33110.682
       },
       "roadCount": 2,
-      "buildingCount": 19
+      "buildingCount": 0
     },
     {
       "id": "22_18",
@@ -6705,7 +6705,7 @@
         "maxZ": -18110.682
       },
       "roadCount": 24,
-      "buildingCount": 117
+      "buildingCount": 0
     },
     {
       "id": "22_24",
@@ -6720,7 +6720,7 @@
         "maxZ": -15610.682
       },
       "roadCount": 32,
-      "buildingCount": 61
+      "buildingCount": 0
     },
     {
       "id": "22_25",
@@ -6735,7 +6735,7 @@
         "maxZ": -13110.682
       },
       "roadCount": 43,
-      "buildingCount": 83
+      "buildingCount": 37
     },
     {
       "id": "22_26",
@@ -6750,7 +6750,7 @@
         "maxZ": -10610.682
       },
       "roadCount": 52,
-      "buildingCount": 0
+      "buildingCount": 89
     },
     {
       "id": "22_27",
@@ -6780,7 +6780,7 @@
         "maxZ": -5610.682
       },
       "roadCount": 24,
-      "buildingCount": 0
+      "buildingCount": 80
     },
     {
       "id": "22_29",
@@ -6795,7 +6795,7 @@
         "maxZ": -3110.682
       },
       "roadCount": 215,
-      "buildingCount": 0
+      "buildingCount": 97
     },
     {
       "id": "22_30",
@@ -6810,7 +6810,7 @@
         "maxZ": -610.682
       },
       "roadCount": 40,
-      "buildingCount": 0
+      "buildingCount": 23
     },
     {
       "id": "22_31",
@@ -6825,7 +6825,7 @@
         "maxZ": 1889.318
       },
       "roadCount": 133,
-      "buildingCount": 0
+      "buildingCount": 90
     },
     {
       "id": "22_32",
@@ -6840,7 +6840,7 @@
         "maxZ": 4389.318
       },
       "roadCount": 215,
-      "buildingCount": 0
+      "buildingCount": 91
     },
     {
       "id": "22_33",
@@ -6855,7 +6855,7 @@
         "maxZ": 6889.318
       },
       "roadCount": 75,
-      "buildingCount": 0
+      "buildingCount": 64
     },
     {
       "id": "22_34",
@@ -6870,7 +6870,7 @@
         "maxZ": 9389.318
       },
       "roadCount": 132,
-      "buildingCount": 0
+      "buildingCount": 89
     },
     {
       "id": "22_35",
@@ -6885,7 +6885,7 @@
         "maxZ": 11889.318
       },
       "roadCount": 73,
-      "buildingCount": 0
+      "buildingCount": 85
     },
     {
       "id": "22_36",
@@ -6900,7 +6900,7 @@
         "maxZ": 14389.318
       },
       "roadCount": 46,
-      "buildingCount": 0
+      "buildingCount": 89
     },
     {
       "id": "22_37",
@@ -6915,7 +6915,7 @@
         "maxZ": 16889.318
       },
       "roadCount": 64,
-      "buildingCount": 0
+      "buildingCount": 56
     },
     {
       "id": "22_38",
@@ -6930,7 +6930,7 @@
         "maxZ": 19389.318
       },
       "roadCount": 39,
-      "buildingCount": 0
+      "buildingCount": 57
     },
     {
       "id": "22_39",
@@ -6945,7 +6945,7 @@
         "maxZ": 21889.318
       },
       "roadCount": 43,
-      "buildingCount": 0
+      "buildingCount": 88
     },
     {
       "id": "22_40",
@@ -6960,7 +6960,7 @@
         "maxZ": 24389.318
       },
       "roadCount": 77,
-      "buildingCount": 0
+      "buildingCount": 86
     },
     {
       "id": "22_41",
@@ -6975,7 +6975,7 @@
         "maxZ": 26889.318
       },
       "roadCount": 106,
-      "buildingCount": 0
+      "buildingCount": 87
     },
     {
       "id": "22_42",
@@ -6990,7 +6990,7 @@
         "maxZ": 29389.318
       },
       "roadCount": 116,
-      "buildingCount": 0
+      "buildingCount": 88
     },
     {
       "id": "22_43",
@@ -7005,7 +7005,7 @@
         "maxZ": 31889.318
       },
       "roadCount": 54,
-      "buildingCount": 0
+      "buildingCount": 87
     },
     {
       "id": "22_44",
@@ -7020,7 +7020,7 @@
         "maxZ": 34389.318
       },
       "roadCount": 72,
-      "buildingCount": 0
+      "buildingCount": 97
     },
     {
       "id": "22_45",
@@ -7035,7 +7035,7 @@
         "maxZ": 36889.318
       },
       "roadCount": 42,
-      "buildingCount": 0
+      "buildingCount": 88
     },
     {
       "id": "22_46",
@@ -7050,7 +7050,7 @@
         "maxZ": 39389.318
       },
       "roadCount": 35,
-      "buildingCount": 0
+      "buildingCount": 11
     },
     {
       "id": "22_47",
@@ -7065,7 +7065,7 @@
         "maxZ": 41889.318
       },
       "roadCount": 91,
-      "buildingCount": 0
+      "buildingCount": 85
     },
     {
       "id": "22_48",
@@ -7080,7 +7080,7 @@
         "maxZ": 44389.318
       },
       "roadCount": 122,
-      "buildingCount": 0
+      "buildingCount": 90
     },
     {
       "id": "22_49",
@@ -7095,7 +7095,7 @@
         "maxZ": 46889.318
       },
       "roadCount": 45,
-      "buildingCount": 0
+      "buildingCount": 88
     },
     {
       "id": "22_50",
@@ -7110,7 +7110,7 @@
         "maxZ": 49389.318
       },
       "roadCount": 86,
-      "buildingCount": 0
+      "buildingCount": 93
     },
     {
       "id": "22_51",
@@ -7125,7 +7125,7 @@
         "maxZ": 51889.318
       },
       "roadCount": 98,
-      "buildingCount": 0
+      "buildingCount": 36
     },
     {
       "id": "22_52",
@@ -7230,7 +7230,7 @@
         "maxZ": -18110.682
       },
       "roadCount": 6,
-      "buildingCount": 10
+      "buildingCount": 0
     },
     {
       "id": "23_24",
@@ -7245,7 +7245,7 @@
         "maxZ": -15610.682
       },
       "roadCount": 72,
-      "buildingCount": 230
+      "buildingCount": 0
     },
     {
       "id": "23_25",
@@ -7260,7 +7260,7 @@
         "maxZ": -13110.682
       },
       "roadCount": 14,
-      "buildingCount": 68
+      "buildingCount": 20
     },
     {
       "id": "23_26",
@@ -7275,7 +7275,7 @@
         "maxZ": -10610.682
       },
       "roadCount": 110,
-      "buildingCount": 0
+      "buildingCount": 81
     },
     {
       "id": "23_27",
@@ -7290,7 +7290,7 @@
         "maxZ": -8110.682
       },
       "roadCount": 2,
-      "buildingCount": 0
+      "buildingCount": 21
     },
     {
       "id": "23_28",
@@ -7305,7 +7305,7 @@
         "maxZ": -5610.682
       },
       "roadCount": 66,
-      "buildingCount": 0
+      "buildingCount": 97
     },
     {
       "id": "23_29",
@@ -7320,7 +7320,7 @@
         "maxZ": -3110.682
       },
       "roadCount": 243,
-      "buildingCount": 0
+      "buildingCount": 89
     },
     {
       "id": "23_30",
@@ -7335,7 +7335,7 @@
         "maxZ": -610.682
       },
       "roadCount": 89,
-      "buildingCount": 0
+      "buildingCount": 89
     },
     {
       "id": "23_31",
@@ -7350,7 +7350,7 @@
         "maxZ": 1889.318
       },
       "roadCount": 74,
-      "buildingCount": 0
+      "buildingCount": 93
     },
     {
       "id": "23_32",
@@ -7365,7 +7365,7 @@
         "maxZ": 4389.318
       },
       "roadCount": 67,
-      "buildingCount": 0
+      "buildingCount": 91
     },
     {
       "id": "23_33",
@@ -7380,7 +7380,7 @@
         "maxZ": 6889.318
       },
       "roadCount": 69,
-      "buildingCount": 0
+      "buildingCount": 82
     },
     {
       "id": "23_34",
@@ -7395,7 +7395,7 @@
         "maxZ": 9389.318
       },
       "roadCount": 114,
-      "buildingCount": 0
+      "buildingCount": 82
     },
     {
       "id": "23_35",
@@ -7410,7 +7410,7 @@
         "maxZ": 11889.318
       },
       "roadCount": 165,
-      "buildingCount": 0
+      "buildingCount": 90
     },
     {
       "id": "23_36",
@@ -7425,7 +7425,7 @@
         "maxZ": 14389.318
       },
       "roadCount": 39,
-      "buildingCount": 0
+      "buildingCount": 64
     },
     {
       "id": "23_37",
@@ -7440,7 +7440,7 @@
         "maxZ": 16889.318
       },
       "roadCount": 27,
-      "buildingCount": 0
+      "buildingCount": 32
     },
     {
       "id": "23_38",
@@ -7455,7 +7455,7 @@
         "maxZ": 19389.318
       },
       "roadCount": 63,
-      "buildingCount": 0
+      "buildingCount": 65
     },
     {
       "id": "23_39",
@@ -7470,7 +7470,7 @@
         "maxZ": 21889.318
       },
       "roadCount": 73,
-      "buildingCount": 0
+      "buildingCount": 89
     },
     {
       "id": "23_40",
@@ -7485,7 +7485,7 @@
         "maxZ": 24389.318
       },
       "roadCount": 55,
-      "buildingCount": 0
+      "buildingCount": 89
     },
     {
       "id": "23_41",
@@ -7500,7 +7500,7 @@
         "maxZ": 26889.318
       },
       "roadCount": 58,
-      "buildingCount": 0
+      "buildingCount": 84
     },
     {
       "id": "23_42",
@@ -7515,7 +7515,7 @@
         "maxZ": 29389.318
       },
       "roadCount": 82,
-      "buildingCount": 0
+      "buildingCount": 91
     },
     {
       "id": "23_43",
@@ -7530,7 +7530,7 @@
         "maxZ": 31889.318
       },
       "roadCount": 67,
-      "buildingCount": 0
+      "buildingCount": 38
     },
     {
       "id": "23_44",
@@ -7545,7 +7545,7 @@
         "maxZ": 34389.318
       },
       "roadCount": 82,
-      "buildingCount": 0
+      "buildingCount": 40
     },
     {
       "id": "23_45",
@@ -7560,7 +7560,7 @@
         "maxZ": 36889.318
       },
       "roadCount": 157,
-      "buildingCount": 0
+      "buildingCount": 94
     },
     {
       "id": "23_46",
@@ -7575,7 +7575,7 @@
         "maxZ": 39389.318
       },
       "roadCount": 33,
-      "buildingCount": 0
+      "buildingCount": 60
     },
     {
       "id": "23_47",
@@ -7590,7 +7590,7 @@
         "maxZ": 41889.318
       },
       "roadCount": 30,
-      "buildingCount": 0
+      "buildingCount": 55
     },
     {
       "id": "23_48",
@@ -7605,7 +7605,7 @@
         "maxZ": 44389.318
       },
       "roadCount": 86,
-      "buildingCount": 0
+      "buildingCount": 91
     },
     {
       "id": "23_49",
@@ -7620,7 +7620,7 @@
         "maxZ": 46889.318
       },
       "roadCount": 114,
-      "buildingCount": 0
+      "buildingCount": 103
     },
     {
       "id": "23_50",
@@ -7635,7 +7635,7 @@
         "maxZ": 49389.318
       },
       "roadCount": 138,
-      "buildingCount": 0
+      "buildingCount": 100
     },
     {
       "id": "23_51",
@@ -7650,7 +7650,7 @@
         "maxZ": 51889.318
       },
       "roadCount": 148,
-      "buildingCount": 0
+      "buildingCount": 39
     },
     {
       "id": "23_52",
@@ -7770,7 +7770,7 @@
         "maxZ": -23110.682
       },
       "roadCount": 2,
-      "buildingCount": 15
+      "buildingCount": 0
     },
     {
       "id": "24_22",
@@ -7785,7 +7785,7 @@
         "maxZ": -20610.682
       },
       "roadCount": 23,
-      "buildingCount": 98
+      "buildingCount": 0
     },
     {
       "id": "24_23",
@@ -7800,7 +7800,7 @@
         "maxZ": -18110.682
       },
       "roadCount": 52,
-      "buildingCount": 349
+      "buildingCount": 0
     },
     {
       "id": "24_24",
@@ -7815,7 +7815,7 @@
         "maxZ": -15610.682
       },
       "roadCount": 36,
-      "buildingCount": 230
+      "buildingCount": 0
     },
     {
       "id": "24_25",
@@ -7830,7 +7830,7 @@
         "maxZ": -13110.682
       },
       "roadCount": 58,
-      "buildingCount": 53
+      "buildingCount": 48
     },
     {
       "id": "24_26",
@@ -7845,7 +7845,7 @@
         "maxZ": -10610.682
       },
       "roadCount": 131,
-      "buildingCount": 0
+      "buildingCount": 88
     },
     {
       "id": "24_27",
@@ -7860,7 +7860,7 @@
         "maxZ": -8110.682
       },
       "roadCount": 18,
-      "buildingCount": 0
+      "buildingCount": 9
     },
     {
       "id": "24_28",
@@ -7875,7 +7875,7 @@
         "maxZ": -5610.682
       },
       "roadCount": 64,
-      "buildingCount": 0
+      "buildingCount": 83
     },
     {
       "id": "24_29",
@@ -7890,7 +7890,7 @@
         "maxZ": -3110.682
       },
       "roadCount": 50,
-      "buildingCount": 0
+      "buildingCount": 78
     },
     {
       "id": "24_30",
@@ -7905,7 +7905,7 @@
         "maxZ": -610.682
       },
       "roadCount": 151,
-      "buildingCount": 0
+      "buildingCount": 98
     },
     {
       "id": "24_31",
@@ -7920,7 +7920,7 @@
         "maxZ": 1889.318
       },
       "roadCount": 87,
-      "buildingCount": 0
+      "buildingCount": 84
     },
     {
       "id": "24_32",
@@ -7935,7 +7935,7 @@
         "maxZ": 4389.318
       },
       "roadCount": 60,
-      "buildingCount": 0
+      "buildingCount": 84
     },
     {
       "id": "24_34",
@@ -7950,7 +7950,7 @@
         "maxZ": 9389.318
       },
       "roadCount": 33,
-      "buildingCount": 0
+      "buildingCount": 52
     },
     {
       "id": "24_35",
@@ -7965,7 +7965,7 @@
         "maxZ": 11889.318
       },
       "roadCount": 55,
-      "buildingCount": 0
+      "buildingCount": 74
     },
     {
       "id": "24_36",
@@ -7980,7 +7980,7 @@
         "maxZ": 14389.318
       },
       "roadCount": 103,
-      "buildingCount": 0
+      "buildingCount": 65
     },
     {
       "id": "24_37",
@@ -7995,7 +7995,7 @@
         "maxZ": 16889.318
       },
       "roadCount": 29,
-      "buildingCount": 0
+      "buildingCount": 63
     },
     {
       "id": "24_38",
@@ -8010,7 +8010,7 @@
         "maxZ": 19389.318
       },
       "roadCount": 36,
-      "buildingCount": 0
+      "buildingCount": 90
     },
     {
       "id": "24_39",
@@ -8025,7 +8025,7 @@
         "maxZ": 21889.318
       },
       "roadCount": 61,
-      "buildingCount": 0
+      "buildingCount": 77
     },
     {
       "id": "24_40",
@@ -8040,7 +8040,7 @@
         "maxZ": 24389.318
       },
       "roadCount": 119,
-      "buildingCount": 0
+      "buildingCount": 90
     },
     {
       "id": "24_41",
@@ -8055,7 +8055,7 @@
         "maxZ": 26889.318
       },
       "roadCount": 64,
-      "buildingCount": 0
+      "buildingCount": 51
     },
     {
       "id": "24_42",
@@ -8070,7 +8070,7 @@
         "maxZ": 29389.318
       },
       "roadCount": 114,
-      "buildingCount": 0
+      "buildingCount": 84
     },
     {
       "id": "24_43",
@@ -8085,7 +8085,7 @@
         "maxZ": 31889.318
       },
       "roadCount": 118,
-      "buildingCount": 0
+      "buildingCount": 92
     },
     {
       "id": "24_44",
@@ -8100,7 +8100,7 @@
         "maxZ": 34389.318
       },
       "roadCount": 56,
-      "buildingCount": 0
+      "buildingCount": 72
     },
     {
       "id": "24_45",
@@ -8115,7 +8115,7 @@
         "maxZ": 36889.318
       },
       "roadCount": 115,
-      "buildingCount": 0
+      "buildingCount": 101
     },
     {
       "id": "24_46",
@@ -8130,7 +8130,7 @@
         "maxZ": 39389.318
       },
       "roadCount": 161,
-      "buildingCount": 0
+      "buildingCount": 100
     },
     {
       "id": "24_47",
@@ -8145,7 +8145,7 @@
         "maxZ": 41889.318
       },
       "roadCount": 97,
-      "buildingCount": 0
+      "buildingCount": 101
     },
     {
       "id": "24_48",
@@ -8160,7 +8160,7 @@
         "maxZ": 44389.318
       },
       "roadCount": 98,
-      "buildingCount": 0
+      "buildingCount": 97
     },
     {
       "id": "24_49",
@@ -8175,7 +8175,7 @@
         "maxZ": 46889.318
       },
       "roadCount": 76,
-      "buildingCount": 0
+      "buildingCount": 91
     },
     {
       "id": "24_50",
@@ -8190,7 +8190,7 @@
         "maxZ": 49389.318
       },
       "roadCount": 197,
-      "buildingCount": 0
+      "buildingCount": 107
     },
     {
       "id": "24_51",
@@ -8205,7 +8205,7 @@
         "maxZ": 51889.318
       },
       "roadCount": 129,
-      "buildingCount": 0
+      "buildingCount": 79
     },
     {
       "id": "24_52",
@@ -8355,7 +8355,7 @@
         "maxZ": -23110.682
       },
       "roadCount": 4,
-      "buildingCount": 29
+      "buildingCount": 0
     },
     {
       "id": "25_22",
@@ -8370,7 +8370,7 @@
         "maxZ": -20610.682
       },
       "roadCount": 21,
-      "buildingCount": 52
+      "buildingCount": 0
     },
     {
       "id": "25_23",
@@ -8385,7 +8385,7 @@
         "maxZ": -18110.682
       },
       "roadCount": 8,
-      "buildingCount": 27
+      "buildingCount": 0
     },
     {
       "id": "25_24",
@@ -8400,7 +8400,7 @@
         "maxZ": -15610.682
       },
       "roadCount": 120,
-      "buildingCount": 474
+      "buildingCount": 0
     },
     {
       "id": "25_25",
@@ -8415,7 +8415,7 @@
         "maxZ": -13110.682
       },
       "roadCount": 67,
-      "buildingCount": 103
+      "buildingCount": 94
     },
     {
       "id": "25_26",
@@ -8430,7 +8430,7 @@
         "maxZ": -10610.682
       },
       "roadCount": 154,
-      "buildingCount": 0
+      "buildingCount": 101
     },
     {
       "id": "25_27",
@@ -8445,7 +8445,7 @@
         "maxZ": -8110.682
       },
       "roadCount": 86,
-      "buildingCount": 0
+      "buildingCount": 83
     },
     {
       "id": "25_28",
@@ -8460,7 +8460,7 @@
         "maxZ": -5610.682
       },
       "roadCount": 46,
-      "buildingCount": 0
+      "buildingCount": 71
     },
     {
       "id": "25_29",
@@ -8475,7 +8475,7 @@
         "maxZ": -3110.682
       },
       "roadCount": 75,
-      "buildingCount": 0
+      "buildingCount": 100
     },
     {
       "id": "25_30",
@@ -8490,7 +8490,7 @@
         "maxZ": -610.682
       },
       "roadCount": 104,
-      "buildingCount": 0
+      "buildingCount": 99
     },
     {
       "id": "25_31",
@@ -8505,7 +8505,7 @@
         "maxZ": 1889.318
       },
       "roadCount": 7,
-      "buildingCount": 0
+      "buildingCount": 6
     },
     {
       "id": "25_33",
@@ -8520,7 +8520,7 @@
         "maxZ": 6889.318
       },
       "roadCount": 32,
-      "buildingCount": 0
+      "buildingCount": 42
     },
     {
       "id": "25_34",
@@ -8535,7 +8535,7 @@
         "maxZ": 9389.318
       },
       "roadCount": 66,
-      "buildingCount": 0
+      "buildingCount": 77
     },
     {
       "id": "25_35",
@@ -8550,7 +8550,7 @@
         "maxZ": 11889.318
       },
       "roadCount": 44,
-      "buildingCount": 0
+      "buildingCount": 74
     },
     {
       "id": "25_36",
@@ -8565,7 +8565,7 @@
         "maxZ": 14389.318
       },
       "roadCount": 29,
-      "buildingCount": 0
+      "buildingCount": 37
     },
     {
       "id": "25_37",
@@ -8580,7 +8580,7 @@
         "maxZ": 16889.318
       },
       "roadCount": 56,
-      "buildingCount": 0
+      "buildingCount": 68
     },
     {
       "id": "25_38",
@@ -8595,7 +8595,7 @@
         "maxZ": 19389.318
       },
       "roadCount": 61,
-      "buildingCount": 0
+      "buildingCount": 96
     },
     {
       "id": "25_39",
@@ -8610,7 +8610,7 @@
         "maxZ": 21889.318
       },
       "roadCount": 104,
-      "buildingCount": 0
+      "buildingCount": 94
     },
     {
       "id": "25_40",
@@ -8625,7 +8625,7 @@
         "maxZ": 24389.318
       },
       "roadCount": 93,
-      "buildingCount": 0
+      "buildingCount": 92
     },
     {
       "id": "25_41",
@@ -8640,7 +8640,7 @@
         "maxZ": 26889.318
       },
       "roadCount": 132,
-      "buildingCount": 0
+      "buildingCount": 87
     },
     {
       "id": "25_42",
@@ -8655,7 +8655,7 @@
         "maxZ": 29389.318
       },
       "roadCount": 170,
-      "buildingCount": 0
+      "buildingCount": 65
     },
     {
       "id": "25_43",
@@ -8670,7 +8670,7 @@
         "maxZ": 31889.318
       },
       "roadCount": 92,
-      "buildingCount": 0
+      "buildingCount": 28
     },
     {
       "id": "25_44",
@@ -8685,7 +8685,7 @@
         "maxZ": 34389.318
       },
       "roadCount": 91,
-      "buildingCount": 0
+      "buildingCount": 83
     },
     {
       "id": "25_45",
@@ -8700,7 +8700,7 @@
         "maxZ": 36889.318
       },
       "roadCount": 140,
-      "buildingCount": 0
+      "buildingCount": 88
     },
     {
       "id": "25_46",
@@ -8715,7 +8715,7 @@
         "maxZ": 39389.318
       },
       "roadCount": 191,
-      "buildingCount": 0
+      "buildingCount": 83
     },
     {
       "id": "25_47",
@@ -8730,7 +8730,7 @@
         "maxZ": 41889.318
       },
       "roadCount": 127,
-      "buildingCount": 0
+      "buildingCount": 84
     },
     {
       "id": "25_48",
@@ -8745,7 +8745,7 @@
         "maxZ": 44389.318
       },
       "roadCount": 109,
-      "buildingCount": 0
+      "buildingCount": 92
     },
     {
       "id": "25_49",
@@ -8760,7 +8760,7 @@
         "maxZ": 46889.318
       },
       "roadCount": 64,
-      "buildingCount": 0
+      "buildingCount": 51
     },
     {
       "id": "25_50",
@@ -8775,7 +8775,7 @@
         "maxZ": 49389.318
       },
       "roadCount": 134,
-      "buildingCount": 0
+      "buildingCount": 95
     },
     {
       "id": "25_51",
@@ -8790,7 +8790,7 @@
         "maxZ": 51889.318
       },
       "roadCount": 65,
-      "buildingCount": 0
+      "buildingCount": 54
     },
     {
       "id": "25_52",
@@ -8970,7 +8970,7 @@
         "maxZ": -15610.682
       },
       "roadCount": 2,
-      "buildingCount": 14
+      "buildingCount": 0
     },
     {
       "id": "26_25",
@@ -8985,7 +8985,7 @@
         "maxZ": -13110.682
       },
       "roadCount": 91,
-      "buildingCount": 31
+      "buildingCount": 85
     },
     {
       "id": "26_26",
@@ -9000,7 +9000,7 @@
         "maxZ": -10610.682
       },
       "roadCount": 229,
-      "buildingCount": 0
+      "buildingCount": 95
     },
     {
       "id": "26_27",
@@ -9015,7 +9015,7 @@
         "maxZ": -8110.682
       },
       "roadCount": 151,
-      "buildingCount": 0
+      "buildingCount": 102
     },
     {
       "id": "26_28",
@@ -9030,7 +9030,7 @@
         "maxZ": -5610.682
       },
       "roadCount": 44,
-      "buildingCount": 0
+      "buildingCount": 84
     },
     {
       "id": "26_29",
@@ -9045,7 +9045,7 @@
         "maxZ": -3110.682
       },
       "roadCount": 55,
-      "buildingCount": 0
+      "buildingCount": 96
     },
     {
       "id": "26_30",
@@ -9060,7 +9060,7 @@
         "maxZ": -610.682
       },
       "roadCount": 125,
-      "buildingCount": 0
+      "buildingCount": 99
     },
     {
       "id": "26_31",
@@ -9075,7 +9075,7 @@
         "maxZ": 1889.318
       },
       "roadCount": 29,
-      "buildingCount": 0
+      "buildingCount": 39
     },
     {
       "id": "26_32",
@@ -9090,7 +9090,7 @@
         "maxZ": 4389.318
       },
       "roadCount": 51,
-      "buildingCount": 0
+      "buildingCount": 41
     },
     {
       "id": "26_33",
@@ -9105,7 +9105,7 @@
         "maxZ": 6889.318
       },
       "roadCount": 10,
-      "buildingCount": 0
+      "buildingCount": 4
     },
     {
       "id": "26_34",
@@ -9120,7 +9120,7 @@
         "maxZ": 9389.318
       },
       "roadCount": 8,
-      "buildingCount": 0
+      "buildingCount": 27
     },
     {
       "id": "26_35",
@@ -9135,7 +9135,7 @@
         "maxZ": 11889.318
       },
       "roadCount": 2,
-      "buildingCount": 0
+      "buildingCount": 31
     },
     {
       "id": "26_36",
@@ -9165,7 +9165,7 @@
         "maxZ": 16889.318
       },
       "roadCount": 11,
-      "buildingCount": 0
+      "buildingCount": 7
     },
     {
       "id": "26_38",
@@ -9180,7 +9180,7 @@
         "maxZ": 19389.318
       },
       "roadCount": 49,
-      "buildingCount": 0
+      "buildingCount": 88
     },
     {
       "id": "26_39",
@@ -9195,7 +9195,7 @@
         "maxZ": 21889.318
       },
       "roadCount": 102,
-      "buildingCount": 0
+      "buildingCount": 96
     },
     {
       "id": "26_40",
@@ -9210,7 +9210,7 @@
         "maxZ": 24389.318
       },
       "roadCount": 72,
-      "buildingCount": 0
+      "buildingCount": 92
     },
     {
       "id": "26_41",
@@ -9225,7 +9225,7 @@
         "maxZ": 26889.318
       },
       "roadCount": 144,
-      "buildingCount": 0
+      "buildingCount": 105
     },
     {
       "id": "26_42",
@@ -9240,7 +9240,7 @@
         "maxZ": 29389.318
       },
       "roadCount": 128,
-      "buildingCount": 0
+      "buildingCount": 98
     },
     {
       "id": "26_43",
@@ -9255,7 +9255,7 @@
         "maxZ": 31889.318
       },
       "roadCount": 63,
-      "buildingCount": 0
+      "buildingCount": 75
     },
     {
       "id": "26_44",
@@ -9270,7 +9270,7 @@
         "maxZ": 34389.318
       },
       "roadCount": 160,
-      "buildingCount": 0
+      "buildingCount": 92
     },
     {
       "id": "26_45",
@@ -9555,7 +9555,7 @@
         "maxZ": -13110.682
       },
       "roadCount": 4,
-      "buildingCount": 0
+      "buildingCount": 4
     },
     {
       "id": "27_26",
@@ -9570,7 +9570,7 @@
         "maxZ": -10610.682
       },
       "roadCount": 99,
-      "buildingCount": 0
+      "buildingCount": 86
     },
     {
       "id": "27_27",
@@ -9585,7 +9585,7 @@
         "maxZ": -8110.682
       },
       "roadCount": 141,
-      "buildingCount": 0
+      "buildingCount": 103
     },
     {
       "id": "27_28",
@@ -9600,7 +9600,7 @@
         "maxZ": -5610.682
       },
       "roadCount": 33,
-      "buildingCount": 0
+      "buildingCount": 73
     },
     {
       "id": "27_29",
@@ -9615,7 +9615,7 @@
         "maxZ": -3110.682
       },
       "roadCount": 60,
-      "buildingCount": 0
+      "buildingCount": 81
     },
     {
       "id": "27_30",
@@ -9630,7 +9630,7 @@
         "maxZ": -610.682
       },
       "roadCount": 206,
-      "buildingCount": 0
+      "buildingCount": 85
     },
     {
       "id": "27_31",
@@ -9645,7 +9645,7 @@
         "maxZ": 1889.318
       },
       "roadCount": 66,
-      "buildingCount": 0
+      "buildingCount": 46
     },
     {
       "id": "27_32",
@@ -9660,7 +9660,7 @@
         "maxZ": 4389.318
       },
       "roadCount": 71,
-      "buildingCount": 0
+      "buildingCount": 92
     },
     {
       "id": "27_33",
@@ -9675,7 +9675,7 @@
         "maxZ": 6889.318
       },
       "roadCount": 41,
-      "buildingCount": 0
+      "buildingCount": 20
     },
     {
       "id": "27_34",
@@ -9690,7 +9690,7 @@
         "maxZ": 9389.318
       },
       "roadCount": 18,
-      "buildingCount": 0
+      "buildingCount": 23
     },
     {
       "id": "27_35",
@@ -9705,7 +9705,7 @@
         "maxZ": 11889.318
       },
       "roadCount": 21,
-      "buildingCount": 0
+      "buildingCount": 53
     },
     {
       "id": "27_36",
@@ -9720,7 +9720,7 @@
         "maxZ": 14389.318
       },
       "roadCount": 8,
-      "buildingCount": 0
+      "buildingCount": 25
     },
     {
       "id": "27_37",
@@ -9735,7 +9735,7 @@
         "maxZ": 16889.318
       },
       "roadCount": 6,
-      "buildingCount": 0
+      "buildingCount": 14
     },
     {
       "id": "27_38",
@@ -9750,7 +9750,7 @@
         "maxZ": 19389.318
       },
       "roadCount": 40,
-      "buildingCount": 0
+      "buildingCount": 83
     },
     {
       "id": "27_39",
@@ -9765,7 +9765,7 @@
         "maxZ": 21889.318
       },
       "roadCount": 73,
-      "buildingCount": 0
+      "buildingCount": 92
     },
     {
       "id": "27_40",
@@ -9780,7 +9780,7 @@
         "maxZ": 24389.318
       },
       "roadCount": 104,
-      "buildingCount": 0
+      "buildingCount": 95
     },
     {
       "id": "27_41",
@@ -9795,7 +9795,7 @@
         "maxZ": 26889.318
       },
       "roadCount": 130,
-      "buildingCount": 0
+      "buildingCount": 92
     },
     {
       "id": "27_42",
@@ -9810,7 +9810,7 @@
         "maxZ": 29389.318
       },
       "roadCount": 132,
-      "buildingCount": 0
+      "buildingCount": 90
     },
     {
       "id": "27_43",
@@ -9825,7 +9825,7 @@
         "maxZ": 31889.318
       },
       "roadCount": 188,
-      "buildingCount": 0
+      "buildingCount": 93
     },
     {
       "id": "27_44",
@@ -9840,7 +9840,7 @@
         "maxZ": 34389.318
       },
       "roadCount": 150,
-      "buildingCount": 0
+      "buildingCount": 83
     },
     {
       "id": "27_45",
@@ -10095,7 +10095,7 @@
         "maxZ": -10610.682
       },
       "roadCount": 28,
-      "buildingCount": 0
+      "buildingCount": 48
     },
     {
       "id": "28_27",
@@ -10110,7 +10110,7 @@
         "maxZ": -8110.682
       },
       "roadCount": 26,
-      "buildingCount": 0
+      "buildingCount": 23
     },
     {
       "id": "28_31",
@@ -10125,7 +10125,7 @@
         "maxZ": 1889.318
       },
       "roadCount": 10,
-      "buildingCount": 0
+      "buildingCount": 1
     },
     {
       "id": "28_32",
@@ -10140,7 +10140,7 @@
         "maxZ": 4389.318
       },
       "roadCount": 96,
-      "buildingCount": 0
+      "buildingCount": 55
     },
     {
       "id": "28_33",
@@ -10155,7 +10155,7 @@
         "maxZ": 6889.318
       },
       "roadCount": 91,
-      "buildingCount": 0
+      "buildingCount": 97
     },
     {
       "id": "28_34",
@@ -10170,7 +10170,7 @@
         "maxZ": 9389.318
       },
       "roadCount": 90,
-      "buildingCount": 0
+      "buildingCount": 92
     },
     {
       "id": "28_35",
@@ -10185,7 +10185,7 @@
         "maxZ": 11889.318
       },
       "roadCount": 80,
-      "buildingCount": 0
+      "buildingCount": 88
     },
     {
       "id": "28_36",
@@ -10200,7 +10200,7 @@
         "maxZ": 14389.318
       },
       "roadCount": 80,
-      "buildingCount": 0
+      "buildingCount": 97
     },
     {
       "id": "28_37",
@@ -10215,7 +10215,7 @@
         "maxZ": 16889.318
       },
       "roadCount": 89,
-      "buildingCount": 0
+      "buildingCount": 86
     },
     {
       "id": "28_38",
@@ -10230,7 +10230,7 @@
         "maxZ": 19389.318
       },
       "roadCount": 88,
-      "buildingCount": 0
+      "buildingCount": 86
     },
     {
       "id": "28_39",
@@ -10245,7 +10245,7 @@
         "maxZ": 21889.318
       },
       "roadCount": 67,
-      "buildingCount": 0
+      "buildingCount": 92
     },
     {
       "id": "28_40",
@@ -10260,7 +10260,7 @@
         "maxZ": 24389.318
       },
       "roadCount": 91,
-      "buildingCount": 0
+      "buildingCount": 90
     },
     {
       "id": "28_41",
@@ -10275,7 +10275,7 @@
         "maxZ": 26889.318
       },
       "roadCount": 62,
-      "buildingCount": 0
+      "buildingCount": 92
     },
     {
       "id": "28_42",
@@ -10290,7 +10290,7 @@
         "maxZ": 29389.318
       },
       "roadCount": 56,
-      "buildingCount": 0
+      "buildingCount": 93
     },
     {
       "id": "28_43",
@@ -10305,7 +10305,7 @@
         "maxZ": 31889.318
       },
       "roadCount": 179,
-      "buildingCount": 0
+      "buildingCount": 94
     },
     {
       "id": "28_44",
@@ -10320,7 +10320,7 @@
         "maxZ": 34389.318
       },
       "roadCount": 102,
-      "buildingCount": 0
+      "buildingCount": 90
     },
     {
       "id": "28_45",
@@ -10560,7 +10560,7 @@
         "maxZ": 4389.318
       },
       "roadCount": 25,
-      "buildingCount": 0
+      "buildingCount": 32
     },
     {
       "id": "29_33",
@@ -10575,7 +10575,7 @@
         "maxZ": 6889.318
       },
       "roadCount": 59,
-      "buildingCount": 0
+      "buildingCount": 92
     },
     {
       "id": "29_34",
@@ -10590,7 +10590,7 @@
         "maxZ": 9389.318
       },
       "roadCount": 58,
-      "buildingCount": 0
+      "buildingCount": 83
     },
     {
       "id": "29_35",
@@ -10605,7 +10605,7 @@
         "maxZ": 11889.318
       },
       "roadCount": 57,
-      "buildingCount": 0
+      "buildingCount": 85
     },
     {
       "id": "29_36",
@@ -10620,7 +10620,7 @@
         "maxZ": 14389.318
       },
       "roadCount": 64,
-      "buildingCount": 0
+      "buildingCount": 85
     },
     {
       "id": "29_37",
@@ -10635,7 +10635,7 @@
         "maxZ": 16889.318
       },
       "roadCount": 112,
-      "buildingCount": 0
+      "buildingCount": 90
     },
     {
       "id": "29_38",
@@ -10650,7 +10650,7 @@
         "maxZ": 19389.318
       },
       "roadCount": 96,
-      "buildingCount": 0
+      "buildingCount": 94
     },
     {
       "id": "29_39",
@@ -10665,7 +10665,7 @@
         "maxZ": 21889.318
       },
       "roadCount": 143,
-      "buildingCount": 0
+      "buildingCount": 93
     },
     {
       "id": "29_40",
@@ -10680,7 +10680,7 @@
         "maxZ": 24389.318
       },
       "roadCount": 103,
-      "buildingCount": 0
+      "buildingCount": 94
     },
     {
       "id": "29_41",
@@ -10695,7 +10695,7 @@
         "maxZ": 26889.318
       },
       "roadCount": 74,
-      "buildingCount": 0
+      "buildingCount": 87
     },
     {
       "id": "29_42",
@@ -10710,7 +10710,7 @@
         "maxZ": 29389.318
       },
       "roadCount": 145,
-      "buildingCount": 0
+      "buildingCount": 95
     },
     {
       "id": "29_43",
@@ -10725,7 +10725,7 @@
         "maxZ": 31889.318
       },
       "roadCount": 176,
-      "buildingCount": 0
+      "buildingCount": 94
     },
     {
       "id": "29_44",
@@ -10740,7 +10740,7 @@
         "maxZ": 34389.318
       },
       "roadCount": 172,
-      "buildingCount": 0
+      "buildingCount": 95
     },
     {
       "id": "29_45",
@@ -10980,7 +10980,7 @@
         "maxZ": -73110.682
       },
       "roadCount": 8,
-      "buildingCount": 2
+      "buildingCount": 0
     },
     {
       "id": "2_10",
@@ -11010,7 +11010,7 @@
         "maxZ": -48110.682
       },
       "roadCount": 12,
-      "buildingCount": 4
+      "buildingCount": 0
     },
     {
       "id": "2_12",
@@ -11025,7 +11025,7 @@
         "maxZ": -45610.682
       },
       "roadCount": 8,
-      "buildingCount": 12
+      "buildingCount": 0
     },
     {
       "id": "2_13",
@@ -11040,7 +11040,7 @@
         "maxZ": -43110.682
       },
       "roadCount": 4,
-      "buildingCount": 10
+      "buildingCount": 0
     },
     {
       "id": "2_2",
@@ -11070,7 +11070,7 @@
         "maxZ": -65610.682
       },
       "roadCount": 32,
-      "buildingCount": 13
+      "buildingCount": 0
     },
     {
       "id": "2_5",
@@ -11085,7 +11085,7 @@
         "maxZ": -63110.682
       },
       "roadCount": 10,
-      "buildingCount": 7
+      "buildingCount": 0
     },
     {
       "id": "2_6",
@@ -11100,7 +11100,7 @@
         "maxZ": -60610.682
       },
       "roadCount": 78,
-      "buildingCount": 115
+      "buildingCount": 0
     },
     {
       "id": "2_7",
@@ -11115,7 +11115,7 @@
         "maxZ": -58110.682
       },
       "roadCount": 2,
-      "buildingCount": 5
+      "buildingCount": 0
     },
     {
       "id": "2_8",
@@ -11145,7 +11145,7 @@
         "maxZ": -53110.682
       },
       "roadCount": 4,
-      "buildingCount": 2
+      "buildingCount": 0
     },
     {
       "id": "30_32",
@@ -11160,7 +11160,7 @@
         "maxZ": 4389.318
       },
       "roadCount": 57,
-      "buildingCount": 0
+      "buildingCount": 63
     },
     {
       "id": "30_33",
@@ -11175,7 +11175,7 @@
         "maxZ": 6889.318
       },
       "roadCount": 48,
-      "buildingCount": 0
+      "buildingCount": 83
     },
     {
       "id": "30_34",
@@ -11190,7 +11190,7 @@
         "maxZ": 9389.318
       },
       "roadCount": 73,
-      "buildingCount": 0
+      "buildingCount": 99
     },
     {
       "id": "30_35",
@@ -11205,7 +11205,7 @@
         "maxZ": 11889.318
       },
       "roadCount": 29,
-      "buildingCount": 0
+      "buildingCount": 55
     },
     {
       "id": "30_36",
@@ -11220,7 +11220,7 @@
         "maxZ": 14389.318
       },
       "roadCount": 76,
-      "buildingCount": 0
+      "buildingCount": 98
     },
     {
       "id": "30_37",
@@ -11235,7 +11235,7 @@
         "maxZ": 16889.318
       },
       "roadCount": 92,
-      "buildingCount": 0
+      "buildingCount": 86
     },
     {
       "id": "30_38",
@@ -11250,7 +11250,7 @@
         "maxZ": 19389.318
       },
       "roadCount": 110,
-      "buildingCount": 0
+      "buildingCount": 91
     },
     {
       "id": "30_39",
@@ -11265,7 +11265,7 @@
         "maxZ": 21889.318
       },
       "roadCount": 82,
-      "buildingCount": 0
+      "buildingCount": 61
     },
     {
       "id": "30_40",
@@ -11280,7 +11280,7 @@
         "maxZ": 24389.318
       },
       "roadCount": 67,
-      "buildingCount": 0
+      "buildingCount": 94
     },
     {
       "id": "30_41",
@@ -11295,7 +11295,7 @@
         "maxZ": 26889.318
       },
       "roadCount": 65,
-      "buildingCount": 0
+      "buildingCount": 56
     },
     {
       "id": "30_42",
@@ -11310,7 +11310,7 @@
         "maxZ": 29389.318
       },
       "roadCount": 124,
-      "buildingCount": 0
+      "buildingCount": 106
     },
     {
       "id": "30_43",
@@ -11325,7 +11325,7 @@
         "maxZ": 31889.318
       },
       "roadCount": 108,
-      "buildingCount": 0
+      "buildingCount": 92
     },
     {
       "id": "30_44",
@@ -11340,7 +11340,7 @@
         "maxZ": 34389.318
       },
       "roadCount": 140,
-      "buildingCount": 0
+      "buildingCount": 85
     },
     {
       "id": "30_45",
@@ -11580,7 +11580,7 @@
         "maxZ": 4389.318
       },
       "roadCount": 25,
-      "buildingCount": 0
+      "buildingCount": 68
     },
     {
       "id": "31_33",
@@ -11595,7 +11595,7 @@
         "maxZ": 6889.318
       },
       "roadCount": 80,
-      "buildingCount": 0
+      "buildingCount": 85
     },
     {
       "id": "31_34",
@@ -11610,7 +11610,7 @@
         "maxZ": 9389.318
       },
       "roadCount": 84,
-      "buildingCount": 0
+      "buildingCount": 84
     },
     {
       "id": "31_35",
@@ -11625,7 +11625,7 @@
         "maxZ": 11889.318
       },
       "roadCount": 110,
-      "buildingCount": 0
+      "buildingCount": 80
     },
     {
       "id": "31_36",
@@ -11640,7 +11640,7 @@
         "maxZ": 14389.318
       },
       "roadCount": 81,
-      "buildingCount": 0
+      "buildingCount": 85
     },
     {
       "id": "31_37",
@@ -11655,7 +11655,7 @@
         "maxZ": 16889.318
       },
       "roadCount": 70,
-      "buildingCount": 0
+      "buildingCount": 90
     },
     {
       "id": "31_38",
@@ -11670,7 +11670,7 @@
         "maxZ": 19389.318
       },
       "roadCount": 40,
-      "buildingCount": 0
+      "buildingCount": 78
     },
     {
       "id": "31_39",
@@ -11685,7 +11685,7 @@
         "maxZ": 21889.318
       },
       "roadCount": 9,
-      "buildingCount": 0
+      "buildingCount": 5
     },
     {
       "id": "31_40",
@@ -11700,7 +11700,7 @@
         "maxZ": 24389.318
       },
       "roadCount": 83,
-      "buildingCount": 0
+      "buildingCount": 81
     },
     {
       "id": "31_41",
@@ -11715,7 +11715,7 @@
         "maxZ": 26889.318
       },
       "roadCount": 106,
-      "buildingCount": 0
+      "buildingCount": 84
     },
     {
       "id": "31_42",
@@ -11730,7 +11730,7 @@
         "maxZ": 29389.318
       },
       "roadCount": 111,
-      "buildingCount": 0
+      "buildingCount": 88
     },
     {
       "id": "31_43",
@@ -11745,7 +11745,7 @@
         "maxZ": 31889.318
       },
       "roadCount": 186,
-      "buildingCount": 0
+      "buildingCount": 95
     },
     {
       "id": "31_44",
@@ -11760,7 +11760,7 @@
         "maxZ": 34389.318
       },
       "roadCount": 163,
-      "buildingCount": 0
+      "buildingCount": 85
     },
     {
       "id": "31_45",
@@ -12075,7 +12075,7 @@
         "maxZ": 16889.318
       },
       "roadCount": 106,
-      "buildingCount": 0
+      "buildingCount": 1
     },
     {
       "id": "32_38",
@@ -12135,7 +12135,7 @@
         "maxZ": 26889.318
       },
       "roadCount": 65,
-      "buildingCount": 0
+      "buildingCount": 2
     },
     {
       "id": "32_42",
@@ -12150,7 +12150,7 @@
         "maxZ": 29389.318
       },
       "roadCount": 43,
-      "buildingCount": 0
+      "buildingCount": 2
     },
     {
       "id": "32_43",
@@ -12165,7 +12165,7 @@
         "maxZ": 31889.318
       },
       "roadCount": 90,
-      "buildingCount": 0
+      "buildingCount": 4
     },
     {
       "id": "32_44",
@@ -12180,7 +12180,7 @@
         "maxZ": 34389.318
       },
       "roadCount": 124,
-      "buildingCount": 0
+      "buildingCount": 1
     },
     {
       "id": "32_45",
@@ -14715,7 +14715,7 @@
         "maxZ": -75610.682
       },
       "roadCount": 16,
-      "buildingCount": 33
+      "buildingCount": 0
     },
     {
       "id": "3_1",
@@ -14730,7 +14730,7 @@
         "maxZ": -73110.682
       },
       "roadCount": 46,
-      "buildingCount": 107
+      "buildingCount": 0
     },
     {
       "id": "3_12",
@@ -14760,7 +14760,7 @@
         "maxZ": -43110.682
       },
       "roadCount": 26,
-      "buildingCount": 20
+      "buildingCount": 0
     },
     {
       "id": "3_14",
@@ -14775,7 +14775,7 @@
         "maxZ": -40610.682
       },
       "roadCount": 40,
-      "buildingCount": 46
+      "buildingCount": 0
     },
     {
       "id": "3_2",
@@ -14790,7 +14790,7 @@
         "maxZ": -70610.682
       },
       "roadCount": 16,
-      "buildingCount": 3
+      "buildingCount": 0
     },
     {
       "id": "3_3",
@@ -14805,7 +14805,7 @@
         "maxZ": -68110.682
       },
       "roadCount": 8,
-      "buildingCount": 26
+      "buildingCount": 0
     },
     {
       "id": "3_4",
@@ -14820,7 +14820,7 @@
         "maxZ": -65610.682
       },
       "roadCount": 166,
-      "buildingCount": 60
+      "buildingCount": 0
     },
     {
       "id": "3_5",
@@ -14835,7 +14835,7 @@
         "maxZ": -63110.682
       },
       "roadCount": 26,
-      "buildingCount": 3
+      "buildingCount": 0
     },
     {
       "id": "3_6",
@@ -14850,7 +14850,7 @@
         "maxZ": -60610.682
       },
       "roadCount": 76,
-      "buildingCount": 111
+      "buildingCount": 0
     },
     {
       "id": "3_7",
@@ -14865,7 +14865,7 @@
         "maxZ": -58110.682
       },
       "roadCount": 32,
-      "buildingCount": 71
+      "buildingCount": 0
     },
     {
       "id": "3_8",
@@ -14895,7 +14895,7 @@
         "maxZ": -53110.682
       },
       "roadCount": 4,
-      "buildingCount": 2
+      "buildingCount": 0
     },
     {
       "id": "40_40",
@@ -15285,7 +15285,7 @@
         "maxZ": -75610.682
       },
       "roadCount": 12,
-      "buildingCount": 11
+      "buildingCount": 0
     },
     {
       "id": "4_1",
@@ -15300,7 +15300,7 @@
         "maxZ": -73110.682
       },
       "roadCount": 22,
-      "buildingCount": 20
+      "buildingCount": 0
     },
     {
       "id": "4_12",
@@ -15315,7 +15315,7 @@
         "maxZ": -45610.682
       },
       "roadCount": 80,
-      "buildingCount": 81
+      "buildingCount": 0
     },
     {
       "id": "4_13",
@@ -15330,7 +15330,7 @@
         "maxZ": -43110.682
       },
       "roadCount": 79,
-      "buildingCount": 149
+      "buildingCount": 0
     },
     {
       "id": "4_14",
@@ -15345,7 +15345,7 @@
         "maxZ": -40610.682
       },
       "roadCount": 56,
-      "buildingCount": 145
+      "buildingCount": 0
     },
     {
       "id": "4_17",
@@ -15360,7 +15360,7 @@
         "maxZ": -33110.682
       },
       "roadCount": 36,
-      "buildingCount": 96
+      "buildingCount": 0
     },
     {
       "id": "4_18",
@@ -15375,7 +15375,7 @@
         "maxZ": -30610.682
       },
       "roadCount": 20,
-      "buildingCount": 85
+      "buildingCount": 0
     },
     {
       "id": "4_2",
@@ -15390,7 +15390,7 @@
         "maxZ": -70610.682
       },
       "roadCount": 30,
-      "buildingCount": 29
+      "buildingCount": 0
     },
     {
       "id": "4_3",
@@ -15405,7 +15405,7 @@
         "maxZ": -68110.682
       },
       "roadCount": 44,
-      "buildingCount": 43
+      "buildingCount": 0
     },
     {
       "id": "4_4",
@@ -15420,7 +15420,7 @@
         "maxZ": -65610.682
       },
       "roadCount": 106,
-      "buildingCount": 183
+      "buildingCount": 0
     },
     {
       "id": "4_5",
@@ -15435,7 +15435,7 @@
         "maxZ": -63110.682
       },
       "roadCount": 2,
-      "buildingCount": 3
+      "buildingCount": 0
     },
     {
       "id": "4_6",
@@ -15450,7 +15450,7 @@
         "maxZ": -60610.682
       },
       "roadCount": 12,
-      "buildingCount": 14
+      "buildingCount": 0
     },
     {
       "id": "4_7",
@@ -15465,7 +15465,7 @@
         "maxZ": -58110.682
       },
       "roadCount": 18,
-      "buildingCount": 19
+      "buildingCount": 0
     },
     {
       "id": "4_8",
@@ -15480,7 +15480,7 @@
         "maxZ": -55610.682
       },
       "roadCount": 6,
-      "buildingCount": 1
+      "buildingCount": 0
     },
     {
       "id": "4_9",
@@ -15510,7 +15510,7 @@
         "maxZ": -75610.682
       },
       "roadCount": 32,
-      "buildingCount": 61
+      "buildingCount": 0
     },
     {
       "id": "5_1",
@@ -15525,7 +15525,7 @@
         "maxZ": -73110.682
       },
       "roadCount": 10,
-      "buildingCount": 2
+      "buildingCount": 0
     },
     {
       "id": "5_12",
@@ -15540,7 +15540,7 @@
         "maxZ": -45610.682
       },
       "roadCount": 20,
-      "buildingCount": 44
+      "buildingCount": 0
     },
     {
       "id": "5_13",
@@ -15555,7 +15555,7 @@
         "maxZ": -43110.682
       },
       "roadCount": 36,
-      "buildingCount": 70
+      "buildingCount": 0
     },
     {
       "id": "5_14",
@@ -15585,7 +15585,7 @@
         "maxZ": -35610.682
       },
       "roadCount": 4,
-      "buildingCount": 18
+      "buildingCount": 0
     },
     {
       "id": "5_17",
@@ -15600,7 +15600,7 @@
         "maxZ": -33110.682
       },
       "roadCount": 32,
-      "buildingCount": 167
+      "buildingCount": 0
     },
     {
       "id": "5_18",
@@ -15615,7 +15615,7 @@
         "maxZ": -30610.682
       },
       "roadCount": 24,
-      "buildingCount": 68
+      "buildingCount": 0
     },
     {
       "id": "5_19",
@@ -15630,7 +15630,7 @@
         "maxZ": -28110.682
       },
       "roadCount": 90,
-      "buildingCount": 86
+      "buildingCount": 0
     },
     {
       "id": "5_2",
@@ -15645,7 +15645,7 @@
         "maxZ": -70610.682
       },
       "roadCount": 8,
-      "buildingCount": 10
+      "buildingCount": 0
     },
     {
       "id": "5_20",
@@ -15660,7 +15660,7 @@
         "maxZ": -25610.682
       },
       "roadCount": 134,
-      "buildingCount": 74
+      "buildingCount": 0
     },
     {
       "id": "5_3",
@@ -15675,7 +15675,7 @@
         "maxZ": -68110.682
       },
       "roadCount": 34,
-      "buildingCount": 39
+      "buildingCount": 0
     },
     {
       "id": "5_33",
@@ -15720,7 +15720,7 @@
         "maxZ": -65610.682
       },
       "roadCount": 72,
-      "buildingCount": 182
+      "buildingCount": 0
     },
     {
       "id": "5_5",
@@ -15735,7 +15735,7 @@
         "maxZ": -63110.682
       },
       "roadCount": 32,
-      "buildingCount": 72
+      "buildingCount": 0
     },
     {
       "id": "5_6",
@@ -15750,7 +15750,7 @@
         "maxZ": -60610.682
       },
       "roadCount": 8,
-      "buildingCount": 37
+      "buildingCount": 0
     },
     {
       "id": "5_7",
@@ -15765,7 +15765,7 @@
         "maxZ": -58110.682
       },
       "roadCount": 24,
-      "buildingCount": 19
+      "buildingCount": 0
     },
     {
       "id": "5_8",
@@ -15780,7 +15780,7 @@
         "maxZ": -55610.682
       },
       "roadCount": 14,
-      "buildingCount": 15
+      "buildingCount": 0
     },
     {
       "id": "6_0",
@@ -15795,7 +15795,7 @@
         "maxZ": -75610.682
       },
       "roadCount": 10,
-      "buildingCount": 2
+      "buildingCount": 0
     },
     {
       "id": "6_1",
@@ -15825,7 +15825,7 @@
         "maxZ": -50610.682
       },
       "roadCount": 104,
-      "buildingCount": 207
+      "buildingCount": 0
     },
     {
       "id": "6_12",
@@ -15840,7 +15840,7 @@
         "maxZ": -45610.682
       },
       "roadCount": 18,
-      "buildingCount": 58
+      "buildingCount": 0
     },
     {
       "id": "6_13",
@@ -15855,7 +15855,7 @@
         "maxZ": -43110.682
       },
       "roadCount": 36,
-      "buildingCount": 124
+      "buildingCount": 0
     },
     {
       "id": "6_14",
@@ -15885,7 +15885,7 @@
         "maxZ": -35610.682
       },
       "roadCount": 36,
-      "buildingCount": 106
+      "buildingCount": 0
     },
     {
       "id": "6_17",
@@ -15915,7 +15915,7 @@
         "maxZ": -30610.682
       },
       "roadCount": 16,
-      "buildingCount": 29
+      "buildingCount": 0
     },
     {
       "id": "6_19",
@@ -15930,7 +15930,7 @@
         "maxZ": -28110.682
       },
       "roadCount": 64,
-      "buildingCount": 187
+      "buildingCount": 0
     },
     {
       "id": "6_2",
@@ -15945,7 +15945,7 @@
         "maxZ": -70610.682
       },
       "roadCount": 2,
-      "buildingCount": 1
+      "buildingCount": 0
     },
     {
       "id": "6_20",
@@ -15960,7 +15960,7 @@
         "maxZ": -25610.682
       },
       "roadCount": 150,
-      "buildingCount": 242
+      "buildingCount": 0
     },
     {
       "id": "6_21",
@@ -15975,7 +15975,7 @@
         "maxZ": -23110.682
       },
       "roadCount": 156,
-      "buildingCount": 230
+      "buildingCount": 0
     },
     {
       "id": "6_3",
@@ -15990,7 +15990,7 @@
         "maxZ": -68110.682
       },
       "roadCount": 14,
-      "buildingCount": 15
+      "buildingCount": 0
     },
     {
       "id": "6_30",
@@ -16095,7 +16095,7 @@
         "maxZ": -63110.682
       },
       "roadCount": 4,
-      "buildingCount": 2
+      "buildingCount": 0
     },
     {
       "id": "6_7",
@@ -16110,7 +16110,7 @@
         "maxZ": -58110.682
       },
       "roadCount": 34,
-      "buildingCount": 18
+      "buildingCount": 0
     },
     {
       "id": "6_8",
@@ -16125,7 +16125,7 @@
         "maxZ": -55610.682
       },
       "roadCount": 76,
-      "buildingCount": 73
+      "buildingCount": 0
     },
     {
       "id": "6_9",
@@ -16140,7 +16140,7 @@
         "maxZ": -53110.682
       },
       "roadCount": 14,
-      "buildingCount": 48
+      "buildingCount": 0
     },
     {
       "id": "7_0",
@@ -16155,7 +16155,7 @@
         "maxZ": -75610.682
       },
       "roadCount": 2,
-      "buildingCount": 1
+      "buildingCount": 0
     },
     {
       "id": "7_1",
@@ -16170,7 +16170,7 @@
         "maxZ": -73110.682
       },
       "roadCount": 2,
-      "buildingCount": 4
+      "buildingCount": 0
     },
     {
       "id": "7_10",
@@ -16185,7 +16185,7 @@
         "maxZ": -50610.682
       },
       "roadCount": 94,
-      "buildingCount": 181
+      "buildingCount": 0
     },
     {
       "id": "7_11",
@@ -16200,7 +16200,7 @@
         "maxZ": -48110.682
       },
       "roadCount": 34,
-      "buildingCount": 58
+      "buildingCount": 0
     },
     {
       "id": "7_12",
@@ -16215,7 +16215,7 @@
         "maxZ": -45610.682
       },
       "roadCount": 14,
-      "buildingCount": 4
+      "buildingCount": 0
     },
     {
       "id": "7_13",
@@ -16230,7 +16230,7 @@
         "maxZ": -43110.682
       },
       "roadCount": 34,
-      "buildingCount": 26
+      "buildingCount": 0
     },
     {
       "id": "7_14",
@@ -16245,7 +16245,7 @@
         "maxZ": -40610.682
       },
       "roadCount": 10,
-      "buildingCount": 4
+      "buildingCount": 0
     },
     {
       "id": "7_15",
@@ -16260,7 +16260,7 @@
         "maxZ": -38110.682
       },
       "roadCount": 6,
-      "buildingCount": 2
+      "buildingCount": 0
     },
     {
       "id": "7_16",
@@ -16275,7 +16275,7 @@
         "maxZ": -35610.682
       },
       "roadCount": 38,
-      "buildingCount": 29
+      "buildingCount": 0
     },
     {
       "id": "7_17",
@@ -16290,7 +16290,7 @@
         "maxZ": -33110.682
       },
       "roadCount": 70,
-      "buildingCount": 347
+      "buildingCount": 0
     },
     {
       "id": "7_18",
@@ -16305,7 +16305,7 @@
         "maxZ": -30610.682
       },
       "roadCount": 28,
-      "buildingCount": 84
+      "buildingCount": 0
     },
     {
       "id": "7_19",
@@ -16320,7 +16320,7 @@
         "maxZ": -28110.682
       },
       "roadCount": 10,
-      "buildingCount": 31
+      "buildingCount": 0
     },
     {
       "id": "7_20",
@@ -16335,7 +16335,7 @@
         "maxZ": -25610.682
       },
       "roadCount": 113,
-      "buildingCount": 71
+      "buildingCount": 0
     },
     {
       "id": "7_21",
@@ -16350,7 +16350,7 @@
         "maxZ": -23110.682
       },
       "roadCount": 142,
-      "buildingCount": 116
+      "buildingCount": 0
     },
     {
       "id": "7_25",
@@ -16380,7 +16380,7 @@
         "maxZ": -10610.682
       },
       "roadCount": 2,
-      "buildingCount": 3
+      "buildingCount": 0
     },
     {
       "id": "7_27",
@@ -16395,7 +16395,7 @@
         "maxZ": -8110.682
       },
       "roadCount": 46,
-      "buildingCount": 73
+      "buildingCount": 0
     },
     {
       "id": "7_28",
@@ -16410,7 +16410,7 @@
         "maxZ": -5610.682
       },
       "roadCount": 108,
-      "buildingCount": 261
+      "buildingCount": 0
     },
     {
       "id": "7_29",
@@ -16425,7 +16425,7 @@
         "maxZ": -3110.682
       },
       "roadCount": 46,
-      "buildingCount": 331
+      "buildingCount": 0
     },
     {
       "id": "7_30",
@@ -16440,7 +16440,7 @@
         "maxZ": -610.682
       },
       "roadCount": 39,
-      "buildingCount": 379
+      "buildingCount": 0
     },
     {
       "id": "7_31",
@@ -16545,7 +16545,7 @@
         "maxZ": -53110.682
       },
       "roadCount": 8,
-      "buildingCount": 9
+      "buildingCount": 0
     },
     {
       "id": "8_10",
@@ -16560,7 +16560,7 @@
         "maxZ": -50610.682
       },
       "roadCount": 4,
-      "buildingCount": 2
+      "buildingCount": 0
     },
     {
       "id": "8_11",
@@ -16575,7 +16575,7 @@
         "maxZ": -48110.682
       },
       "roadCount": 48,
-      "buildingCount": 118
+      "buildingCount": 0
     },
     {
       "id": "8_12",
@@ -16590,7 +16590,7 @@
         "maxZ": -45610.682
       },
       "roadCount": 78,
-      "buildingCount": 222
+      "buildingCount": 0
     },
     {
       "id": "8_13",
@@ -16605,7 +16605,7 @@
         "maxZ": -43110.682
       },
       "roadCount": 66,
-      "buildingCount": 121
+      "buildingCount": 0
     },
     {
       "id": "8_14",
@@ -16620,7 +16620,7 @@
         "maxZ": -40610.682
       },
       "roadCount": 34,
-      "buildingCount": 122
+      "buildingCount": 0
     },
     {
       "id": "8_15",
@@ -16635,7 +16635,7 @@
         "maxZ": -38110.682
       },
       "roadCount": 14,
-      "buildingCount": 66
+      "buildingCount": 0
     },
     {
       "id": "8_16",
@@ -16650,22 +16650,7 @@
         "maxZ": -35610.682
       },
       "roadCount": 6,
-      "buildingCount": 15
-    },
-    {
-      "id": "8_17",
-      "col": 8,
-      "row": 17,
-      "url": "tile-8_17.json",
-      "gzipUrl": "tile-8_17.json.gz",
-      "bounds": {
-        "minX": -35648.04,
-        "minZ": -35610.682,
-        "maxX": -33148.04,
-        "maxZ": -33110.682
-      },
-      "roadCount": 0,
-      "buildingCount": 1
+      "buildingCount": 0
     },
     {
       "id": "8_18",
@@ -16680,7 +16665,7 @@
         "maxZ": -30610.682
       },
       "roadCount": 30,
-      "buildingCount": 75
+      "buildingCount": 0
     },
     {
       "id": "8_19",
@@ -16695,7 +16680,7 @@
         "maxZ": -28110.682
       },
       "roadCount": 38,
-      "buildingCount": 25
+      "buildingCount": 0
     },
     {
       "id": "8_20",
@@ -16710,7 +16695,7 @@
         "maxZ": -25610.682
       },
       "roadCount": 122,
-      "buildingCount": 120
+      "buildingCount": 0
     },
     {
       "id": "8_21",
@@ -16725,7 +16710,7 @@
         "maxZ": -23110.682
       },
       "roadCount": 66,
-      "buildingCount": 43
+      "buildingCount": 0
     },
     {
       "id": "8_22",
@@ -16740,7 +16725,7 @@
         "maxZ": -20610.682
       },
       "roadCount": 8,
-      "buildingCount": 45
+      "buildingCount": 0
     },
     {
       "id": "8_24",
@@ -16755,7 +16740,7 @@
         "maxZ": -15610.682
       },
       "roadCount": 34,
-      "buildingCount": 43
+      "buildingCount": 0
     },
     {
       "id": "8_25",
@@ -16770,7 +16755,7 @@
         "maxZ": -13110.682
       },
       "roadCount": 28,
-      "buildingCount": 17
+      "buildingCount": 0
     },
     {
       "id": "8_26",
@@ -16785,7 +16770,7 @@
         "maxZ": -10610.682
       },
       "roadCount": 2,
-      "buildingCount": 5
+      "buildingCount": 0
     },
     {
       "id": "8_27",
@@ -16800,7 +16785,7 @@
         "maxZ": -8110.682
       },
       "roadCount": 16,
-      "buildingCount": 57
+      "buildingCount": 0
     },
     {
       "id": "8_28",
@@ -16815,7 +16800,7 @@
         "maxZ": -5610.682
       },
       "roadCount": 30,
-      "buildingCount": 107
+      "buildingCount": 0
     },
     {
       "id": "8_29",
@@ -16830,7 +16815,7 @@
         "maxZ": -3110.682
       },
       "roadCount": 68,
-      "buildingCount": 353
+      "buildingCount": 0
     },
     {
       "id": "8_30",
@@ -16845,7 +16830,7 @@
         "maxZ": -610.682
       },
       "roadCount": 60,
-      "buildingCount": 321
+      "buildingCount": 0
     },
     {
       "id": "8_31",
@@ -16860,7 +16845,7 @@
         "maxZ": 1889.318
       },
       "roadCount": 51,
-      "buildingCount": 90
+      "buildingCount": 0
     },
     {
       "id": "8_32",
@@ -16965,7 +16950,7 @@
         "maxZ": -53110.682
       },
       "roadCount": 24,
-      "buildingCount": 9
+      "buildingCount": 0
     },
     {
       "id": "9_10",
@@ -16995,7 +16980,7 @@
         "maxZ": -48110.682
       },
       "roadCount": 94,
-      "buildingCount": 105
+      "buildingCount": 0
     },
     {
       "id": "9_12",
@@ -17010,7 +16995,7 @@
         "maxZ": -45610.682
       },
       "roadCount": 56,
-      "buildingCount": 86
+      "buildingCount": 0
     },
     {
       "id": "9_13",
@@ -17025,7 +17010,7 @@
         "maxZ": -43110.682
       },
       "roadCount": 22,
-      "buildingCount": 23
+      "buildingCount": 0
     },
     {
       "id": "9_14",
@@ -17040,7 +17025,7 @@
         "maxZ": -40610.682
       },
       "roadCount": 36,
-      "buildingCount": 67
+      "buildingCount": 0
     },
     {
       "id": "9_15",
@@ -17055,7 +17040,7 @@
         "maxZ": -38110.682
       },
       "roadCount": 38,
-      "buildingCount": 57
+      "buildingCount": 0
     },
     {
       "id": "9_16",
@@ -17085,7 +17070,7 @@
         "maxZ": -33110.682
       },
       "roadCount": 86,
-      "buildingCount": 172
+      "buildingCount": 0
     },
     {
       "id": "9_18",
@@ -17100,7 +17085,7 @@
         "maxZ": -30610.682
       },
       "roadCount": 24,
-      "buildingCount": 27
+      "buildingCount": 0
     },
     {
       "id": "9_19",
@@ -17115,7 +17100,7 @@
         "maxZ": -28110.682
       },
       "roadCount": 102,
-      "buildingCount": 133
+      "buildingCount": 0
     },
     {
       "id": "9_20",
@@ -17130,7 +17115,7 @@
         "maxZ": -25610.682
       },
       "roadCount": 58,
-      "buildingCount": 50
+      "buildingCount": 0
     },
     {
       "id": "9_21",
@@ -17145,7 +17130,7 @@
         "maxZ": -23110.682
       },
       "roadCount": 92,
-      "buildingCount": 277
+      "buildingCount": 0
     },
     {
       "id": "9_22",
@@ -17160,7 +17145,7 @@
         "maxZ": -20610.682
       },
       "roadCount": 86,
-      "buildingCount": 226
+      "buildingCount": 0
     },
     {
       "id": "9_24",
@@ -17175,7 +17160,7 @@
         "maxZ": -15610.682
       },
       "roadCount": 28,
-      "buildingCount": 24
+      "buildingCount": 0
     },
     {
       "id": "9_25",
@@ -17205,7 +17190,7 @@
         "maxZ": -10610.682
       },
       "roadCount": 16,
-      "buildingCount": 24
+      "buildingCount": 0
     },
     {
       "id": "9_27",
@@ -17220,7 +17205,7 @@
         "maxZ": -8110.682
       },
       "roadCount": 30,
-      "buildingCount": 83
+      "buildingCount": 0
     },
     {
       "id": "9_28",
@@ -17235,7 +17220,7 @@
         "maxZ": -5610.682
       },
       "roadCount": 14,
-      "buildingCount": 35
+      "buildingCount": 0
     },
     {
       "id": "9_29",
@@ -17250,7 +17235,7 @@
         "maxZ": -3110.682
       },
       "roadCount": 54,
-      "buildingCount": 200
+      "buildingCount": 0
     },
     {
       "id": "9_30",
@@ -17265,7 +17250,7 @@
         "maxZ": -610.682
       },
       "roadCount": 21,
-      "buildingCount": 37
+      "buildingCount": 0
     },
     {
       "id": "9_31",
@@ -17280,7 +17265,7 @@
         "maxZ": 1889.318
       },
       "roadCount": 28,
-      "buildingCount": 195
+      "buildingCount": 0
     },
     {
       "id": "9_32",
@@ -17355,7 +17340,7 @@
         "maxZ": -60610.682
       },
       "roadCount": 26,
-      "buildingCount": 24
+      "buildingCount": 0
     },
     {
       "id": "9_7",
@@ -17370,7 +17355,7 @@
         "maxZ": -58110.682
       },
       "roadCount": 80,
-      "buildingCount": 198
+      "buildingCount": 0
     },
     {
       "id": "9_8",
@@ -17385,7 +17370,7 @@
         "maxZ": -55610.682
       },
       "roadCount": 8,
-      "buildingCount": 36
+      "buildingCount": 0
     },
     {
       "id": "9_9",

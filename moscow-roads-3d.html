@@ -76,7 +76,7 @@
       <button id="gpsButton" class="primary">GPS</button>
     </div>
     <div class="row"><label for="roadLodRadius">Мелкие улицы <span id="roadLodValue">1000 м</span></label><input id="roadLodRadius" type="range" min="250" max="3000" step="50" value="1000"></div>
-    <div class="row"><label for="buildingLodRadius">Здания <span id="buildingLodValue">500 м</span></label><input id="buildingLodRadius" type="range" min="100" max="2000" step="50" value="500"></div>
+    <div class="row"><label for="buildingLodRadius">Здания <span id="buildingLodValue">2000 м</span></label><input id="buildingLodRadius" type="range" min="100" max="8000" step="100" value="2000"></div>
     <div class="legend" id="roadLegend"></div>
     <div class="readout" id="readout">Загрузка индекса тайлов...</div>
   </aside>
@@ -316,6 +316,45 @@ function tileCoordForPoint(x, z) {
     col: Math.floor((dataX(x) - data.bounds.minX) / size),
     row: Math.floor((z - data.bounds.minZ) / size)
   };
+}
+
+function tileCenter(info) {
+  const [col, row] = info.id.split("_").map(Number);
+  const size = data.meta.tileSizeM;
+  const dataXCenter = data.bounds.minX + (col + 0.5) * size;
+  return {
+    dataX: dataXCenter,
+    renderX: renderX(dataXCenter),
+    z: data.bounds.minZ + (row + 0.5) * size,
+  };
+}
+
+function hasBuildingTileNear(focus) {
+  const current = tileCoordForPoint(renderX(focus.dataX), focus.z);
+  for (let col = current.col - loadRadiusTiles; col <= current.col + loadRadiusTiles; col++) {
+    for (let row = current.row - loadRadiusTiles; row <= current.row + loadRadiusTiles; row++) {
+      const info = data.tileMap.get(`${col}_${row}`);
+      if ((info?.buildingCount ?? 0) > 0) return true;
+    }
+  }
+  return false;
+}
+
+function initialFocus() {
+  const originFocus = { dataX: 0, renderX: renderX(0), z: 0 };
+  if (hasBuildingTileNear(originFocus)) return originFocus;
+  let best = null;
+  let bestDistance = Infinity;
+  for (const info of data.tiles) {
+    if ((info.buildingCount ?? 0) <= 0) continue;
+    const center = tileCenter(info);
+    const distance = distanceSqToPoint(center.dataX, center.z, originFocus);
+    if (distance < bestDistance) {
+      best = center;
+      bestDistance = distance;
+    }
+  }
+  return best || originFocus;
 }
 
 function wantedTileIds(center) {
@@ -587,9 +626,10 @@ async function init() {
   minElevation = data.meta.minElevation;
   minBuildingHeight = data.meta.minBuildingHeight ?? 0;
   maxBuildingHeight = Math.max(minBuildingHeight + 1, data.meta.maxBuildingHeight ?? 1);
-  camera.position.set(maxSpan * 0.24, Math.max(1800, maxSpan * 0.42), maxSpan * 0.58);
+  const start = initialFocus();
+  camera.position.set(start.renderX + maxSpan * 0.24, Math.max(1800, maxSpan * 0.42), start.z + maxSpan * 0.58);
   controls.maxDistance = maxSpan * 2.2;
-  controls.target.set(0, 0, 0);
+  controls.target.set(start.renderX, 0, start.z);
   document.querySelector("#roadCount").textContent = data.meta.roadCount.toLocaleString("ru-RU");
   document.querySelector("#buildingCount").textContent = data.meta.buildingCount.toLocaleString("ru-RU");
   document.querySelector("#tileCount").textContent = data.meta.tileCount.toLocaleString("ru-RU");

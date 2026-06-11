@@ -315,11 +315,12 @@ def build_tile_package(payload, tile_dir=TILE_DIR, tile_size_m=2500):
     return index
 
 
-def fetch_buildings_in_chunks(ox, gpd, road_buffer_3857, max_buildings=25000, cell_size_m=16000):
+def fetch_buildings_in_chunks(ox, gpd, road_buffer_3857, max_buildings=25000, cell_size_m=16000, sample_cell_m=2500):
     import pandas as pd
     from shapely.geometry import box
 
     min_x, min_y, max_x, max_y = road_buffer_3857.bounds
+    center = road_buffer_3857.centroid
     chunks = []
     y = min_y
     while y < max_y:
@@ -331,10 +332,12 @@ def fetch_buildings_in_chunks(ox, gpd, road_buffer_3857, max_buildings=25000, ce
                 chunks.append((cell, chunk))
             x += cell_size_m
         y += cell_size_m
+    chunks.sort(key=lambda item: item[0].centroid.distance(center))
 
     tags = {"building": True}
     frames = []
     seen = set()
+    candidate_limit = max_buildings * 2 if max_buildings else None
     for index, (query_cell, filter_chunk) in enumerate(chunks, start=1):
         chunk_4326 = gpd.GeoSeries([query_cell], crs=3857).to_crs(4326).iloc[0]
         try:
@@ -361,7 +364,7 @@ def fetch_buildings_in_chunks(ox, gpd, road_buffer_3857, max_buildings=25000, ce
         if not buildings_3857.empty:
             frames.append(buildings_3857)
             print(f"building chunk {index}/{len(chunks)}: +{len(buildings_3857)} unique")
-            if max_buildings and len(seen) >= max_buildings:
+            if candidate_limit and len(seen) >= candidate_limit:
                 print(f"building limit reached: {len(seen)} unique, stopping chunk download")
                 break
 
@@ -373,7 +376,14 @@ def fetch_buildings_in_chunks(ox, gpd, road_buffer_3857, max_buildings=25000, ce
     buildings_3857["area_m2"] = buildings_3857.geometry.area
     buildings_3857 = buildings_3857.sort_values("area_m2", ascending=False)
     if max_buildings and len(buildings_3857) > max_buildings:
+        points = buildings_3857.geometry.representative_point()
+        buildings_3857["_sample_col"] = ((points.x - min_x) // sample_cell_m).astype(int)
+        buildings_3857["_sample_row"] = ((points.y - min_y) // sample_cell_m).astype(int)
+        buildings_3857["_sample_rank"] = buildings_3857.groupby(["_sample_col", "_sample_row"]).cumcount()
+        buildings_3857 = buildings_3857.sort_values(["_sample_rank", "area_m2"], ascending=[True, False])
         buildings_3857 = buildings_3857.head(max_buildings).copy()
+        buildings_3857 = buildings_3857.drop(columns=["_sample_col", "_sample_row", "_sample_rank"], errors="ignore")
+        buildings_3857 = buildings_3857.sort_values("area_m2", ascending=False)
     return buildings_3857
 
 
@@ -638,7 +648,7 @@ def build_html(payload=None):
     <div class="row"><label for="roadWidth">Ширина дорог</label><input id="roadWidth" type="range" min="2" max="18" step="1" value="7"></div>
     <div class="row"><label for="tileRadius">Радиус тайлов</label><input id="tileRadius" type="range" min="1" max="5" step="1" value="3"></div>
     <div class="row"><label for="roadLodRadius">Мелкие улицы <span id="roadLodValue">1000 м</span></label><input id="roadLodRadius" type="range" min="250" max="3000" step="50" value="1000"></div>
-    <div class="row"><label for="buildingLodRadius">Здания <span id="buildingLodValue">500 м</span></label><input id="buildingLodRadius" type="range" min="100" max="2000" step="50" value="500"></div>
+    <div class="row"><label for="buildingLodRadius">Здания <span id="buildingLodValue">2000 м</span></label><input id="buildingLodRadius" type="range" min="100" max="8000" step="100" value="2000"></div>
     <div class="actions">
       <button id="toggleRoads" aria-pressed="true">Дороги</button>
       <button id="toggleBuildings" aria-pressed="true">Здания</button>
@@ -1035,7 +1045,7 @@ def build_html(payload=None):
       <button id="gpsButton" class="primary">GPS</button>
     </div>
     <div class="row"><label for="roadLodRadius">Мелкие улицы <span id="roadLodValue">1000 м</span></label><input id="roadLodRadius" type="range" min="250" max="3000" step="50" value="1000"></div>
-    <div class="row"><label for="buildingLodRadius">Здания <span id="buildingLodValue">500 м</span></label><input id="buildingLodRadius" type="range" min="100" max="2000" step="50" value="500"></div>
+    <div class="row"><label for="buildingLodRadius">Здания <span id="buildingLodValue">2000 м</span></label><input id="buildingLodRadius" type="range" min="100" max="8000" step="100" value="2000"></div>
     <div class="legend" id="roadLegend"></div>
     <div class="readout" id="readout">Загрузка индекса тайлов...</div>
   </aside>
@@ -1275,6 +1285,45 @@ function tileCoordForPoint(x, z) {{
     col: Math.floor((dataX(x) - data.bounds.minX) / size),
     row: Math.floor((z - data.bounds.minZ) / size)
   }};
+}}
+
+function tileCenter(info) {{
+  const [col, row] = info.id.split("_").map(Number);
+  const size = data.meta.tileSizeM;
+  const dataXCenter = data.bounds.minX + (col + 0.5) * size;
+  return {{
+    dataX: dataXCenter,
+    renderX: renderX(dataXCenter),
+    z: data.bounds.minZ + (row + 0.5) * size,
+  }};
+}}
+
+function hasBuildingTileNear(focus) {{
+  const current = tileCoordForPoint(renderX(focus.dataX), focus.z);
+  for (let col = current.col - loadRadiusTiles; col <= current.col + loadRadiusTiles; col++) {{
+    for (let row = current.row - loadRadiusTiles; row <= current.row + loadRadiusTiles; row++) {{
+      const info = data.tileMap.get(`${{col}}_${{row}}`);
+      if ((info?.buildingCount ?? 0) > 0) return true;
+    }}
+  }}
+  return false;
+}}
+
+function initialFocus() {{
+  const originFocus = {{ dataX: 0, renderX: renderX(0), z: 0 }};
+  if (hasBuildingTileNear(originFocus)) return originFocus;
+  let best = null;
+  let bestDistance = Infinity;
+  for (const info of data.tiles) {{
+    if ((info.buildingCount ?? 0) <= 0) continue;
+    const center = tileCenter(info);
+    const distance = distanceSqToPoint(center.dataX, center.z, originFocus);
+    if (distance < bestDistance) {{
+      best = center;
+      bestDistance = distance;
+    }}
+  }}
+  return best || originFocus;
 }}
 
 function wantedTileIds(center) {{
@@ -1546,9 +1595,10 @@ async function init() {{
   minElevation = data.meta.minElevation;
   minBuildingHeight = data.meta.minBuildingHeight ?? 0;
   maxBuildingHeight = Math.max(minBuildingHeight + 1, data.meta.maxBuildingHeight ?? 1);
-  camera.position.set(maxSpan * 0.24, Math.max(1800, maxSpan * 0.42), maxSpan * 0.58);
+  const start = initialFocus();
+  camera.position.set(start.renderX + maxSpan * 0.24, Math.max(1800, maxSpan * 0.42), start.z + maxSpan * 0.58);
   controls.maxDistance = maxSpan * 2.2;
-  controls.target.set(0, 0, 0);
+  controls.target.set(start.renderX, 0, start.z);
   document.querySelector("#roadCount").textContent = data.meta.roadCount.toLocaleString("ru-RU");
   document.querySelector("#buildingCount").textContent = data.meta.buildingCount.toLocaleString("ru-RU");
   document.querySelector("#tileCount").textContent = data.meta.tileCount.toLocaleString("ru-RU");
