@@ -544,6 +544,12 @@ def build_html(payload=None):
     .readout {{ margin-top: 10px; color: var(--muted); font-size: 12px; line-height: 1.35; }}
     .menu-toggle {{ display: none; position: fixed; top: 12px; left: 12px; z-index: 13; width: 44px; height: 44px; padding: 0; font-size: 24px; }}
     .scrim {{ display: none; position: fixed; inset: 0; z-index: 9; background: rgba(0,0,0,.42); }}
+    .north-indicator {{ position: fixed; top: 14px; right: 14px; z-index: 12; display: grid; justify-items: center; gap: 4px; width: 56px; color: var(--text); }}
+    .north-ring {{ position: relative; width: 44px; height: 44px; border: 1px solid var(--line); border-radius: 999px; background: rgba(9, 13, 18, .72); box-shadow: 0 10px 28px rgba(0,0,0,.24); }}
+    .north-ring::after {{ content: ""; position: absolute; inset: 8px; border: 1px solid rgba(255,255,255,.08); border-radius: 999px; }}
+    .north-needle {{ position: absolute; left: 50%; top: 6px; width: 2px; height: 16px; margin-left: -1px; border-radius: 999px; background: linear-gradient(180deg, #7ee787 0%, #edf4f8 100%); transform-origin: 50% 16px; box-shadow: 0 0 12px rgba(126,231,135,.35); }}
+    .north-needle::before {{ content: ""; position: absolute; left: 50%; top: -4px; width: 0; height: 0; margin-left: -5px; border-left: 5px solid transparent; border-right: 5px solid transparent; border-bottom: 8px solid #7ee787; }}
+    .north-label {{ font-size: 11px; line-height: 1; letter-spacing: 0.12em; color: var(--muted); }}
     .gps-dot {{ position: fixed; right: 14px; bottom: 14px; z-index: 8; padding: 8px 10px; border: 1px solid var(--line); border-radius: 6px; color: var(--muted); background: rgba(0,0,0,.38); font-size: 12px; }}
     .tooltip {{ position: fixed; z-index: 20; pointer-events: none; display: none; max-width: 280px; transform: translate(12px, 12px); padding: 8px 10px; border: 1px solid var(--line); border-radius: 6px; background: rgba(9, 13, 18, .94); color: var(--text); font-size: 12px; line-height: 1.3; }}
     @media (max-width: 680px) {{
@@ -578,6 +584,10 @@ def build_html(payload=None):
     </div>
     <div class="readout" id="readout">Загрузка сцены...</div>
   </aside>
+  <div class="north-indicator" aria-label="Север">
+    <div class="north-ring"><div class="north-needle" id="northNeedle"></div></div>
+    <div class="north-label">N</div>
+  </div>
   <div class="gps-dot" id="gpsStatus">GPS выключен</div>
   <div class="tooltip" id="tooltip"></div>
   <script>window.MOSCOW_ROAD_DATA = {payload_json};</script>
@@ -600,6 +610,7 @@ const data = window.MOSCOW_ROAD_DATA;
 const readout = document.querySelector("#readout");
 const gpsStatus = document.querySelector("#gpsStatus");
 const tooltip = document.querySelector("#tooltip");
+const northNeedle = document.querySelector("#northNeedle");
 const roadColors = {{ motorway: 0xffcc33, trunk: 0xff5a3c, primary: 0x38bdf8, secondary: 0xb5f36d, tertiary: 0xd8b4fe, residential: 0x94a3b8, unclassified: 0xcbd5e1, living_street: 0xa7f3d0, service: 0x64748b, road: 0xd1d5db }};
 const roadLabels = {{ motorway: "Motorway", trunk: "Trunk", primary: "Primary", secondary: "Secondary", tertiary: "Tertiary", residential: "Residential", unclassified: "Unclassified", living_street: "Living", service: "Service", road: "Other" }};
 const majorRoadClasses = new Set(["motorway", "trunk", "primary", "secondary"]);
@@ -922,6 +933,12 @@ def build_html(payload=None):
     .readout {{ margin-top: 10px; color: var(--muted); font-size: 12px; line-height: 1.35; }}
     .menu-toggle {{ display: none; position: fixed; top: 12px; left: 12px; z-index: 13; width: 44px; height: 44px; padding: 0; font-size: 24px; }}
     .scrim {{ display: none; position: fixed; inset: 0; z-index: 9; background: rgba(0,0,0,.42); }}
+    .north-indicator {{ position: fixed; top: 14px; right: 14px; z-index: 12; display: grid; justify-items: center; gap: 4px; width: 56px; color: var(--text); }}
+    .north-ring {{ position: relative; width: 44px; height: 44px; border: 1px solid var(--line); border-radius: 999px; background: rgba(9, 13, 18, .72); box-shadow: 0 10px 28px rgba(0,0,0,.24); }}
+    .north-ring::after {{ content: ""; position: absolute; inset: 8px; border: 1px solid rgba(255,255,255,.08); border-radius: 999px; }}
+    .north-needle {{ position: absolute; left: 50%; top: 6px; width: 2px; height: 16px; margin-left: -1px; border-radius: 999px; background: linear-gradient(180deg, #7ee787 0%, #edf4f8 100%); transform-origin: 50% 16px; box-shadow: 0 0 12px rgba(126,231,135,.35); }}
+    .north-needle::before {{ content: ""; position: absolute; left: 50%; top: -4px; width: 0; height: 0; margin-left: -5px; border-left: 5px solid transparent; border-right: 5px solid transparent; border-bottom: 8px solid #7ee787; }}
+    .north-label {{ font-size: 11px; line-height: 1; letter-spacing: 0.12em; color: var(--muted); }}
     .gps-dot {{ position: fixed; right: 14px; bottom: 14px; z-index: 8; padding: 8px 10px; border: 1px solid var(--line); border-radius: 6px; color: var(--muted); background: rgba(0,0,0,.38); font-size: 12px; }}
     .tooltip {{ position: fixed; z-index: 20; pointer-events: none; display: none; max-width: 280px; transform: translate(12px, 12px); padding: 8px 10px; border: 1px solid var(--line); border-radius: 6px; background: rgba(9, 13, 18, .94); color: var(--text); font-size: 12px; line-height: 1.3; }}
     @media (max-width: 680px) {{
@@ -957,6 +974,10 @@ def build_html(payload=None):
     <div class="legend" id="roadLegend"></div>
     <div class="readout" id="readout">Загрузка индекса тайлов...</div>
   </aside>
+  <div class="north-indicator" aria-label="Север">
+    <div class="north-ring"><div class="north-needle" id="northNeedle"></div></div>
+    <div class="north-label">N</div>
+  </div>
   <div class="gps-dot" id="gpsStatus">GPS выключен</div>
   <div class="tooltip" id="tooltip"></div>
   <script type="importmap">
@@ -978,6 +999,7 @@ let data = null;
 const readout = document.querySelector("#readout");
 const gpsStatus = document.querySelector("#gpsStatus");
 const tooltip = document.querySelector("#tooltip");
+const northNeedle = document.querySelector("#northNeedle");
 const roadColors = {{ motorway: 0xffcc33, trunk: 0xff5a3c, primary: 0x38bdf8, secondary: 0xb5f36d, tertiary: 0xd8b4fe, residential: 0x94a3b8, unclassified: 0xcbd5e1, living_street: 0xa7f3d0, service: 0x64748b, road: 0xd1d5db }};
 const roadLabels = {{ motorway: "Motorway", trunk: "Trunk", primary: "Primary", secondary: "Secondary", tertiary: "Tertiary", residential: "Residential", unclassified: "Unclassified", living_street: "Living", service: "Service", road: "Other" }};
 const majorRoadClasses = new Set(["motorway", "trunk", "primary", "secondary"]);
@@ -1317,7 +1339,6 @@ async function handleGpsPosition(position) {{
   buildGpsMarker();
   await refreshTiles(true);
   gpsStatus.textContent = `GPS: ${{lastGps.lat.toFixed(5)}}, ${{lastGps.lon.toFixed(5)}}`;
-  setMenuOpen(false);
 }}
 
 document.querySelector("#gpsButton").addEventListener("click", () => {{
@@ -1397,6 +1418,12 @@ function buildRoadLegend() {{
   }}
 }}
 
+function updateNorthIndicator() {{
+  const northInCamera = new THREE.Vector3(0, 0, 1).applyQuaternion(camera.quaternion.clone().invert());
+  const angle = Math.atan2(northInCamera.x, northInCamera.y);
+  northNeedle.style.transform = `rotate(${{angle}}rad)`;
+}}
+
 window.addEventListener("resize", () => {{
   camera.aspect = window.innerWidth / window.innerHeight;
   camera.updateProjectionMatrix();
@@ -1428,6 +1455,7 @@ async function init() {{
 function animate() {{
   requestAnimationFrame(animate);
   controls.update();
+  updateNorthIndicator();
   refreshTiles(false);
   renderer.render(scene, camera);
 }}
