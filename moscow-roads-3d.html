@@ -1,0 +1,428 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>3D магистрали Москвы: 57636 дорог</title>
+  <style>
+    :root {
+      --bg: #081016;
+      --panel: rgba(12, 18, 24, 0.88);
+      --line: rgba(217, 226, 236, 0.18);
+      --text: #edf4f8;
+      --muted: #a7b4bd;
+      --accent: #7ee787;
+    }
+    * { box-sizing: border-box; }
+    html, body { width: 100%; height: 100%; margin: 0; overflow: hidden; background: var(--bg); color: var(--text); font-family: Inter, system-ui, -apple-system, Segoe UI, sans-serif; }
+    canvas { display: block; width: 100%; height: 100%; touch-action: none; }
+    .hud { position: fixed; top: 16px; left: 16px; width: min(380px, calc(100vw - 32px)); max-height: calc(100vh - 32px); overflow: auto; padding: 14px; border: 1px solid var(--line); background: var(--panel); backdrop-filter: blur(18px); border-radius: 8px; z-index: 10; box-shadow: 0 18px 60px rgba(0,0,0,.35); }
+    h1 { margin: 0 0 8px; font-size: 18px; line-height: 1.15; font-weight: 760; }
+    .meta { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; margin: 12px 0; }
+    .stat { border: 1px solid var(--line); border-radius: 6px; padding: 8px; min-width: 0; }
+    .stat b { display: block; font-size: 17px; line-height: 1.05; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+    .stat span { display: block; margin-top: 4px; color: var(--muted); font-size: 11px; }
+    .row { display: grid; grid-template-columns: 1fr auto; align-items: center; gap: 10px; min-height: 38px; border-top: 1px solid var(--line); padding: 9px 0; }
+    .row label { color: var(--muted); font-size: 13px; }
+    input[type=range] { width: 142px; accent-color: var(--accent); }
+    button { min-height: 36px; border: 1px solid var(--line); color: var(--text); background: rgba(255,255,255,.06); border-radius: 6px; padding: 0 10px; font: inherit; cursor: pointer; }
+    button[aria-pressed=true], button.primary { border-color: rgba(126,231,135,.55); background: rgba(126,231,135,.16); }
+    .actions { display: grid; grid-template-columns: repeat(2, 1fr); gap: 8px; margin-top: 10px; }
+    .readout { margin-top: 10px; color: var(--muted); font-size: 12px; line-height: 1.35; }
+    .menu-toggle { display: none; position: fixed; top: 12px; left: 12px; z-index: 13; width: 44px; height: 44px; padding: 0; font-size: 24px; }
+    .scrim { display: none; position: fixed; inset: 0; z-index: 9; background: rgba(0,0,0,.42); }
+    .gps-dot { position: fixed; right: 14px; bottom: 14px; z-index: 8; padding: 8px 10px; border: 1px solid var(--line); border-radius: 6px; color: var(--muted); background: rgba(0,0,0,.38); font-size: 12px; }
+    .tooltip { position: fixed; z-index: 20; pointer-events: none; display: none; max-width: 280px; transform: translate(12px, 12px); padding: 8px 10px; border: 1px solid var(--line); border-radius: 6px; background: rgba(9, 13, 18, .94); color: var(--text); font-size: 12px; line-height: 1.3; }
+    @media (max-width: 680px) {
+      .menu-toggle { display: block; }
+      .hud { transform: translateX(calc(-100% - 24px)); transition: transform .2s ease; top: 68px; max-height: calc(100vh - 84px); }
+      body.menu-open .hud { transform: translateX(0); }
+      body.menu-open .scrim { display: block; }
+      .meta { grid-template-columns: repeat(2, 1fr); }
+      input[type=range] { width: 118px; }
+    }
+  </style>
+</head>
+<body>
+  <button class="menu-toggle" id="menuToggle" aria-label="Меню" aria-expanded="false">☰</button>
+  <div class="scrim" id="menuScrim"></div>
+  <aside class="hud" id="hud">
+    <h1>Магистрали Москвы 3D</h1>
+    <div class="meta">
+      <div class="stat"><b id="roadCount">0</b><span>дорог</span></div>
+      <div class="stat"><b id="buildingCount">0</b><span>зданий</span></div>
+      <div class="stat"><b id="tileCount">0</b><span>тайлов</span></div>
+    </div>
+    <div class="row"><label for="heightScale">Высоты</label><input id="heightScale" type="range" min="0.5" max="4" step="0.1" value="1.4"></div>
+    <div class="row"><label for="buildingScale">Здания</label><input id="buildingScale" type="range" min="0.5" max="3" step="0.1" value="1"></div>
+    <div class="row"><label for="roadWidth">Ширина дорог</label><input id="roadWidth" type="range" min="2" max="18" step="1" value="7"></div>
+    <div class="row"><label for="tileRadius">Радиус тайлов</label><input id="tileRadius" type="range" min="1" max="5" step="1" value="3"></div>
+    <div class="actions">
+      <button id="toggleRoads" aria-pressed="true">Дороги</button>
+      <button id="toggleBuildings" aria-pressed="true">Здания</button>
+      <button id="toggleBase" aria-pressed="true">Основание</button>
+      <button id="gpsButton" class="primary">GPS</button>
+    </div>
+    <div class="readout" id="readout">Загрузка индекса тайлов...</div>
+  </aside>
+  <div class="gps-dot" id="gpsStatus">GPS выключен</div>
+  <div class="tooltip" id="tooltip"></div>
+  <script type="importmap">
+  {
+    "imports": {
+      "three": "https://cdn.jsdelivr.net/npm/three@0.164.1/build/three.module.js",
+      "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.164.1/examples/jsm/"
+    }
+  }
+  </script>
+  <script type="module">
+import * as THREE from "three";
+import { OrbitControls } from "three/addons/controls/OrbitControls.js";
+import { Line2 } from "three/addons/lines/Line2.js";
+import { LineGeometry } from "three/addons/lines/LineGeometry.js";
+import { LineMaterial } from "three/addons/lines/LineMaterial.js";
+
+let data = null;
+const readout = document.querySelector("#readout");
+const gpsStatus = document.querySelector("#gpsStatus");
+const tooltip = document.querySelector("#tooltip");
+const roadColors = { motorway: 0xffcc33, trunk: 0xff5a3c, primary: 0x38bdf8, secondary: 0xb5f36d };
+let heightScale = Number(document.querySelector("#heightScale").value);
+let buildingScale = Number(document.querySelector("#buildingScale").value);
+let roadWidth = Number(document.querySelector("#roadWidth").value);
+let maxSpan = 100000;
+let minElevation = 0;
+let lastGps = null;
+let loadRadiusTiles = Number(document.querySelector("#tileRadius").value);
+
+const scene = new THREE.Scene();
+scene.background = new THREE.Color(0x081016);
+
+const renderer = new THREE.WebGLRenderer({ antialias: true, powerPreference: "high-performance" });
+renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 2));
+renderer.setSize(window.innerWidth, window.innerHeight);
+document.body.appendChild(renderer.domElement);
+
+const camera = new THREE.PerspectiveCamera(48, window.innerWidth / window.innerHeight, 5, 180000);
+const controls = new OrbitControls(camera, renderer.domElement);
+controls.enableDamping = true;
+controls.dampingFactor = 0.06;
+
+scene.add(new THREE.HemisphereLight(0xd8f3ff, 0x0f1b22, 1.6));
+const sun = new THREE.DirectionalLight(0xffffff, 1.2);
+sun.position.set(-12000, 26000, 16000);
+scene.add(sun);
+
+const tileRoot = new THREE.Group();
+const baseGroup = new THREE.Group();
+const gpsGroup = new THREE.Group();
+scene.add(baseGroup, tileRoot, gpsGroup);
+
+const loadedTiles = new Map();
+const loadingTiles = new Set();
+
+function yFor(elevation) {
+  return (elevation - minElevation) * heightScale;
+}
+
+function renderX(x) {
+  return -x;
+}
+
+function dataX(renderedX) {
+  return -renderedX;
+}
+
+function mercatorMeters(lat, lon) {
+  const radius = 6378137.0;
+  const clamped = Math.max(-85.05112878, Math.min(85.05112878, lat));
+  const x = radius * lon * Math.PI / 180;
+  const y = radius * Math.log(Math.tan(Math.PI / 4 + clamped * Math.PI / 360));
+  return { x, y };
+}
+
+function localFromLatLon(lat, lon) {
+  const point = mercatorMeters(lat, lon);
+  return { x: point.x - data.origin.x, z: point.y - data.origin.y };
+}
+
+function disposeObject(object) {
+  object.traverse(child => {
+    child.geometry?.dispose?.();
+    if (Array.isArray(child.material)) child.material.forEach(material => material.dispose?.());
+    else child.material?.dispose?.();
+  });
+}
+
+function clearGroup(group) {
+  while (group.children.length) {
+    const child = group.children.pop();
+    disposeObject(child);
+  }
+}
+
+function makeLine(points, color, width) {
+  const positions = [];
+  points.forEach(point => positions.push(renderX(point.x), yFor(point.elevation) + 10, point.z));
+  const geometry = new LineGeometry();
+  geometry.setPositions(positions);
+  const material = new LineMaterial({ color, linewidth: width, worldUnits: true, transparent: true, opacity: 0.92 });
+  material.resolution.set(window.innerWidth, window.innerHeight);
+  const line = new Line2(geometry, material);
+  line.computeLineDistances();
+  return line;
+}
+
+function addRoads(group, roads) {
+  for (const road of roads) {
+    const color = roadColors[road.highway] || 0xd1d5db;
+    const line = makeLine(road.points, color, roadWidth);
+    line.userData = { type: "road", name: road.name, highway: road.highway };
+    group.add(line);
+  }
+}
+
+function addBuildings(group, buildings) {
+  const wall = new THREE.MeshStandardMaterial({ color: 0xb8c7c9, roughness: 0.76, metalness: 0.02, transparent: true, opacity: 0.88 });
+  const roof = new THREE.MeshStandardMaterial({ color: 0xe8f0ef, roughness: 0.7 });
+  for (const building of buildings) {
+    const shape = new THREE.Shape();
+    building.footprint.forEach((point, index) => {
+      if (index === 0) shape.moveTo(renderX(point.x), -point.z);
+      else shape.lineTo(renderX(point.x), -point.z);
+    });
+    shape.closePath();
+    const height = Math.max(2, building.height * buildingScale);
+    const geometry = new THREE.ExtrudeGeometry(shape, { depth: height, bevelEnabled: false });
+    geometry.rotateX(-Math.PI / 2);
+    geometry.translate(0, yFor(building.baseElevation), 0);
+    const mesh = new THREE.Mesh(geometry, [wall, roof]);
+    mesh.userData = { type: "building", name: building.name, height: building.height, source: building.heightSource };
+    group.add(mesh);
+  }
+}
+
+function buildTile(tile) {
+  const group = new THREE.Group();
+  const roads = new THREE.Group();
+  const buildings = new THREE.Group();
+  roads.name = "roads";
+  buildings.name = "buildings";
+  roads.visible = document.querySelector("#toggleRoads").getAttribute("aria-pressed") === "true";
+  buildings.visible = document.querySelector("#toggleBuildings").getAttribute("aria-pressed") === "true";
+  addRoads(roads, tile.roads || []);
+  addBuildings(buildings, tile.buildings || []);
+  group.add(roads, buildings);
+  group.userData = { tileId: tile.id };
+  return group;
+}
+
+function tileCoordForPoint(x, z) {
+  const size = data.meta.tileSizeM;
+  return {
+    col: Math.floor((dataX(x) - data.bounds.minX) / size),
+    row: Math.floor((z - data.bounds.minZ) / size)
+  };
+}
+
+function wantedTileIds(center) {
+  const current = tileCoordForPoint(center.x, center.z);
+  const wanted = new Set();
+  for (let col = current.col - loadRadiusTiles; col <= current.col + loadRadiusTiles; col++) {
+    for (let row = current.row - loadRadiusTiles; row <= current.row + loadRadiusTiles; row++) {
+      const id = `${col}_${row}`;
+      if (data.tileMap.has(id)) wanted.add(id);
+    }
+  }
+  return wanted;
+}
+
+async function loadTile(id) {
+  if (loadedTiles.has(id) || loadingTiles.has(id)) return;
+  const info = data.tileMap.get(id);
+  if (!info) return;
+  loadingTiles.add(id);
+  try {
+    const response = await fetch(`./tiles/${info.url}`);
+    if (!response.ok) throw new Error(`tile ${id}: ${response.status}`);
+    const tile = await response.json();
+    const group = buildTile(tile);
+    tileRoot.add(group);
+    loadedTiles.set(id, { group, tile });
+  } finally {
+    loadingTiles.delete(id);
+  }
+}
+
+function unloadTile(id) {
+  const loaded = loadedTiles.get(id);
+  if (!loaded) return;
+  tileRoot.remove(loaded.group);
+  disposeObject(loaded.group);
+  loadedTiles.delete(id);
+}
+
+let lastTileRefresh = 0;
+async function refreshTiles(force = false) {
+  if (!data) return;
+  const now = performance.now();
+  if (!force && now - lastTileRefresh < 350) return;
+  lastTileRefresh = now;
+  const wanted = wantedTileIds(controls.target);
+  for (const id of [...loadedTiles.keys()]) {
+    if (!wanted.has(id)) unloadTile(id);
+  }
+  await Promise.all([...wanted].map(loadTile));
+  readout.textContent = `Загружено тайлов: ${loadedTiles.size} / ${data.meta.tileCount}`;
+}
+
+function rebuildLoadedTiles() {
+  for (const [id, loaded] of [...loadedTiles]) {
+    tileRoot.remove(loaded.group);
+    disposeObject(loaded.group);
+    loaded.group = buildTile(loaded.tile);
+    tileRoot.add(loaded.group);
+    loadedTiles.set(id, loaded);
+  }
+  buildGpsMarker();
+}
+
+function buildBase() {
+  clearGroup(baseGroup);
+  const geometry = new THREE.PlaneGeometry(data.bounds.widthM * 1.04, data.bounds.depthM * 1.04, 1, 1);
+  const material = new THREE.MeshBasicMaterial({ color: 0x111c20, transparent: true, opacity: 0.72, side: THREE.DoubleSide });
+  const plane = new THREE.Mesh(geometry, material);
+  plane.rotation.x = -Math.PI / 2;
+  plane.position.y = -4;
+  baseGroup.add(plane);
+}
+
+function buildGpsMarker() {
+  clearGroup(gpsGroup);
+  if (!lastGps) return;
+  const local = localFromLatLon(lastGps.lat, lastGps.lon);
+  const marker = new THREE.Mesh(
+    new THREE.SphereGeometry(Math.max(45, maxSpan * 0.0012), 24, 16),
+    new THREE.MeshStandardMaterial({ color: 0x7ee787, emissive: 0x1f7a3a, emissiveIntensity: 0.55 })
+  );
+  marker.position.set(renderX(local.x), yFor(lastGps.elevation ?? minElevation) + 80, local.z);
+  gpsGroup.add(marker);
+}
+
+function setLayerVisible(groupName, visible) {
+  for (const loaded of loadedTiles.values()) {
+    const layer = loaded.group.getObjectByName(groupName);
+    if (layer) layer.visible = visible;
+  }
+}
+
+function setMenuOpen(isOpen) {
+  document.body.classList.toggle("menu-open", isOpen);
+  document.querySelector("#menuToggle").setAttribute("aria-expanded", String(isOpen));
+}
+
+document.querySelector("#menuToggle").addEventListener("click", () => setMenuOpen(!document.body.classList.contains("menu-open")));
+document.querySelector("#menuScrim").addEventListener("click", () => setMenuOpen(false));
+document.querySelector("#heightScale").addEventListener("input", event => { heightScale = Number(event.target.value); rebuildLoadedTiles(); });
+document.querySelector("#buildingScale").addEventListener("input", event => { buildingScale = Number(event.target.value); rebuildLoadedTiles(); });
+document.querySelector("#roadWidth").addEventListener("input", event => { roadWidth = Number(event.target.value); rebuildLoadedTiles(); });
+document.querySelector("#tileRadius").addEventListener("input", event => { loadRadiusTiles = Number(event.target.value); refreshTiles(true); });
+document.querySelector("#toggleRoads").addEventListener("click", event => { const visible = event.currentTarget.getAttribute("aria-pressed") !== "true"; event.currentTarget.setAttribute("aria-pressed", visible); setLayerVisible("roads", visible); });
+document.querySelector("#toggleBuildings").addEventListener("click", event => { const visible = event.currentTarget.getAttribute("aria-pressed") !== "true"; event.currentTarget.setAttribute("aria-pressed", visible); setLayerVisible("buildings", visible); });
+document.querySelector("#toggleBase").addEventListener("click", event => { baseGroup.visible = !baseGroup.visible; event.currentTarget.setAttribute("aria-pressed", baseGroup.visible); });
+
+function gpsErrorMessage(error) {
+  if (!window.isSecureContext) return "GPS требует HTTPS или localhost";
+  if (error.code === error.PERMISSION_DENIED) return "Доступ к геопозиции запрещён в браузере";
+  if (error.code === error.POSITION_UNAVAILABLE) return "Позиция сейчас недоступна";
+  if (error.code === error.TIMEOUT) return "GPS не ответил вовремя";
+  return error.message || "GPS не сработал";
+}
+
+document.querySelector("#gpsButton").addEventListener("click", () => {
+  if (!navigator.geolocation) {
+    gpsStatus.textContent = "GPS недоступен";
+    return;
+  }
+  if (!window.isSecureContext) {
+    gpsStatus.textContent = "GPS требует HTTPS или localhost";
+    return;
+  }
+  gpsStatus.textContent = "Ищу позицию...";
+  navigator.geolocation.getCurrentPosition(async position => {
+    lastGps = { lat: position.coords.latitude, lon: position.coords.longitude, elevation: minElevation };
+    const local = localFromLatLon(lastGps.lat, lastGps.lon);
+    const x = renderX(local.x);
+    controls.target.set(x, 0, local.z);
+    camera.position.set(x - maxSpan * 0.08, Math.max(1200, maxSpan * 0.14), local.z + maxSpan * 0.12);
+    buildGpsMarker();
+    await refreshTiles(true);
+    gpsStatus.textContent = `GPS: ${lastGps.lat.toFixed(5)}, ${lastGps.lon.toFixed(5)}`;
+    setMenuOpen(false);
+  }, error => {
+    gpsStatus.textContent = `GPS: ${gpsErrorMessage(error)}`;
+  }, { enableHighAccuracy: true, timeout: 10000, maximumAge: 20000 });
+});
+
+const raycaster = new THREE.Raycaster();
+const pointer = new THREE.Vector2();
+renderer.domElement.addEventListener("pointermove", event => {
+  const rect = renderer.domElement.getBoundingClientRect();
+  pointer.x = ((event.clientX - rect.left) / rect.width) * 2 - 1;
+  pointer.y = -((event.clientY - rect.top) / rect.height) * 2 + 1;
+  raycaster.setFromCamera(pointer, camera);
+  const buildingLayers = [];
+  for (const loaded of loadedTiles.values()) {
+    const layer = loaded.group.getObjectByName("buildings");
+    if (layer?.visible) buildingLayers.push(...layer.children);
+  }
+  const hits = raycaster.intersectObjects(buildingLayers, false);
+  if (!hits.length) {
+    tooltip.style.display = "none";
+    return;
+  }
+  const hitData = hits[0].object.userData;
+  tooltip.innerHTML = `<b>${hitData.name || "Здание"}</b><br>${Math.round(hitData.height)} м · ${hitData.source}`;
+  tooltip.style.left = `${event.clientX}px`;
+  tooltip.style.top = `${event.clientY}px`;
+  tooltip.style.display = "block";
+});
+
+window.addEventListener("resize", () => {
+  camera.aspect = window.innerWidth / window.innerHeight;
+  camera.updateProjectionMatrix();
+  renderer.setSize(window.innerWidth, window.innerHeight);
+  tileRoot.traverse(child => child.material?.resolution?.set(window.innerWidth, window.innerHeight));
+});
+
+async function init() {
+  const response = await fetch("./tiles/index.json");
+  if (!response.ok) throw new Error(`index: ${response.status}`);
+  data = await response.json();
+  data.tileMap = new Map(data.tiles.map(tile => [tile.id, tile]));
+  maxSpan = Math.max(data.bounds.widthM, data.bounds.depthM);
+  minElevation = data.meta.minElevation;
+  camera.position.set(maxSpan * 0.24, Math.max(1800, maxSpan * 0.42), maxSpan * 0.58);
+  controls.maxDistance = maxSpan * 2.2;
+  controls.target.set(0, 0, 0);
+  document.querySelector("#roadCount").textContent = data.meta.roadCount.toLocaleString("ru-RU");
+  document.querySelector("#buildingCount").textContent = data.meta.buildingCount.toLocaleString("ru-RU");
+  document.querySelector("#tileCount").textContent = data.meta.tileCount.toLocaleString("ru-RU");
+  buildBase();
+  await refreshTiles(true);
+}
+
+function animate() {
+  requestAnimationFrame(animate);
+  controls.update();
+  refreshTiles(false);
+  renderer.render(scene, camera);
+}
+
+init().then(animate).catch(error => {
+  console.error(error);
+  readout.textContent = `Ошибка загрузки: ${error.message}`;
+});
+  </script>
+</body>
+</html>
