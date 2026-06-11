@@ -110,11 +110,18 @@ class MoscowRoads3DTests(unittest.TestCase):
         self.assertIn("watchPosition", rendered)
         self.assertIn("clearWatch", rendered)
         self.assertIn("gpsWatchId", rendered)
+        self.assertIn('rel="manifest"', rendered)
+        self.assertIn("navigator.serviceWorker.register", rendered)
         self.assertIn('id="menuToggle"', rendered)
         self.assertIn('id="tileRadius"', rendered)
+        self.assertIn('id="roadLegend"', rendered)
         self.assertIn("@media (max-width: 680px)", rendered)
         self.assertIn('fetch("./tiles/index.json")', rendered)
+        self.assertIn("DecompressionStream", rendered)
         self.assertIn("fetch(`./tiles/${info.url}`)", rendered)
+        self.assertIn("minorRoadRadiusM = 1000", rendered)
+        self.assertIn("buildingRadiusM = 300", rendered)
+        self.assertIn("majorRoadClasses", rendered)
         self.assertIn("function renderX(x)", rendered)
         self.assertIn("return -x", rendered)
         self.assertIn("function gpsErrorMessage(error)", rendered)
@@ -166,6 +173,8 @@ class MoscowRoads3DTests(unittest.TestCase):
             self.assertEqual(index["meta"]["minElevation"], 140)
             self.assertTrue((Path(directory) / "index.json").exists())
             self.assertTrue(any(Path(directory).glob("tile-*.json")))
+            self.assertTrue(any(Path(directory).glob("tile-*.json.gz")))
+            self.assertIn("gzipUrl", index["tiles"][0])
 
 
 if __name__ == "__main__":

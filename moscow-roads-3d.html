@@ -3,6 +3,8 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="manifest" href="manifest.webmanifest">
+  <meta name="theme-color" content="#081016">
   <title>3D магистрали Москвы: 57636 дорог</title>
   <style>
     :root {
@@ -28,6 +30,10 @@
     button { min-height: 36px; border: 1px solid var(--line); color: var(--text); background: rgba(255,255,255,.06); border-radius: 6px; padding: 0 10px; font: inherit; cursor: pointer; }
     button[aria-pressed=true], button.primary { border-color: rgba(126,231,135,.55); background: rgba(126,231,135,.16); }
     .actions { display: grid; grid-template-columns: repeat(2, 1fr); gap: 8px; margin-top: 10px; }
+    .legend { display: grid; grid-template-columns: repeat(2, 1fr); gap: 8px; margin-top: 10px; border-top: 1px solid var(--line); padding-top: 10px; }
+    .legend label { display: flex; align-items: center; gap: 7px; min-width: 0; color: var(--muted); font-size: 12px; }
+    .swatch { width: 12px; height: 12px; border-radius: 3px; flex: 0 0 auto; box-shadow: inset 0 0 0 1px rgba(255,255,255,.3); }
+    .legend input { accent-color: var(--accent); }
     .readout { margin-top: 10px; color: var(--muted); font-size: 12px; line-height: 1.35; }
     .menu-toggle { display: none; position: fixed; top: 12px; left: 12px; z-index: 13; width: 44px; height: 44px; padding: 0; font-size: 24px; }
     .scrim { display: none; position: fixed; inset: 0; z-index: 9; background: rgba(0,0,0,.42); }
@@ -63,6 +69,7 @@
       <button id="toggleBase" aria-pressed="true">Основание</button>
       <button id="gpsButton" class="primary">GPS</button>
     </div>
+    <div class="legend" id="roadLegend"></div>
     <div class="readout" id="readout">Загрузка индекса тайлов...</div>
   </aside>
   <div class="gps-dot" id="gpsStatus">GPS выключен</div>
@@ -86,7 +93,12 @@ let data = null;
 const readout = document.querySelector("#readout");
 const gpsStatus = document.querySelector("#gpsStatus");
 const tooltip = document.querySelector("#tooltip");
-const roadColors = { motorway: 0xffcc33, trunk: 0xff5a3c, primary: 0x38bdf8, secondary: 0xb5f36d };
+const roadColors = { motorway: 0xffcc33, trunk: 0xff5a3c, primary: 0x38bdf8, secondary: 0xb5f36d, tertiary: 0xd8b4fe, residential: 0x94a3b8, unclassified: 0xcbd5e1, living_street: 0xa7f3d0, service: 0x64748b, road: 0xd1d5db };
+const roadLabels = { motorway: "Motorway", trunk: "Trunk", primary: "Primary", secondary: "Secondary", tertiary: "Tertiary", residential: "Residential", unclassified: "Unclassified", living_street: "Living", service: "Service", road: "Other" };
+const majorRoadClasses = new Set(["motorway", "trunk", "primary", "secondary"]);
+const minorRoadRadiusM = 1000;
+const buildingRadiusM = 300;
+const visibleRoadClasses = new Set(JSON.parse(localStorage.getItem("visibleRoadClasses") || "null") || Object.keys(roadColors));
 let heightScale = Number(document.querySelector("#heightScale").value);
 let buildingScale = Number(document.querySelector("#buildingScale").value);
 let roadWidth = Number(document.querySelector("#roadWidth").value);
@@ -174,8 +186,42 @@ function makeLine(points, color, width) {
   return line;
 }
 
-function addRoads(group, roads) {
+function distanceSqToPoint(x, z, focus) {
+  const dx = x - focus.dataX;
+  const dz = z - focus.z;
+  return dx * dx + dz * dz;
+}
+
+function roadDistanceSq(road, focus) {
+  let best = Infinity;
+  for (const point of road.points || []) {
+    best = Math.min(best, distanceSqToPoint(point.x, point.z, focus));
+  }
+  return best;
+}
+
+function buildingDistanceSq(building, focus) {
+  return distanceSqToPoint(building.x, building.z, focus);
+}
+
+function currentFocus() {
+  return { dataX: dataX(controls.target.x), z: controls.target.z };
+}
+
+function roadIsVisibleByLod(road, focus) {
+  const kind = road.highway || "road";
+  if (!visibleRoadClasses.has(kind)) return false;
+  if (majorRoadClasses.has(kind)) return true;
+  return roadDistanceSq(road, focus) <= minorRoadRadiusM * minorRoadRadiusM;
+}
+
+function buildingIsVisibleByLod(building, focus) {
+  return buildingDistanceSq(building, focus) <= buildingRadiusM * buildingRadiusM;
+}
+
+function addRoads(group, roads, focus) {
   for (const road of roads) {
+    if (!roadIsVisibleByLod(road, focus)) continue;
     const color = roadColors[road.highway] || 0xd1d5db;
     const line = makeLine(road.points, color, roadWidth);
     line.userData = { type: "road", name: road.name, highway: road.highway };
@@ -183,10 +229,11 @@ function addRoads(group, roads) {
   }
 }
 
-function addBuildings(group, buildings) {
+function addBuildings(group, buildings, focus) {
   const wall = new THREE.MeshStandardMaterial({ color: 0xb8c7c9, roughness: 0.76, metalness: 0.02, transparent: true, opacity: 0.88 });
   const roof = new THREE.MeshStandardMaterial({ color: 0xe8f0ef, roughness: 0.7 });
   for (const building of buildings) {
+    if (!buildingIsVisibleByLod(building, focus)) continue;
     const shape = new THREE.Shape();
     building.footprint.forEach((point, index) => {
       if (index === 0) shape.moveTo(renderX(point.x), -point.z);
@@ -204,6 +251,7 @@ function addBuildings(group, buildings) {
 }
 
 function buildTile(tile) {
+  const focus = currentFocus();
   const group = new THREE.Group();
   const roads = new THREE.Group();
   const buildings = new THREE.Group();
@@ -211,8 +259,8 @@ function buildTile(tile) {
   buildings.name = "buildings";
   roads.visible = document.querySelector("#toggleRoads").getAttribute("aria-pressed") === "true";
   buildings.visible = document.querySelector("#toggleBuildings").getAttribute("aria-pressed") === "true";
-  addRoads(roads, tile.roads || []);
-  addBuildings(buildings, tile.buildings || []);
+  addRoads(roads, tile.roads || [], focus);
+  addBuildings(buildings, tile.buildings || [], focus);
   group.add(roads, buildings);
   group.userData = { tileId: tile.id };
   return group;
@@ -244,15 +292,30 @@ async function loadTile(id) {
   if (!info) return;
   loadingTiles.add(id);
   try {
-    const response = await fetch(`./tiles/${info.url}`);
-    if (!response.ok) throw new Error(`tile ${id}: ${response.status}`);
-    const tile = await response.json();
+    const tile = await fetchTileJson(info);
     const group = buildTile(tile);
     tileRoot.add(group);
     loadedTiles.set(id, { group, tile });
   } finally {
     loadingTiles.delete(id);
   }
+}
+
+async function fetchTileJson(info) {
+  if (info.gzipUrl && "DecompressionStream" in window) {
+    try {
+      const response = await fetch(`./tiles/${info.gzipUrl}`);
+      if (response.ok && response.body) {
+        const stream = response.body.pipeThrough(new DecompressionStream("gzip"));
+        return await new Response(stream).json();
+      }
+    } catch (error) {
+      console.warn("gzip tile fallback", info.id, error);
+    }
+  }
+  const response = await fetch(`./tiles/${info.url}`);
+  if (!response.ok) throw new Error(`tile ${info.id}: ${response.status}`);
+  return await response.json();
 }
 
 function unloadTile(id) {
@@ -264,6 +327,7 @@ function unloadTile(id) {
 }
 
 let lastTileRefresh = 0;
+let lastLodFocus = null;
 async function refreshTiles(force = false) {
   if (!data) return;
   const now = performance.now();
@@ -274,7 +338,8 @@ async function refreshTiles(force = false) {
     if (!wanted.has(id)) unloadTile(id);
   }
   await Promise.all([...wanted].map(loadTile));
-  readout.textContent = `Загружено тайлов: ${loadedTiles.size} / ${data.meta.tileCount}`;
+  refreshLod(false);
+  readout.textContent = `Тайлы: ${loadedTiles.size} / ${data.meta.tileCount} · мелкие дороги ${minorRoadRadiusM} м · здания ${buildingRadiusM} м`;
 }
 
 function rebuildLoadedTiles() {
@@ -286,6 +351,15 @@ function rebuildLoadedTiles() {
     loadedTiles.set(id, loaded);
   }
   buildGpsMarker();
+}
+
+function refreshLod(force = false) {
+  if (!data || !loadedTiles.size) return;
+  const focus = currentFocus();
+  const movedSq = lastLodFocus ? distanceSqToPoint(lastLodFocus.dataX, lastLodFocus.z, focus) : Infinity;
+  if (!force && movedSq < 90000) return;
+  lastLodFocus = focus;
+  rebuildLoadedTiles();
 }
 
 function buildBase() {
@@ -302,11 +376,12 @@ function buildGpsMarker() {
   clearGroup(gpsGroup);
   if (!lastGps) return;
   const local = localFromLatLon(lastGps.lat, lastGps.lon);
+  const radius = Math.max(18, Math.min(42, maxSpan * 0.00045));
   const marker = new THREE.Mesh(
-    new THREE.SphereGeometry(Math.max(45, maxSpan * 0.0012), 24, 16),
+    new THREE.SphereGeometry(radius, 20, 14),
     new THREE.MeshStandardMaterial({ color: 0x7ee787, emissive: 0x1f7a3a, emissiveIntensity: 0.55 })
   );
-  marker.position.set(renderX(local.x), yFor(lastGps.elevation ?? minElevation) + 80, local.z);
+  marker.position.set(renderX(local.x), yFor(lastGps.elevation ?? minElevation) + 45, local.z);
   gpsGroup.add(marker);
 }
 
@@ -421,6 +496,9 @@ window.addEventListener("resize", () => {
 });
 
 async function init() {
+  if ("serviceWorker" in navigator) {
+    navigator.serviceWorker.register("./sw.js").catch(error => console.warn("service worker", error));
+  }
   const response = await fetch("./tiles/index.json");
   if (!response.ok) throw new Error(`index: ${response.status}`);
   data = await response.json();
@@ -433,6 +511,7 @@ async function init() {
   document.querySelector("#roadCount").textContent = data.meta.roadCount.toLocaleString("ru-RU");
   document.querySelector("#buildingCount").textContent = data.meta.buildingCount.toLocaleString("ru-RU");
   document.querySelector("#tileCount").textContent = data.meta.tileCount.toLocaleString("ru-RU");
+  buildRoadLegend();
   buildBase();
   await refreshTiles(true);
 }

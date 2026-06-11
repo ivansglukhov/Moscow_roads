@@ -1,0 +1,18 @@
+{
+  "name": "Moscow Roads 3D",
+  "short_name": "Moscow Roads",
+  "description": "3D map of Moscow drive roads, buildings, lazy tiles, and live GPS.",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#081016",
+  "theme_color": "#081016",
+  "icons": [
+    {
+      "src": "icons/icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}
