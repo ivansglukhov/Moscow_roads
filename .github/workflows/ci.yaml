@@ -12,6 +12,6 @@ jobs:
 
       - name: Check runner
         run: |
-          echo "Hello from Killercoda"
+          echo "qq from Killercoda"
           uname -a
           docker --version
