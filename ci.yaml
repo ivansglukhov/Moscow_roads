@@ -1,0 +1,17 @@
+name: CI demo
+
+on:
+  push:
+
+jobs:
+  test:
+    runs-on: self-hosted
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Check runner
+        run: |
+          echo "Hello from Killercoda"
+          uname -a
+          docker --version
